@@ -10,7 +10,7 @@ We plan to create a web app that shows nearby public restrooms and allows for cr
 
 ### Background
 
-Public bathrooms can often be difficult to find; there's little way of knowing in advance of entering a bathroom whether it is clean or if there's a better one nearby. Additionally, public restrooms are slowly becoming even more scarce as the pandemic continues to dominate our lives. Both of these points pose a significant problem for those who have to be on the move frequently (gig workers, contract workers, the unhoused) and overall public health.
+Public bathrooms can often be difficult to find; there's little way of knowing in advance of entering a bathroom whether it is clean or if there's a better one nearby. Additionally, public restrooms are slowly becoming even more scarce as the pandemic continues to dominate our lives. Both of these points pose a significant problem, particularly for those who have to be on the move frequently (gig workers, contract workers, the unhoused) and overall public health.
 
 We aim to help address this problem by making it easy for users to quickly find restrooms in convenient locations and to learn about a specific location to decide what works best for them.
 
