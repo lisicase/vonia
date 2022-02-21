@@ -11,6 +11,7 @@ import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
+//firebase
 
 
 function App() {
