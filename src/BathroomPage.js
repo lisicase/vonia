@@ -1,15 +1,14 @@
 // React
 import React from 'react';
 // Icons
-import { VscHeart } from "react-icons/vsc";
-import { BsMap } from "react-icons/bs";
-import { HiOutlinePencilAlt } from "react-icons/hi";
-import { FiShare2 } from "react-icons/fi"
-import { MdOutlineReport } from "react-icons/md";
-import { FiThumbsUp } from "react-icons/fi";
 import { AiOutlineCheckCircle, AiOutlineStar, AiFillStar } from "react-icons/ai";
-import { FaToilet } from "react-icons/fa";
+import { BsMap } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
+import { FaToilet, FaChevronLeft } from "react-icons/fa";
+import { FiThumbsUp, FiShare2 } from "react-icons/fi";
+import { HiOutlinePencilAlt } from "react-icons/hi";
+import { MdOutlineReport } from "react-icons/md";
+import { VscHeart } from "react-icons/vsc";
 
 class BathroomPage extends React.Component {
     render() {
@@ -32,8 +31,8 @@ class BathroomPageTitle extends React.Component {
         <div style={{textAlign:"left"}}>
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <div style={{display: 'flex', flexDirection:'row'}}>
-                    <i className="open-details fa fa-chevron-left" aria-hidden="true"></i>
-                    <FaToilet />
+                    <FaChevronLeft />
+                    <FaToilet style={{marginRight:'5'}} />
                     <p>Room 104 / Floor 1</p>
                 </div>
                 <StarRating />
@@ -108,10 +107,12 @@ class BathroomFeatures extends React.Component {
       return (
         <div>
             <h2>Features</h2>
-            <SingleBathroomFeature feature="Tall Stalls" />
-            <SingleBathroomFeature feature="Paper Towels" />
-            <SingleBathroomFeature feature="Auto Flush" />
-            <SingleBathroomFeature feature="Hand Dryer" />
+            <div style={{display:'flex', flexWrap:'wrap'}}>
+                <SingleBathroomFeature feature="Tall Stalls" />
+                <SingleBathroomFeature feature="Paper Towels" />
+                <SingleBathroomFeature feature="Auto Flush" />
+                <SingleBathroomFeature feature="Hand Dryer" />
+            </div>
         </div>
       );
     }
@@ -120,8 +121,8 @@ class BathroomFeatures extends React.Component {
 class SingleBathroomFeature extends React.Component {
     render() {
         return (
-            <div style={{display: 'flex', flexDirection:'row'}} >
-                <AiOutlineCheckCircle />
+            <div style={{display: 'flex', flexDirection:'row', marginRight:'5rem'}} >
+                <AiOutlineCheckCircle style={{marginRight:'5'}} />
                 <p>{this.props.feature}</p>
             </div>
         )
