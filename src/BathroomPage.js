@@ -60,7 +60,9 @@ class ActionWithTitle extends React.Component {
     render() {
         return (
             <div style={{textAlign:'center'}}>
-                {this.props.icon}
+                <div style={{color:"#68DCEC"}}>
+                    {this.props.icon}
+                </div>
                 <p>{this.props.title}</p>
             </div>
         )
@@ -97,6 +99,13 @@ class BathroomGallery extends React.Component {
       return (
         <div>
             <h2>Gallery</h2>
+            <div style={{display:'flex', height:"5rem"}}>
+                <img src="logo192.png" style={{height:'5rem'}} />
+                <img src="logo192.png" style={{height:'5rem'}} />
+                <img src="logo192.png" style={{height:'5rem'}} />
+                <img src="logo192.png" style={{height:'5rem'}} />
+                <img src="logo192.png" style={{height:'5rem'}} />
+            </div>
         </div>
       );
     }
@@ -206,7 +215,7 @@ class ReviewActions extends React.Component {
 class StarRating extends React.Component {
     render() {
         return (
-            <div>
+            <div style={{color:'#E0AFFB'}}>
                 <AiFillStar />
                 <AiFillStar />
                 <AiFillStar />
