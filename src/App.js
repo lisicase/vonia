@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
+import BathroomPage from './BathroomPage.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -42,20 +43,6 @@ class HomePage extends React.Component {
               <i className="fa fa-search" aria-hidden="true"></i>
           </Button>{' '}
         </form>
-      </div>
-    );
-  }
-}
-
-class BathroomPage extends React.Component {
-  render() {
-    return (
-      <div style={{textAlign:"left"}}>
-        <PageTitle title="Building Title"/>
-        <p>Address</p>
-        <h2>Gallery</h2>
-        <h2>Features</h2>
-        <h2>Rating</h2>
       </div>
     );
   }
