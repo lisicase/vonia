@@ -1,5 +1,6 @@
 // React
 import React from 'react';
+import { Component } from 'react';
 // Icons
 import { AiOutlineCheckCircle, AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { BsMap } from "react-icons/bs";
@@ -10,22 +11,34 @@ import { HiOutlinePencilAlt } from "react-icons/hi";
 import { MdOutlineReport } from "react-icons/md";
 import { VscHeart } from "react-icons/vsc";
 
-class BathroomPage extends React.Component {
+class BathroomPage extends Component {
     render() {
       return (
         <div style={{textAlign:"left"}}>
             <BathroomPageTitle/>
             <BathroomActions/>
+            <Divider />
             <BathroomRatings/>
+            <Divider />
             <BathroomGallery/>
+            <Divider />
             <BathroomFeatures/>
+            <Divider />
             <BathroomReviews/>
         </div>
       );
     }
 }
 
-class BathroomPageTitle extends React.Component {
+class Divider extends Component {
+    render() {
+        return (
+            <div style={{ borderBottom: '1px solid #E5E5E5', paddingTop:'1rem', marginBottom:'1rem'}} />
+        )
+    }
+}
+
+class BathroomPageTitle extends Component {
     render() {
       return (
         <div style={{textAlign:"left"}}>
@@ -33,7 +46,7 @@ class BathroomPageTitle extends React.Component {
                 <div style={{display: 'flex', flexDirection:'row'}}>
                     <FaChevronLeft />
                     <FaToilet style={{marginRight:'5'}} />
-                    <p>Room 104 / Floor 1</p>
+                    <p style={{fontSize:'18px'}}><strong>Room 104 / Floor 1</strong></p>
                 </div>
                 <StarRating />
             </div>
@@ -43,7 +56,7 @@ class BathroomPageTitle extends React.Component {
     }
 }
 
-class BathroomActions extends React.Component {
+class BathroomActions extends Component {
     render() {
       return (
         <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-evenly'}}>
@@ -56,7 +69,7 @@ class BathroomActions extends React.Component {
     }
 }
 
-class ActionWithTitle extends React.Component {
+class ActionWithTitle extends Component {
     render() {
         return (
             <div style={{textAlign:'center'}}>
@@ -69,7 +82,7 @@ class ActionWithTitle extends React.Component {
     }
 }
 
-class BathroomRatings extends React.Component {
+class BathroomRatings extends Component {
     render() {
       return (
         <div>
@@ -83,18 +96,18 @@ class BathroomRatings extends React.Component {
     }
 }
 
-class CategoricalRating extends React.Component {
+class CategoricalRating extends Component {
     render() {
         return (
             <div style={{display:'flex', justifyContent:'space-between'}} >
-                <p>{this.props.title}</p>
+                <p><strong>{this.props.title}</strong></p>
                 <StarRating />
             </div>
         )
     }
 }
 
-class BathroomGallery extends React.Component {
+class BathroomGallery extends Component {
     render() {
       return (
         <div>
@@ -111,7 +124,7 @@ class BathroomGallery extends React.Component {
     }
 }
 
-class BathroomFeatures extends React.Component {
+class BathroomFeatures extends Component {
     render() {
       return (
         <div>
@@ -127,7 +140,7 @@ class BathroomFeatures extends React.Component {
     }
 }
 
-class SingleBathroomFeature extends React.Component {
+class SingleBathroomFeature extends Component {
     render() {
         return (
             <div style={{display: 'flex', flexDirection:'row', marginRight:'5rem'}} >
@@ -138,28 +151,32 @@ class SingleBathroomFeature extends React.Component {
     }
 }
 
-class BathroomReviews extends React.Component {
+class BathroomReviews extends Component {
     render() {
       return (
         <div>
             <div style={{display:'flex'}}>
                 <h2>Reviews</h2>
-                <p>38 reviews</p>
+                <p style={{marginLeft:'1rem'}}>38 reviews</p>
             </div>
-            <div style={{textAlign:'center', borderBottom: '1px solid gray'}}>
+            <div style={{textAlign:'center'}}>
                 <button>Write a Review</button>
             </div>
+            <Divider />
             <AllBathroomReviews/>
         </div>
       );
     }
 }
 
-class AllBathroomReviews extends React.Component {
+class AllBathroomReviews extends Component {
     render() {
         let testData = [{count:1}, {count:2}];
         let allReviews = testData.map((count) => {
-            return <SingleBathroomReview num={count} />
+            return <div>
+                    <SingleBathroomReview num={count} />
+                    <Divider />
+                </div>
         })
         return (
             <div>
@@ -169,12 +186,12 @@ class AllBathroomReviews extends React.Component {
     }
 }
 
-class SingleBathroomReview extends React.Component {
+class SingleBathroomReview extends Component {
     render() {
       return (
-        <div style={{ borderBottom: '1px solid gray'}}>
+        <div>
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
-                <h4>LOVE THIS BATHROOM!!!</h4>
+                <p><strong>LOVE THIS BATHROOM!!!</strong></p>
                 <StarRating />
             </div>
             <div style={{display: 'flex', flexDirection:'row'}}>
@@ -186,7 +203,7 @@ class SingleBathroomReview extends React.Component {
     }
 }
 
-class ReviewDetails extends React.Component {
+class ReviewDetails extends Component {
     render() {
       return (
         <div>
@@ -201,7 +218,7 @@ class ReviewDetails extends React.Component {
     }
 }
 
-class ReviewActions extends React.Component {
+class ReviewActions extends Component {
     render() {
       return (
         <div>
