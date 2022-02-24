@@ -3,6 +3,7 @@ import React from 'react';
 import { Component } from 'react';
 // Icons
 import { AiOutlineCheckCircle, AiOutlineStar, AiFillStar } from "react-icons/ai";
+import { BiPencil } from "react-icons/bi";
 import { BsMap } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { FaToilet, FaChevronLeft } from "react-icons/fa";
@@ -16,15 +17,20 @@ class BathroomPage extends Component {
       return (
         <div style={{textAlign:"left"}}>
             <BathroomPageTitle/>
-            <BathroomActions/>
-            <Divider />
-            <BathroomRatings/>
-            <Divider />
-            <BathroomGallery/>
-            <Divider />
-            <BathroomFeatures/>
-            <Divider />
-            <BathroomReviews/>
+            <div style={{display:'flex', flexDirection:'row', alignContent:'center' }}>
+                <div style={{width:"5vw"}} />
+                <div style={{width:"90vw"}}>
+                    <BathroomActions />
+                    <Divider />
+                    <BathroomRatings />
+                    <Divider />
+                    <BathroomGallery />
+                    <Divider />
+                    <BathroomFeatures />
+                    <Divider />
+                    <BathroomReviews />
+                </div>
+            </div>
         </div>
       );
     }
@@ -33,7 +39,11 @@ class BathroomPage extends Component {
 class Divider extends Component {
     render() {
         return (
-            <div style={{ borderBottom: '1px solid #E5E5E5', paddingTop:'1rem', marginBottom:'1rem'}} />
+            <div style={{ 
+                borderBottom: '1px solid #E5E5E5', 
+                paddingTop:'1rem', 
+                marginBottom:'1rem'
+            }} />
         )
     }
 }
@@ -50,7 +60,9 @@ class BathroomPageTitle extends Component {
                 </div>
                 <StarRating />
             </div>
-            <p>Guthrie Annex 3 (GA3), Seattle, WA 98105</p>
+            <p style={{marginLeft:'10px', fontSize:'14px', color:'#626262'}}>
+                <strong>Guthrie Annex 3 (GA3), Seattle, WA 98105</strong>
+            </p>
         </div>
       );
     }
@@ -160,7 +172,10 @@ class BathroomReviews extends Component {
                 <p style={{marginLeft:'1rem'}}>38 reviews</p>
             </div>
             <div style={{textAlign:'center'}}>
-                <button>Write a Review</button>
+                <button>
+                    <BiPencil style={{marginRight:'5'}} />
+                    Write a Review
+                </button>
             </div>
             <Divider />
             <AllBathroomReviews/>
