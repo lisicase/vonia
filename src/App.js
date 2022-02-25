@@ -11,7 +11,11 @@ import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
-//firebase
+
+//templating
+import PageTitle from './Shared/PageTitle/PageTitle';
+
+//const renderPageTitle = (title) => <PageTitle pageTitle={title}/>;
 
 
 function App() {
@@ -51,7 +55,7 @@ class BathroomPage extends React.Component {
   render() {
     return (
       <div style={{textAlign:"left"}}>
-        <PageTitle title="Building Title"/>
+        <PageTitle title={"Building Title"}/>
         <p>Address</p>
         <h2>Gallery</h2>
         <h2>Features</h2>
@@ -65,7 +69,7 @@ class ReviewHistoryPage extends React.Component {
   render() {
     return (
       <div style={{textAlign:"left"}}>
-        <PageTitle title="Reviews" />
+        <PageTitle title={"Reviews"} />
         <ListGroup variant="flush">
           <ReviewListItem />
           <ReviewListItem />
@@ -95,22 +99,11 @@ class ReviewListItem extends React.Component {
   }
 }
 
-class PageTitle extends React.Component {
-  render() {
-    return (
-      <div style={{textAlign:"left"}}>
-        <i className="open-details fa fa-chevron-left" aria-hidden="true"></i>
-        <h1>{this.props.title}</h1>
-      </div>
-    );
-  }
-}
-
 class SignInPage extends React.Component {
   render() {
     return (
       <div>
-        <PageTitle title="Sign In"/>
+        <PageTitle title={"Sign In"}/>
         <h1>Spotty</h1>
         <h2>(LOGO)</h2>
         <form class="form-inline">
@@ -132,6 +125,8 @@ class SignInPage extends React.Component {
     );
   }
 }
+
+
 
 class TestNavigationBar extends React.Component {
   render() {
