@@ -24,8 +24,8 @@
     font-size: 18px;
 }
 
-.subtitle {
-    margin-left: 10px;
+.bathroomAddress {
+    margin-left: 1.3rem;
     font-size: 14px;
     color: var(--medGray);
 }

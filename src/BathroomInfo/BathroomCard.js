@@ -5,7 +5,8 @@ import { Component } from 'react';
 import { StarRating } from './Ratings';
 import { ShortDivider } from '../StyleElements';
 // Icons
-import { GrRestroomWomen } from "react-icons/gr";
+import { FaToilet } from "react-icons/fa";
+//import { GrRestroomWomen } from "react-icons/gr";
 import { MdAccessible } from "react-icons/md";
 
 export default class BathroomCard extends Component {
@@ -58,7 +59,7 @@ class BathroomListItem extends Component {
         <div style={{textAlign:"left"}}>
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <div style={{display: 'flex', flexDirection:'row'}}>
-                    <GrRestroomWomen className="bufferedIcon" style={{height:"1.5rem"}} />
+                    <FaToilet className="bufferedIcon" style={{height:"1.5rem", fontSize:'0.7rem'}} />
                     <p><strong>{this.props.title}</strong></p>
                 </div>
                 <div style={{display: 'flex', flexDirection:'row'}}>
