@@ -13,7 +13,7 @@ export default class BathroomCard extends Component {
       return (
         <div style={{textAlign:"left", display:'flex', flexDirection:'row', alignContent:'center'}}>
             <div style={{width:"15vw"}} />
-            <div className="shadow" style={{width:"70vw"}}>
+            <div className="shadow" style={{width:"70vw", borderRadius:"25px"}}>
                 <div style={{margin:"1rem"}}>
                     <BuildingInfo />
                     <BathroomListItem />
