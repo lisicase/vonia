@@ -22,11 +22,11 @@ export default class BathroomCard extends Component {
                         miles="0.1" 
                         imgSrc="logo192.png" 
                     />
-                    <BathroomListItem title="Room 104 / Floor 1" accessible={true} />
+                    <BathroomListItem title="Room 104 / Floor 1" accessible={true} rating='3' />
                     <ShortDivider />
-                    <BathroomListItem title="Room 204 / Floor 2" accessible={false} />
+                    <BathroomListItem title="Room 204 / Floor 2" accessible={false} rating='5' />
                     <ShortDivider />
-                    <BathroomListItem title="Room 304 / Floor 3" accessible={true} />
+                    <BathroomListItem title="Room 304 / Floor 3" accessible={true} rating='2' />
                     <ShortDivider />
                 </div>
             </div>
@@ -63,7 +63,7 @@ class BathroomListItem extends Component {
                     <p><strong>{this.props.title}</strong></p>
                 </div>
                 <div style={{display: 'flex', flexDirection:'row'}}>
-                    <StarRating />
+                    <StarRating rating={this.props.rating} />
                     {accessibility}
                 </div>
             </div>
