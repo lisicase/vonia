@@ -35,3 +35,11 @@ div.lightDivider {
     padding-top: 1rem;
     margin-bottom: 1rem;
 }
+
+div.lightDivider.short {
+    padding-top: 0;
+}
+
+.shadow {
+   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; 
+}

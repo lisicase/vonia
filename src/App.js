@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './BathroomInfo/BathroomPage.js';
+import BathroomCard from './BathroomInfo/BathroomCard.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/bathroom' element={<BathroomPage />} />
+          <Route path='/bathroomcard' element={<BathroomCard />} />
           <Route path='/reviews' element={<ReviewHistoryPage />} />
           <Route path='/signin' element={<SignInPage />} />
         </Routes>
@@ -130,6 +132,7 @@ class TestNavigationBar extends React.Component {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link><NavLink exact to='/bathroom' className="navLink" >Bathroom</NavLink></Nav.Link>
+                    <Nav.Link><NavLink exact to='/bathroomcard' className="navLink" >Bathroom Card</NavLink></Nav.Link>
                     <Nav.Link><NavLink exact to='/reviews' className="navLink">Review History</NavLink></Nav.Link>
                     <Nav.Link><NavLink exact to='/signin' className="navLink">Sign In</NavLink></Nav.Link>
                 </Nav>

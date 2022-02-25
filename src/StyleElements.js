@@ -9,3 +9,11 @@ export class Divider extends Component {
         )
     }
 }
+
+export class ShortDivider extends Component {
+    render() {
+        return (
+            <div className="lightDivider short" />
+        )
+    }
+}
