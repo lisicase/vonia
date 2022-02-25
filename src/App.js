@@ -55,7 +55,7 @@ class BathroomPage extends React.Component {
   render() {
     return (
       <div style={{textAlign:"left"}}>
-        <PageTitle title={"Building Title"}/>
+        <PageTitle title="Building Title"/>
         <p>Address</p>
         <h2>Gallery</h2>
         <h2>Features</h2>
@@ -69,7 +69,7 @@ class ReviewHistoryPage extends React.Component {
   render() {
     return (
       <div style={{textAlign:"left"}}>
-        {/**<PageTitle title={"Reviews"} />*/}
+        <PageTitle title="Reviews" />
         <ListGroup variant="flush">
           <ReviewListItem />
           <ReviewListItem />
@@ -103,7 +103,7 @@ class SignInPage extends React.Component {
   render() {
     return (
       <div>
-        {/**<PageTitle title={"Sign In"}/>*/}
+        <PageTitle title="Sign In"/>
         <h1>Spotty</h1>
         <h2>(LOGO)</h2>
         <form class="form-inline">
