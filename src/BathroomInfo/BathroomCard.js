@@ -15,12 +15,17 @@ export default class BathroomCard extends Component {
             <div style={{width:"15vw"}} />
             <div className="shadow" style={{width:"70vw", borderRadius:"25px"}}>
                 <div style={{margin:"1rem"}}>
-                    <BuildingInfo />
-                    <BathroomListItem />
+                    <BuildingInfo 
+                        name="Chemistry Building" 
+                        location="Rainier Vista" 
+                        miles="0.1" 
+                        imgSrc="logo192.png" 
+                    />
+                    <BathroomListItem title="Room 104 / Floor 1" accessible={true} />
                     <ShortDivider />
-                    <BathroomListItem />
+                    <BathroomListItem title="Room 204 / Floor 2" accessible={false} />
                     <ShortDivider />
-                    <BathroomListItem />
+                    <BathroomListItem title="Room 304 / Floor 3" accessible={true} />
                     <ShortDivider />
                 </div>
             </div>
@@ -33,12 +38,12 @@ class BuildingInfo extends Component {
     render() {
       return (
         <div style={{display: 'flex', flexDirection:'row', marginBottom:"1rem"}}>
-            <img src="logo192.png" style={{ height:'6rem', marginRight:'1rem' }} />
+            <img src={this.props.imgSrc} style={{ height:'6rem', marginRight:'1rem' }} />
             <div style={{textAlign:"left"}}>
-                <h1 className="bathroomTitle"><strong>Chemistry Building</strong></h1>
+                <h1 className="bathroomTitle"><strong>{this.props.name}</strong></h1>
                 <div style={{lineHeight:'0.5rem'}} >
-                    <p>Rainier Vista</p>
-                    <p>0.1 miles</p>
+                    <p>{this.props.location}</p>
+                    <p>{this.props.miles} miles</p>
                 </div>
             </div>
         </div>
@@ -48,16 +53,17 @@ class BuildingInfo extends Component {
 
 class BathroomListItem extends Component {
     render() {
+      let accessibility = this.props.accessible? <MdAccessible style={{height:"1.5rem"}} /> : <span style={{width:'1rem'}}/>;
       return (
         <div style={{textAlign:"left"}}>
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <div style={{display: 'flex', flexDirection:'row'}}>
                     <GrRestroomWomen className="bufferedIcon" style={{height:"1.5rem"}} />
-                    <p><strong>Room 104 / Floor 1</strong></p>
+                    <p><strong>{this.props.title}</strong></p>
                 </div>
                 <div style={{display: 'flex', flexDirection:'row'}}>
                     <StarRating />
-                    <MdAccessible style={{height:"1.5rem"}} />
+                    {accessibility}
                 </div>
             </div>
         </div>
