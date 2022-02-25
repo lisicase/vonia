@@ -126,7 +126,7 @@ class TestNavigationBar extends React.Component {
       <div className="header-div">
           <Navbar expand="lg">
             <Navbar.Brand><NavLink exact to='/' className="navLink">Spotty</NavLink></Navbar.Brand>
-            {/*<Navbar.Toggle aria-controls="basic-navbar-nav" />*/}
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link><NavLink exact to='/bathroom' className="navLink" >Bathroom</NavLink></Nav.Link>
