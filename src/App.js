@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
-import BathroomPage from './BathroomPage.js';
+import BathroomPage from './BathroomInfo/BathroomPage.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
