@@ -42,12 +42,12 @@ class BathroomPageTitle extends Component {
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <div style={{display: 'flex', flexDirection:'row'}}>
                     <FaChevronLeft />
-                    <FaToilet style={{marginRight:'5'}} />
-                    <p style={{fontSize:'18px'}}><strong>Room 104 / Floor 1</strong></p>
+                    <FaToilet className="bufferedIcon" />
+                    <h1 className="bathroomTitle"><strong>Room 104 / Floor 1</strong></h1>
                 </div>
                 <StarRating />
             </div>
-            <p style={{marginLeft:'10px', fontSize:'14px', color:'#626262'}}>
+            <p className="subtitle">
                 <strong>Guthrie Annex 3 (GA3), Seattle, WA 98105</strong>
             </p>
         </div>

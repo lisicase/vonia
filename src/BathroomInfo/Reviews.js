@@ -20,7 +20,7 @@ class BathroomReviews extends Component {
             </div>
             <div style={{textAlign:'center'}}>
                 <button>
-                    <BiPencil style={{marginRight:'5'}} />
+                    <BiPencil className="bufferedIcon" />
                     Write a Review
                 </button>
             </div>
@@ -70,7 +70,7 @@ class ReviewDetails extends Component {
       return (
         <div>
             <div style={{display: 'flex', flexDirection:'row'}}>
-                <CgProfile style={{marginRight:'5'}} />
+                <CgProfile className="bufferedIcon" />
                 <p style={{paddingRight:'1rem'}}>rebec20</p>
                 <p>1/3/2020</p>
             </div>

@@ -4,6 +4,7 @@ import { BsMap } from "react-icons/bs";
 import { FiShare2 } from "react-icons/fi";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { VscHeart } from "react-icons/vsc";
+import "./BathroomInfo.css";
 
 export class BathroomActions extends Component {
     render() {
@@ -21,8 +22,8 @@ export class BathroomActions extends Component {
 class ActionWithTitle extends Component {
     render() {
         return (
-            <div style={{ textAlign: 'center' }}>
-                <div style={{ color: "#68DCEC" }}>
+            <div className="textCenter" >
+                <div className="actionBtn">
                     {this.props.icon}
                 </div>
                 <p>{this.props.title}</p>

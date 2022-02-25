@@ -7,7 +7,7 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 export class StarRating extends Component {
     render() {
         return (
-            <div style={{color:'#E0AFFB'}}>
+            <div className="purpleRatingSymbol">
                 <AiFillStar />
                 <AiFillStar />
                 <AiFillStar />

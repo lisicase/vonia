@@ -3,6 +3,8 @@ import React from 'react';
 import { Component } from 'react';
 // Icons
 import { AiOutlineCheckCircle } from "react-icons/ai";
+// Style
+import "./BathroomInfo.css";
 
 export class BathroomFeatures extends Component {
     render() {
@@ -19,11 +21,12 @@ export class BathroomFeatures extends Component {
         );
     }
 }
+
 class SingleBathroomFeature extends Component {
     render() {
         return (
             <div style={{ display: 'flex', flexDirection: 'row', marginRight: '5rem' }}>
-                <AiOutlineCheckCircle style={{ marginRight: '5' }} />
+                <AiOutlineCheckCircle className="bufferedIcon" />
                 <p>{this.props.feature}</p>
             </div>
         );

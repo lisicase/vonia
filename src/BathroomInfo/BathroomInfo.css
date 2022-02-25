@@ -1,0 +1,37 @@
+:root {
+    --brightBlue: #68DCEC;
+    --ratingPurple: #E0AFFB;
+    --medGray: #626262;
+}
+
+.actionBtn {
+    color: var(--brightBlue);
+}
+
+.purpleRatingSymbol {
+    color: var(--ratingPurple);
+}
+
+.bufferedIcon {
+    margin-right: 5px;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.bathroomTitle {
+    font-size: 18px;
+}
+
+.subtitle {
+    margin-left: 10px;
+    font-size: 14px;
+    color: var(--medGray);
+}
+
+div.lightDivider {
+    border-bottom: 1px solid #E5E5E5;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
