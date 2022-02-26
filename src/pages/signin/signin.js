@@ -5,7 +5,7 @@ import React from 'react';
 
 //firebase
 import { app } from '../../Shared/firebase/firebase-config';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 
 export default function SignInPage() {
@@ -46,8 +46,9 @@ export default function SignInPage() {
                     <label for="searchQuery" class="mr-2">Password </label>
                     <input type="text" name="term" id="searchQuery" class="form-control" onChange={(event) => setPassword(event.target.value)}/>
                 </div>
+
                 <button type="submit" class="btn btn-primary">
-                    <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>Sign In
+                    <i className="fa-solid fa-right-to-bracket" aria-hidden="true">Sign In</i>
                 </button>
             </form>
             <p>Forgot your ID or password?</p>
