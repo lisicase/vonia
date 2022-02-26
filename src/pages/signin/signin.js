@@ -20,8 +20,7 @@ export default function SignInPage() {
         signInWithEmailAndPassword(auth, email, password)
             .then((res) => {
                 sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken);
-
-                if (auth) {
+                if (sessionStorage.getItem('Auth Token')) {
                     nav('/');
                 }
             })
