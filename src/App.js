@@ -11,14 +11,14 @@ import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
-
-//templating
+// Pages
+import BathroomPage from './pages/BathroomPage/BathroomPage';
+import SignInPage from './pages/signin/signin';
+// templating
 import PageTitle from './Shared/PageTitle/PageTitle';
 
-//const renderPageTitle = (title) => <PageTitle pageTitle={title}/>;
-
-
 function App() {
+
   return (
     <div className="App">
       <>
@@ -46,20 +46,6 @@ class HomePage extends React.Component {
               <i className="fa fa-search" aria-hidden="true"></i>
           </Button>{' '}
         </form>
-      </div>
-    );
-  }
-}
-
-class BathroomPage extends React.Component {
-  render() {
-    return (
-      <div style={{textAlign:"left"}}>
-        <PageTitle title="Building Title"/>
-        <p>Address</p>
-        <h2>Gallery</h2>
-        <h2>Features</h2>
-        <h2>Rating</h2>
       </div>
     );
   }
@@ -95,33 +81,6 @@ class ReviewListItem extends React.Component {
           <AiOutlineStar size="40" />
         </div>
       </ListGroup.Item>
-    );
-  }
-}
-
-class SignInPage extends React.Component {
-  render() {
-    return (
-      <div>
-        <PageTitle title="Sign In"/>
-        <h1>Spotty</h1>
-        <h2>(LOGO)</h2>
-        <form class="form-inline">
-          <div class="form-group mr-3">
-            <label for="searchQuery" class="mr-2">ID </label>
-            <input type="text" name="term" id="searchQuery" class="form-control"/>
-          </div>
-          <div class="form-group mr-3">
-            <label for="searchQuery" class="mr-2">Password </label>
-            <input type="text" name="term" id="searchQuery" class="form-control"/>
-          </div>
-          <button type="submit" class="btn btn-primary">
-            <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>Sign In
-          </button>
-        </form>
-        <p>Forgot your ID or password?</p>
-        <button type="submit" class="btn btn-secondary">Sign Up</button>
-      </div>
     );
   }
 }
