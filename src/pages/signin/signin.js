@@ -1,25 +1,35 @@
 import PageTitle from "../../Shared/PageTitle/PageTitle";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import React from 'react';
 
 //firebase
 import { app } from '../../Shared/firebase/firebase-config';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
 
 export default function SignInPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const nav = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const auth = getAuth();
 
-        console.log(email);
-        console.log(password);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((res) => {
+                sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken);
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((res) => console.log(res));
+                if (auth) {
+                    nav('/');
+                }
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(`${errorCode}: ${errorMessage}`);
+            })
     };
 
     return (
@@ -30,10 +40,7 @@ export default function SignInPage() {
             <form class="form-inline" onSubmit={handleSubmit}>
                 <div class="form-group mr-3">
                     <label for="searchQuery" class="mr-2">Email</label>
-                    <input type="text" name="term" id="searchQuery" class="form-control" onChange={(event) => {
-                        console.log(event.target.value);
-                        setEmail(event.target.value);
-                        }}/>
+                    <input type="text" name="term" id="searchQuery" class="form-control" onChange={(event) => setEmail(event.target.value)}/>
                 </div>
                 <div class="form-group mr-3">
                     <label for="searchQuery" class="mr-2">Password </label>
