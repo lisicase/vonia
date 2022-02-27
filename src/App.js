@@ -9,6 +9,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './BathroomInfo/BathroomPage.js';
 import BathroomCard from './BathroomInfo/BathroomCard.js';
 import BuildingList from './Map/BuildingList.js';
+import Menu from './Menu';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -29,6 +30,7 @@ function App() {
           <Route path='/reviews' element={<ReviewHistoryPage />} />
           <Route path='/signin' element={<SignInPage />} />
           <Route path='/buildinglist' element={<BuildingList />} />
+          <Route path='/menu' element={<Menu />} />
         </Routes>
       </>
     </div>
@@ -138,6 +140,7 @@ class TestNavigationBar extends React.Component {
                     <Nav.Link><NavLink exact to='/reviews' className="navLink">Review History</NavLink></Nav.Link>
                     <Nav.Link><NavLink exact to='/signin' className="navLink">Sign In</NavLink></Nav.Link>
                     <Nav.Link><NavLink exact to='/buildingList' className="navLink">Building List</NavLink></Nav.Link>
+                    <Nav.Link><NavLink exact to='/menu' className="navLink">Menu</NavLink></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
           </Navbar>
