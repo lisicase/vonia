@@ -1,5 +1,5 @@
 import PageTitle from "../../Shared/PageTitle/PageTitle";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import React from 'react';
 

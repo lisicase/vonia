@@ -12,8 +12,9 @@ import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
 // Pages
-import BathroomPage from './pages/BathroomPage/BathroomPage';
+import BathroomPage from './pages/BathroomPage/bathroomPage';
 import SignInPage from './pages/signin/signin';
+import RegistrationPage from './pages/register/registration';
 // templating
 import PageTitle from './Shared/PageTitle/PageTitle';
 
@@ -28,6 +29,7 @@ function App() {
           <Route path='/bathroom' element={<BathroomPage />} />
           <Route path='/reviews' element={<ReviewHistoryPage />} />
           <Route path='/signin' element={<SignInPage />} />
+          <Route path='/registration' element={<RegistrationPage />} />
         </Routes>
       </>
     </div>
@@ -93,7 +95,7 @@ class TestNavigationBar extends React.Component {
       <div className="header-div">
           <Navbar expand="lg">
             <Navbar.Brand><NavLink exact to='/' className="navLink">Spotty</NavLink></Navbar.Brand>
-            {/*<Navbar.Toggle aria-controls="basic-navbar-nav" />*/}
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link><NavLink exact to='/bathroom' className="navLink" >Bathroom</NavLink></Nav.Link>
