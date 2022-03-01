@@ -1,7 +1,8 @@
-import PageTitle from "../../Shared/PageTitle/PageTitle";
-import { Navigate, useNavigate } from "react-router-dom";
-import { useState } from 'react';
-import React from 'react';
+// React
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+// Components
+import { RedirectButton } from "../../StyleElements";
 
 //firebase
 import { app } from '../../Shared/firebase/firebase-config';
@@ -33,8 +34,10 @@ export default function SignInPage(props) {
 
     return (
         <div>
-            <p>{props.test}</p>
-            <PageTitle title="Sign In" />
+            <div style={{textAlign:"left"}}>
+                <RedirectButton redirectTo="/" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
+                <h1>Sign In</h1>
+            </div>
             <h1>Spotty</h1>
             <h2>(LOGO)</h2>
             <form class="form-inline" onSubmit={handleSubmit}>

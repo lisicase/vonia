@@ -2,9 +2,7 @@
 import React from 'react';
 import { Component } from 'react';
 // Components
-import { Routes, Route, NavLink } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import { Routes, Route } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './BathroomInfo/BathroomPage.js';
@@ -20,8 +18,6 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi';
 // Pages
 import SignInPage from './pages/signin/signin';
-// templating
-import PageTitle from './Shared/PageTitle/PageTitle';
 
 class App extends Component {
   constructor(props) {
@@ -39,7 +35,6 @@ class App extends Component {
     return (
       <div className="App">
         <>
-          <TestNavigationBar />
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/bathroom' element={<BathroomPage />} />
@@ -101,7 +96,10 @@ class ReviewHistoryPage extends Component {
   render() {
     return (
       <div style={{textAlign:"left"}}>
-        <PageTitle title="Reviews" />
+        <div style={{textAlign:"left"}}>
+          <RedirectButton redirectTo="/" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
+          <h1>Review History</h1>
+        </div>
         <ListGroup variant="flush">
           <ReviewListItem />
           <ReviewListItem />
@@ -128,25 +126,6 @@ class ReviewListItem extends Component {
         </div>
       </ListGroup.Item>
     );
-  }
-}
-
-class TestNavigationBar extends Component {
-  render() {
-    return (
-      <div className="header-div">
-          <Navbar expand="lg">
-            <Navbar.Brand><NavLink exact to='/' className="navLink">Spotty</NavLink></Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link><NavLink exact to='/signin' className="navLink">Sign In</NavLink></Nav.Link>
-                    <Nav.Link><NavLink exact to='/menu' className="navLink">Menu</NavLink></Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-          </Navbar>
-      </div>
-    )
   }
 }
 

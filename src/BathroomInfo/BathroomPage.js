@@ -4,7 +4,7 @@ import { Component } from 'react';
 // Components
 import { StarRating, BathroomRatingsByCategory } from './Ratings';
 import BathroomReviews from './Reviews';
-import { Divider } from '../StyleElements';
+import { Divider, RedirectButton } from '../StyleElements';
 import { BathroomActions } from './Actions';
 import { BathroomGallery } from './Gallery';
 // Icons
@@ -41,7 +41,7 @@ class BathroomPageTitle extends Component {
         <div style={{textAlign:"left"}}>
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <div style={{display: 'flex', flexDirection:'row'}}>
-                    <FaChevronLeft className="bufferedIcon" style={{height:"1.5rem"}} />
+                <RedirectButton redirectTo="/" button={<FaChevronLeft className="bufferedIcon" style={{height:"1.5rem"}} />} />
                     <FaToilet className="bufferedIcon" style={{height:"1.5rem", fontSize:'0.8rem'}} />
                     <h1 className="bathroomTitle"><strong>Room 104 / Floor 1</strong></h1>
                 </div>
