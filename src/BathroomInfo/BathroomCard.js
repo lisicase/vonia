@@ -50,7 +50,7 @@ export default class BathroomCard extends Component {
     }
 }
 
-class BuildingInfo extends Component {
+export class BuildingInfo extends Component {
     render() {
       return (
         <div style={{display: 'flex', flexDirection:'row', marginBottom:"1rem"}}>
