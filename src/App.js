@@ -22,24 +22,44 @@ import SignInPage from './pages/signin/signin';
 // templating
 import PageTitle from './Shared/PageTitle/PageTitle';
 
-function App() {
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userId: ""
+    };
+  }
 
-  return (
-    <div className="App">
-      <>
-        <TestNavigationBar />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/bathroom' element={<BathroomPage />} />
-          <Route path='/bathroomcard' element={<BathroomCard />} />
-          <Route path='/reviews' element={<ReviewHistoryPage />} />
-          <Route path='/signin' element={<SignInPage />} />
-          <Route path='/buildinglist' element={<BuildingList />} />
-          <Route path='/menu' element={<Menu />} />
-        </Routes>
-      </>
-    </div>
-  );
+  updateUserId = (uid) => {
+    this.setState({userId: uid});
+  }
+
+  render() {
+    let content = null;
+    if (this.state.userId == "") {
+      content = <p>Test: Sign In</p>
+    } else {
+      content = <p>Test: Sign Out</p>
+    }
+
+    return (
+      <div className="App">
+        <>
+          {content}
+          <TestNavigationBar />
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/bathroom' element={<BathroomPage />} />
+            <Route path='/bathroomcard' element={<BathroomCard />} />
+            <Route path='/reviews' element={<ReviewHistoryPage />} />
+            <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
+            <Route path='/buildinglist' element={<BuildingList />} />
+            <Route path='/menu' element={<Menu />} />
+          </Routes>
+        </>
+      </div>
+    );
+  }
 }
 
 class HomePage extends Component {

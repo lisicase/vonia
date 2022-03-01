@@ -7,8 +7,7 @@ import React from 'react';
 import { app } from '../../Shared/firebase/firebase-config';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
-
-export default function SignInPage() {
+export default function SignInPage(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const nav = useNavigate();
@@ -21,6 +20,7 @@ export default function SignInPage() {
             .then((res) => {
                 sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken);
                 if (sessionStorage.getItem('Auth Token')) {
+                    props.updateUserId("test_id");
                     nav('/');
                 }
             })
@@ -33,6 +33,7 @@ export default function SignInPage() {
 
     return (
         <div>
+            <p>{props.test}</p>
             <PageTitle title="Sign In" />
             <h1>Spotty</h1>
             <h2>(LOGO)</h2>
