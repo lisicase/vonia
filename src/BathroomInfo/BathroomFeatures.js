@@ -4,7 +4,6 @@ import { Component } from 'react';
 // Icons
 import { AiOutlineCheckCircle } from "react-icons/ai";
 // Style
-import "./BathroomInfo.css";
 
 export class BathroomFeatures extends Component {
     render() {

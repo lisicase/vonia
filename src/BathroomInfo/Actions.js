@@ -4,7 +4,6 @@ import { BsMap } from "react-icons/bs";
 import { FiShare2 } from "react-icons/fi";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { VscHeart } from "react-icons/vsc";
-import "./BathroomInfo.css";
 
 export class BathroomActions extends Component {
     render() {
