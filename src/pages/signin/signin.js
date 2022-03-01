@@ -64,7 +64,7 @@ class SignInForm extends Component {
                     <input type="text" name="term" id="searchQuery" class="form-control" onChange={this.props.handlePassword}/>
                 </div>
                 <p>Don't have an account? <strong className="actionBtn">Register Here</strong></p>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn submitBtn">
                     <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>LOGIN
                 </button>
                 <p>Forgot username or password?</p>

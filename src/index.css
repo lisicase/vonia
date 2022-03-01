@@ -14,6 +14,7 @@ code {
 
 :root {
   --brightBlue: #68DCEC;
+  --brightBlueSelected: #60c8d6;
   /*--paleBlue: #bfceff;*/
   /*--bluePurple: #8e8ee8;*/
   /*--medPurple: #adadff;*/
@@ -25,6 +26,17 @@ code {
 
 .actionBtn {
   color: var(--brightBlue);
+}
+
+button.submitBtn {
+  background-color: var(--brightBlue);
+  width: 53.333vw;
+  box-shadow: 0 .2rem 1rem rgba(0,0,0,.1); 
+}
+
+button.submitBtn:hover {
+  background-color: var(--brightBlueSelected);
+  box-shadow: none;
 }
 
 .purpleRatingSymbol {
@@ -60,5 +72,5 @@ div.lightDivider.short {
 }
 
 .shadow {
- box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; 
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; 
 }
