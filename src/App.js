@@ -54,7 +54,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <div style={{display:'flex', justifyContent:'right'}}>
+        <div style={{display:'flex', justifyContent:'left'}}>
           <MenuButton />
         </div>
         <h1>Spotty</h1>
