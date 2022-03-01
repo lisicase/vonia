@@ -1,0 +1,50 @@
+:root {
+    --brightBlue: #68DCEC;
+    /*--paleBlue: #bfceff;*/
+    /*--bluePurple: #8e8ee8;*/
+    /*--medPurple: #adadff;*/
+    /*--palePurple: #c5bfff;*/
+    /*--brightBlue: #99a0ff;*/
+    --ratingPurple: #E0AFFB;
+    --medGray: #626262;
+}
+
+.actionBtn {
+    color: var(--brightBlue);
+}
+
+.purpleRatingSymbol {
+    color: var(--ratingPurple);
+}
+
+.bufferedIcon {
+    margin-right: 5px;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.bathroomTitle {
+    font-size: 18px;
+}
+
+.bathroomAddress {
+    margin-left: 1.3rem;
+    font-size: 14px;
+    color: var(--medGray);
+}
+
+div.lightDivider {
+    border-bottom: 1px solid #E5E5E5;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+div.lightDivider.short {
+    padding-top: 0;
+}
+
+.shadow {
+   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; 
+}
