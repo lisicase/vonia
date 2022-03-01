@@ -1,6 +1,7 @@
 // React
 import React from 'react';
 import { Component } from 'react';
+import { Navigate } from 'react-router-dom';
 // Components
 import { Routes, Route, NavLink } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
@@ -35,17 +36,9 @@ class App extends Component {
   }
 
   render() {
-    let content = null;
-    if (this.state.userId == "") {
-      content = <p>Test: Sign In</p>
-    } else {
-      content = <p>Test: Sign Out</p>
-    }
-
     return (
       <div className="App">
         <>
-          {content}
           <TestNavigationBar />
           <Routes>
             <Route path='/' element={<HomePage />} />
@@ -54,7 +47,7 @@ class App extends Component {
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
             <Route path='/buildinglist' element={<BuildingList />} />
-            <Route path='/menu' element={<Menu />} />
+            <Route path='/menu' element={<Menu userId={this.state.userId} />} />
           </Routes>
         </>
       </div>
