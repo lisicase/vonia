@@ -39,21 +39,22 @@ export default function SignInPage(props) {
                 <h1>Sign In</h1>
             </div>
             <h1>Spotty</h1>
-            <h2>(LOGO)</h2>
+            <img src="logo192.png" />
             <form class="form-inline" onSubmit={handleSubmit}>
                 <div class="form-group mr-3">
-                    <label for="searchQuery" class="mr-2">Email</label>
+                    <label for="searchQuery" class="mr-2">Username</label>
                     <input type="text" name="term" id="searchQuery" class="form-control" onChange={(event) => setEmail(event.target.value)}/>
                 </div>
                 <div class="form-group mr-3">
                     <label for="searchQuery" class="mr-2">Password </label>
                     <input type="text" name="term" id="searchQuery" class="form-control" onChange={(event) => setPassword(event.target.value)}/>
                 </div>
+                <p>Don't have an account? <strong>Register Here</strong></p>
                 <button type="submit" class="btn btn-primary">
-                    <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>Sign In
+                    <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>LOGIN
                 </button>
+                <p>Forgot username or password?</p>
             </form>
-            <p>Forgot your ID or password?</p>
         </div>
     );
 }
