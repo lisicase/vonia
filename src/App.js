@@ -1,25 +1,23 @@
 // React
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 // Components
 import { Routes, Route, NavLink } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
-// Map
-import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 // Pages
-import BathroomPage from './pages/BathroomPage/BathroomPage';
-import SignInPage from './pages/Signin/SignIn';
+import BathroomPage from './Pages/BathroomPage/BathroomPage';
+import SignInPage from './Pages/Signin/Signin';
+import RegistrationPage from './Pages/Register/Registration';
+import HomePage from './Pages/Home/Home';
 import PageTitle from './Shared/PageTitle/PageTitle';
 
 function App() {
-
   return (
     <div className="App">
       <>
@@ -29,27 +27,11 @@ function App() {
           <Route path='/bathroom' element={<BathroomPage />} />
           <Route path='/reviews' element={<ReviewHistoryPage />} />
           <Route path='/signin' element={<SignInPage />} />
+          <Route path='/register' element={<RegistrationPage />} />
         </Routes>
       </>
     </div>
   );
-}
-
-class HomePage extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Spotty</h1>
-        <h2>Spot-a-Potty</h2>
-        <form action="" className="mt-3">
-          <input type="text" placeholder="Location" />
-          <Button variant="primary btn-sm" id="search-button" type="submit">
-              <i className="fa fa-search" aria-hidden="true"></i>
-          </Button>{' '}
-        </form>
-      </div>
-    );
-  }
 }
 
 class ReviewHistoryPage extends React.Component {

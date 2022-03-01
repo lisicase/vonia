@@ -8,7 +8,7 @@ import { app } from '../../Shared/Firebase/firebase-config';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 
-export default function SignInPage() {
+export default function RegistrationPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [id, setId] = useState('');
