@@ -1,5 +1,5 @@
 // React
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { useNavigate } from "react-router-dom";
 // Components
 import { RedirectButton } from "../../StyleElements";
@@ -42,21 +42,33 @@ export default function SignInPage(props) {
             </div>
             <h1>Spotty</h1>
             <img src="logo192.png" />
-            <form class="form-inline" onSubmit={handleSubmit}>
+            <SignInForm 
+                handleSubmit={handleSubmit} 
+                handleEmail={(event) => setEmail(event.target.value)} 
+                handlePassword={(event) => setPassword(event.target.value)}
+            />
+        </div>
+    );
+}
+
+class SignInForm extends Component {
+    render() {
+        return(
+            <form class="form-inline" onSubmit={this.props.handleSubmit}>
                 <div class="form-group mr-3">
                     <label for="searchQuery" class="mr-2"><BiUserCircle className="bufferedIcon" />Username</label>
-                    <input style={{color:"red"}} type="text" name="term" id="searchQuery" class="form-control" onChange={(event) => setEmail(event.target.value)}/>
+                    <input style={{color:"red"}} type="text" name="term" id="searchQuery" class="form-control" onChange={this.props.handleEmail}/>
                 </div>
                 <div class="form-group mr-3">
                     <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" />Password </label>
-                    <input type="text" name="term" id="searchQuery" class="form-control" onChange={(event) => setPassword(event.target.value)}/>
+                    <input type="text" name="term" id="searchQuery" class="form-control" onChange={this.props.handlePassword}/>
                 </div>
-                <p>Don't have an account? <strong>Register Here</strong></p>
+                <p>Don't have an account? <strong className="actionBtn">Register Here</strong></p>
                 <button type="submit" class="btn btn-primary">
                     <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>LOGIN
                 </button>
                 <p>Forgot username or password?</p>
             </form>
-        </div>
-    );
+        );
+    }
 }
