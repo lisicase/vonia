@@ -18,6 +18,7 @@ import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
+import { GiHamburgerMenu } from 'react-icons/gi';
 // Pages
 import SignInPage from './pages/signin/signin';
 // templating
@@ -59,6 +60,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
+        <MenuButton />
         <h1>Spotty</h1>
         <h2>Spot-a-Potty</h2>
         <form action="" className="mt-3">
@@ -70,6 +72,29 @@ class HomePage extends Component {
         <TempMapPage />
       </div>
     );
+  }
+}
+
+class MenuButton extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        redirectToMenu: false
+    };
+  }
+
+  openMenu = () => {
+    this.setState({ redirectToMenu: true });
+  }
+
+  render() {
+    if (this.state && this.state.redirectToMenu) {
+      return <Navigate to={"/menu"} />
+    }
+
+    return (
+      <button onClick={this.openMenu}><GiHamburgerMenu /></button>
+    )
   }
 }
 
