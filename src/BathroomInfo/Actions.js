@@ -9,10 +9,10 @@ export class BathroomActions extends Component {
     render() {
         return (
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                <ActionWithTitle icon={<BsMap />} title="Directions" />
-                <ActionWithTitle icon={<VscHeart />} title="Favorite" />
-                <ActionWithTitle icon={<HiOutlinePencilAlt />} title="Review" />
-                <ActionWithTitle icon={<FiShare2 />} title="Share" />
+                <ActionWithTitle icon={<BsMap size={30} />} title="Directions" />
+                <ActionWithTitle icon={<VscHeart size={30} />} title="Favorite" />
+                <ActionWithTitle icon={<HiOutlinePencilAlt size={30} />} title="Review" />
+                <ActionWithTitle icon={<FiShare2 size={30} />} title="Share" />
             </div>
         );
     }
