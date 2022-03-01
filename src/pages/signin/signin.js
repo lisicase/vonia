@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 // Components
 import { RedirectButton } from "../../StyleElements";
-
+// Icons
+import { BiUserCircle } from "react-icons/bi";
+import { MdLockOutline } from "react-icons/md";
 //firebase
 import { app } from '../../Shared/firebase/firebase-config';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
@@ -42,11 +44,11 @@ export default function SignInPage(props) {
             <img src="logo192.png" />
             <form class="form-inline" onSubmit={handleSubmit}>
                 <div class="form-group mr-3">
-                    <label for="searchQuery" class="mr-2">Username</label>
-                    <input type="text" name="term" id="searchQuery" class="form-control" onChange={(event) => setEmail(event.target.value)}/>
+                    <label for="searchQuery" class="mr-2"><BiUserCircle className="bufferedIcon" />Username</label>
+                    <input style={{color:"red"}} type="text" name="term" id="searchQuery" class="form-control" onChange={(event) => setEmail(event.target.value)}/>
                 </div>
                 <div class="form-group mr-3">
-                    <label for="searchQuery" class="mr-2">Password </label>
+                    <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" />Password </label>
                     <input type="text" name="term" id="searchQuery" class="form-control" onChange={(event) => setPassword(event.target.value)}/>
                 </div>
                 <p>Don't have an account? <strong>Register Here</strong></p>
