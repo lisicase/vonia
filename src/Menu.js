@@ -1,17 +1,34 @@
 // React
 import React from 'react';
 import { Component } from 'react';
+import { Navigate } from 'react-router-dom';
 // Components
 import { ShortDivider } from './StyleElements';
 // Icons
 import { AiOutlineRight } from "react-icons/ai";
-import { BiUserCircle } from "react-icons/bi"
+import { BiUserCircle } from "react-icons/bi";
+import { GrHistory } from "react-icons/gr";
 import { IoHelpCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { MdAccessible, MdLockOutline } from "react-icons/md";
 import { VscHeart } from "react-icons/vsc";
 
 export default class Menu extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirectTo: ""
+        };
+    }
+    
+    openReviewHistory = () => {
+        this.setState({ redirectTo: "reviews" });
+    }
+
     render() {
+        if (this.state && this.state.redirectTo === "reviews") {
+            let newPath = "/" + this.state.redirectTo;
+            return <Navigate to={newPath} />
+        }
       return (
         <div style={{textAlign:"left", display:'flex', flexDirection:'row', alignContent:'center'}}>
             <div className="shadow" style={{width:"80vw", height:"100vh"}}>
@@ -24,6 +41,7 @@ export default class Menu extends Component {
                     />
                     <ShortDivider />
                     <MenuItem title="Favorites" icon={<VscHeart className="bufferedIcon" style={{height:"1.5rem"}} />} />
+                    <MenuItem handleClick={this.openReviewHistory} title="Review History" icon={<GrHistory className="bufferedIcon" style={{height:"1.5rem", width:"0.8rem"}} />} />
                     <MenuItem title="Account" icon={<MdLockOutline className="bufferedIcon" style={{height:"1.5rem"}} />} />
                     <MenuItem title="Help" icon={<IoHelpCircleOutline className="bufferedIcon" style={{height:"1.5rem"}} />} />
                     <MenuItem title="Sign Out" icon={<IoLogOutOutline className="bufferedIcon" style={{height:"1.5rem"}} />} />
@@ -47,11 +65,14 @@ class AccountInfo extends Component {
 
 class MenuItem extends Component {
     render() {
-      let accessibility = this.props.accessible? <MdAccessible style={{height:"1.5rem"}} /> : <span style={{width:'1rem'}}/>;
+        if (this.state && this.state.redirectTo === "reviews") {
+            let newPath = "/" + this.state.redirectTo;
+            return <Navigate to={newPath} />
+        }
       return (
         <div style={{textAlign:"left"}}>
-            <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
-                <div onClick={this.props.handleClick} style={{display: 'flex', flexDirection:'row'}}>
+            <div onClick={this.props.handleClick} style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
+                <div style={{display: 'flex', flexDirection:'row'}}>
                     {this.props.icon}
                     <p>{this.props.title}</p>
                 </div>
