@@ -1,18 +1,23 @@
 // React
 import React from 'react';
+import { Component } from 'react';
 // Components
 import { Routes, Route, NavLink } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
+import BathroomPage from './BathroomInfo/BathroomPage.js';
+import BathroomCard from './BathroomInfo/BathroomCard.js';
+import BuildingList from './Map/BuildingList.js';
+import Menu from './Menu';
+import { Divider } from './StyleElements.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
 // Pages
-import BathroomPage from './pages/BathroomPage/BathroomPage';
 import SignInPage from './pages/signin/signin';
 // templating
 import PageTitle from './Shared/PageTitle/PageTitle';
@@ -26,15 +31,18 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/bathroom' element={<BathroomPage />} />
+          <Route path='/bathroomcard' element={<BathroomCard />} />
           <Route path='/reviews' element={<ReviewHistoryPage />} />
           <Route path='/signin' element={<SignInPage />} />
+          <Route path='/buildinglist' element={<BuildingList />} />
+          <Route path='/menu' element={<Menu />} />
         </Routes>
       </>
     </div>
   );
 }
 
-class HomePage extends React.Component {
+class HomePage extends Component {
   render() {
     return (
       <div>
@@ -46,12 +54,26 @@ class HomePage extends React.Component {
               <i className="fa fa-search" aria-hidden="true"></i>
           </Button>{' '}
         </form>
+        <TempMapPage />
       </div>
     );
   }
 }
 
-class ReviewHistoryPage extends React.Component {
+class TempMapPage extends Component {
+  render() {
+    return (
+      <div>
+        <Divider />
+        <BathroomCard />
+        <Divider />
+        <BuildingList />
+      </div>
+    );
+  }
+}
+
+class ReviewHistoryPage extends Component {
   render() {
     return (
       <div style={{textAlign:"left"}}>
@@ -67,7 +89,7 @@ class ReviewHistoryPage extends React.Component {
   }
 }
 
-class ReviewListItem extends React.Component {
+class ReviewListItem extends Component {
   render() {
     let borderStyle = "25px solid gray";
 
@@ -85,20 +107,17 @@ class ReviewListItem extends React.Component {
   }
 }
 
-
-
-class TestNavigationBar extends React.Component {
+class TestNavigationBar extends Component {
   render() {
     return (
       <div className="header-div">
           <Navbar expand="lg">
             <Navbar.Brand><NavLink exact to='/' className="navLink">Spotty</NavLink></Navbar.Brand>
-            {/*<Navbar.Toggle aria-controls="basic-navbar-nav" />*/}
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link><NavLink exact to='/bathroom' className="navLink" >Bathroom</NavLink></Nav.Link>
-                    <Nav.Link><NavLink exact to='/reviews' className="navLink">Review History</NavLink></Nav.Link>
                     <Nav.Link><NavLink exact to='/signin' className="navLink">Sign In</NavLink></Nav.Link>
+                    <Nav.Link><NavLink exact to='/menu' className="navLink">Menu</NavLink></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
           </Navbar>
