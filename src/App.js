@@ -1,7 +1,6 @@
 // React
 import React from 'react';
 import { Component } from 'react';
-import { Navigate } from 'react-router-dom';
 // Components
 import { Routes, Route, NavLink } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,7 +11,7 @@ import BathroomPage from './BathroomInfo/BathroomPage.js';
 import BathroomCard from './BathroomInfo/BathroomCard.js';
 import BuildingList from './Map/BuildingList.js';
 import Menu from './Menu';
-import { Divider } from './StyleElements.js';
+import { Divider, RedirectButton } from './StyleElements.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -60,7 +59,9 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <MenuButton />
+        <div style={{display:'flex', justifyContent:'right'}}>
+          <MenuButton />
+        </div>
         <h1>Spotty</h1>
         <h2>Spot-a-Potty</h2>
         <form action="" className="mt-3">
@@ -76,25 +77,10 @@ class HomePage extends Component {
 }
 
 class MenuButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        redirectToMenu: false
-    };
-  }
-
-  openMenu = () => {
-    this.setState({ redirectToMenu: true });
-  }
-
   render() {
-    if (this.state && this.state.redirectToMenu) {
-      return <Navigate to={"/menu"} />
-    }
-
     return (
-      <button onClick={this.openMenu}><GiHamburgerMenu /></button>
-    )
+      <RedirectButton redirectTo="/menu" button={<button><GiHamburgerMenu /></button>} />
+    );
   }
 }
 
