@@ -11,10 +11,11 @@ import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
+// Map
+import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 // Pages
 import BathroomPage from './pages/BathroomPage/BathroomPage';
-import SignInPage from './pages/signin/signin';
-// templating
+import SignInPage from './pages/Signin/SignIn';
 import PageTitle from './Shared/PageTitle/PageTitle';
 
 function App() {

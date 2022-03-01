@@ -4,7 +4,7 @@ import { useState } from 'react';
 import React from 'react';
 
 //firebase
-import { app } from '../../Shared/firebase/firebase-config';
+import { app } from '../../Shared/Firebase/firebase-config';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 
@@ -16,6 +16,7 @@ export default function SignInPage() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const auth = getAuth();
+        console.log(process.env.MAPBOX_API_TOKEN);
 
         signInWithEmailAndPassword(auth, email, password)
             .then((res) => {

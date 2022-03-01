@@ -4,7 +4,7 @@ import { useState } from 'react';
 import React from 'react';
 
 //firebase
-import { app } from '../../Shared/firebase/firebase-config';
+import { app } from '../../Shared/Firebase/firebase-config';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 
