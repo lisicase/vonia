@@ -2,7 +2,7 @@
 import React, { useState, Component } from 'react';
 import { useNavigate } from "react-router-dom";
 // Components
-import { RedirectButton } from "../../StyleElements";
+import { RedirectButton, Logo } from "../../StyleElements";
 // Icons
 import { BiUserCircle } from "react-icons/bi";
 import { MdLockOutline } from "react-icons/md";
@@ -40,8 +40,7 @@ export default function SignInPage(props) {
                 <RedirectButton redirectTo="/" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
                 <h1>Log In</h1>
             </div>
-            <h1>Spotty</h1>
-            <img src="logo192.png" />
+            <Logo />
             <SignInForm 
                 handleSubmit={handleSubmit} 
                 handleEmail={(event) => setEmail(event.target.value)} 
