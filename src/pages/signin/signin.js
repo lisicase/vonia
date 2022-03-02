@@ -57,7 +57,7 @@ class SignInForm extends Component {
             <form class="form-inline" onSubmit={this.props.handleSubmit}>
                 <div class="form-group mr-3">
                     <label for="searchQuery" class="mr-2"><BiUserCircle className="bufferedIcon" />Username</label>
-                    <input style={{color:"red"}} type="text" name="term" id="searchQuery" class="form-control" onChange={this.props.handleEmail}/>
+                    <input type="text" name="term" id="searchQuery" class="form-control" onChange={this.props.handleEmail}/>
                 </div>
                 <div class="form-group mr-3">
                     <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" />Password </label>

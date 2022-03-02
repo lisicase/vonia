@@ -9,12 +9,13 @@ import BathroomPage from './BathroomInfo/BathroomPage.js';
 import BathroomCard from './Map/BathroomCard.js';
 import BuildingList from './Map/BuildingList.js';
 import Menu from './Menu';
-import { Divider, RedirectButton } from './StyleElements.js';
+import { RedirectButton } from './StyleElements.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
+import { BiSearch } from 'react-icons/bi';
 import { GiHamburgerMenu } from 'react-icons/gi';
 // Pages
 import SignInPage from './pages/signin/signin';
@@ -75,13 +76,14 @@ class MenuButton extends Component {
 
 class TempMapPage extends Component {
   render() {
+    let searchPlaceholder = <BiSearch className="bufferedIcon" />;
     return (
       <div style={{backgroundColor:'lightGray'}}>
         <div style={{height:'1rem'}} />
         <form action="" className="mt-3">
           <input type="text" placeholder="Location" />
           <Button variant="primary btn-sm" id="search-button" type="submit">
-              <i className="fa fa-search" aria-hidden="true"></i>
+            <BiSearch />
           </Button>{' '}
         </form>
         <div style={{height:'5rem'}} />
