@@ -56,7 +56,7 @@ export class BuildingInfo extends Component {
         <div style={{display: 'flex', flexDirection:'row', marginBottom:"1rem"}}>
             <img src={this.props.imgSrc} style={{ height:'5rem', marginRight:'1rem' }} />
             <div style={{textAlign:"left"}}>
-                <h1 className="bathroomTitle"><strong>{this.props.name}</strong></h1>
+                <h3 className="bathroomTitle"><strong>{this.props.name}</strong></h3>
                 <div style={{lineHeight:'0.5rem'}} >
                     <p>{this.props.location}</p>
                     <p>{this.props.miles} miles</p>
