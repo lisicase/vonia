@@ -38,7 +38,7 @@ export default function SignInPage(props) {
         <div>
             <div style={{textAlign:"left"}}>
                 <RedirectButton redirectTo="/" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
-                <h1>Sign In</h1>
+                <h1>Log In</h1>
             </div>
             <h1>Spotty</h1>
             <img src="logo192.png" />
@@ -55,20 +55,45 @@ class SignInForm extends Component {
     render() {
         return(
             <form class="form-inline" onSubmit={this.props.handleSubmit}>
-                <div class="form-group mr-3">
-                    <label for="searchQuery" class="mr-2"><BiUserCircle className="bufferedIcon" />Username</label>
-                    <input type="text" name="term" id="searchQuery" class="form-control" onChange={this.props.handleEmail}/>
+            <div style={{textAlign:"left", display:'flex', flexDirection:'row', alignContent:'center'}}>
+                <div style={{width:"15vw"}} />
+                    <div style={{width:"70vw"}}>
+                        <AccountInputBoxes handleEmail={this.props.handleEmail} handlePassword={this.props.handlePassword} />
+                        <p className="textCenter">Don't have an account? <strong className="actionBtn">Register Here</strong></p>
+                    </div>
                 </div>
-                <div class="form-group mr-3">
-                    <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" />Password </label>
-                    <input type="text" name="term" id="searchQuery" class="form-control" onChange={this.props.handlePassword}/>
+                <div style={{marginTop:"20vw"}}>
+                    <LogInButton />
+                    <p>Forgot username or password?</p>
                 </div>
-                <p>Don't have an account? <strong className="actionBtn">Register Here</strong></p>
-                <button type="submit" class="btn submitBtn">
-                    <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>LOGIN
-                </button>
-                <p>Forgot username or password?</p>
             </form>
+        );
+    }
+}
+
+class AccountInputBoxes extends Component {
+    render() {
+        return(
+            <div>
+                <div class="form-group mr-3" style={{display:'flex'}}>
+                    <label for="searchQuery" class="mr-2"><BiUserCircle className="bufferedIcon" size={30} style={{height:'2rem'}} /></label>
+                    <input placeholder="Username" type="text" name="term" id="searchQuery" class="form-control" onChange={this.props.handleEmail}/>
+                </div>
+                <div class="form-group mr-3" style={{display:'flex'}}>
+                    <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" size={30} style={{height:'2rem'}} /></label>
+                    <input placeholder="Password" type="text" name="term" id="searchQuery" class="form-control" onChange={this.props.handlePassword}/>
+                </div>
+            </div>
+        );
+    }
+}
+
+class LogInButton extends Component {
+    render() {
+        return(
+            <button type="submit" class="btn submitBtn">
+                <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>LOGIN
+            </button>
         );
     }
 }
