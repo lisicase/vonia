@@ -54,7 +54,7 @@ export class BuildingInfo extends Component {
     render() {
       return (
         <div style={{display: 'flex', flexDirection:'row', marginBottom:"1rem"}}>
-            <img src={this.props.imgSrc} style={{ height:'5rem', width:'5rem', objectFit:'cover', marginRight:'1rem' }} />
+            <img src={this.props.imgSrc} style={{ height:'5rem', width:'5rem', objectFit:'cover', marginRight:'1rem', borderRadius:'1rem' }} />
             <div style={{textAlign:"left"}}>
                 <h3 className="bathroomTitle"><strong>{this.props.name}</strong></h3>
                 <div style={{lineHeight:'0.5rem'}} >
