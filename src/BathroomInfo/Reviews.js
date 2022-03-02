@@ -54,7 +54,7 @@ class SingleBathroomReview extends Component {
         <div>
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <p><strong>LOVE THIS BATHROOM!!!</strong></p>
-                <StarRating rating='5' />
+                <StarRating rating='5' size={25} />
             </div>
             <div style={{display: 'flex', flexDirection:'row'}}>
                 <ReviewDetails />
