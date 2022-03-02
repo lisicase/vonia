@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './BathroomInfo/BathroomPage.js';
-import BathroomCard from './BathroomInfo/BathroomCard.js';
+import BathroomCard from './Map/BathroomCard.js';
 import BuildingList from './Map/BuildingList.js';
 import Menu from './Menu';
 import { Divider, RedirectButton } from './StyleElements.js';

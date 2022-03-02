@@ -3,7 +3,7 @@ import React from 'react';
 import { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 // Components
-import { StarRating } from './Ratings';
+import { StarRating } from '../BathroomInfo/Ratings';
 import { ShortDivider } from '../StyleElements';
 // Icons
 import { FaToilet } from "react-icons/fa";
@@ -35,7 +35,7 @@ export default class BathroomCard extends Component {
                         name="Chemistry Building" 
                         location="Rainier Vista" 
                         miles="0.1" 
-                        imgSrc="logo192.png" 
+                        imgSrc="temp-imgs/buildings/CHB.png" 
                     />
                     <BathroomListItem handleClick={this.openBathroomInfo} title="Room 104 / Floor 1" accessible={true} rating='3' />
                     <ShortDivider />
@@ -54,7 +54,7 @@ export class BuildingInfo extends Component {
     render() {
       return (
         <div style={{display: 'flex', flexDirection:'row', marginBottom:"1rem"}}>
-            <img src={this.props.imgSrc} style={{ height:'5rem', marginRight:'1rem' }} />
+            <img src={this.props.imgSrc} style={{ height:'5rem', width:'5rem', objectFit:'cover', marginRight:'1rem' }} />
             <div style={{textAlign:"left"}}>
                 <h3 className="bathroomTitle"><strong>{this.props.name}</strong></h3>
                 <div style={{lineHeight:'0.5rem'}} >
