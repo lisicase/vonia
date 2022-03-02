@@ -12,7 +12,7 @@ import { BsChevronDown } from "react-icons/bs";
 export default class BuildingList extends Component {
     render() {
       return (
-        <div className="shadow" style={{width:"100vw", borderTopLeftRadius:"25px", borderTopRightRadius:"25px"}}>
+        <div className="shadow" style={{width:"100vw", borderTopLeftRadius:"25px", borderTopRightRadius:"25px", backgroundColor:'white'}}>
             <div style={{display:'flex', justifyContent:'center'}}>
                 <BsChevronDown style={{marginTop:'0.5rem'}} />
             </div>

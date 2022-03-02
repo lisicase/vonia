@@ -59,12 +59,6 @@ class HomePage extends Component {
         </div>
         <h1>Spotty</h1>
         <h2>Spot-a-Potty</h2>
-        <form action="" className="mt-3">
-          <input type="text" placeholder="Location" />
-          <Button variant="primary btn-sm" id="search-button" type="submit">
-              <i className="fa fa-search" aria-hidden="true"></i>
-          </Button>{' '}
-        </form>
         <TempMapPage />
       </div>
     );
@@ -82,10 +76,17 @@ class MenuButton extends Component {
 class TempMapPage extends Component {
   render() {
     return (
-      <div>
-        <Divider />
+      <div style={{backgroundColor:'lightGray'}}>
+        <div style={{height:'1rem'}} />
+        <form action="" className="mt-3">
+          <input type="text" placeholder="Location" />
+          <Button variant="primary btn-sm" id="search-button" type="submit">
+              <i className="fa fa-search" aria-hidden="true"></i>
+          </Button>{' '}
+        </form>
+        <div style={{height:'5rem'}} />
         <BathroomCard />
-        <Divider />
+        <div style={{height:'5rem'}} />
         <BuildingList />
       </div>
     );
