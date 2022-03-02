@@ -70,8 +70,8 @@ class ReviewDetails extends Component {
       return (
         <div>
             <div style={{display: 'flex', flexDirection:'row'}}>
-                <CgProfile className="bufferedIcon" />
-                <p style={{paddingRight:'1rem'}}>rebec20</p>
+                <CgProfile className="bufferedIcon loweredIcon" size={25} />
+                <p style={{paddingRight:'1rem', fontSize:'1.1rem'}}>rebec20</p>
                 <p>1/3/2020</p>
             </div>
             <p>I was really satisfied with this bathroom! It was clean, well maintained, and had no line! Thanks to Spotty, I could easily and quickly use a great public bathroom! :)</p>
@@ -84,8 +84,8 @@ class ReviewActions extends Component {
     render() {
       return (
         <div>
-            <MdOutlineReport />
-            <FiThumbsUp />
+            <MdOutlineReport size={25} />
+            <FiThumbsUp size={25} />
         </div>
       );
     }

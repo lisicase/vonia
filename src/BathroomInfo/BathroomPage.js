@@ -8,7 +8,7 @@ import { Divider, RedirectButton } from '../StyleElements';
 import { BathroomActions } from './Actions';
 import { BathroomGallery } from './Gallery';
 // Icons
-import { FaToilet, FaChevronLeft } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 import { BathroomFeatures } from './BathroomFeatures';
 
 export default class BathroomPage extends Component {
@@ -42,13 +42,12 @@ class BathroomPageTitle extends Component {
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <div style={{display: 'flex', flexDirection:'row'}}>
                 <RedirectButton redirectTo="/" button={<FaChevronLeft className="bufferedIcon" style={{height:"1.5rem"}} />} />
-                    <FaToilet className="bufferedIcon" style={{height:"1.5rem", fontSize:'0.8rem'}} />
-                    <h1 className="bathroomTitle"><strong>Room 104 / Floor 1</strong></h1>
+                    <h2>Room 104 / Floor 1</h2>
                 </div>
-                <StarRating rating='4.5' />
+                <StarRating rating='4.5' size='25' />
             </div>
             <p className="bathroomAddress">
-                <strong>Guthrie Annex 3 (GA3), Seattle, WA 98105</strong>
+                Guthrie Annex 3 (GA3), Seattle, WA 98105
             </p>
         </div>
       );

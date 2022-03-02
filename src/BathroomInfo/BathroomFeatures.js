@@ -25,7 +25,7 @@ class SingleBathroomFeature extends Component {
     render() {
         return (
             <div style={{ display: 'flex', flexDirection: 'row', marginRight: '5rem' }}>
-                <AiOutlineCheckCircle className="bufferedIcon" />
+                <AiOutlineCheckCircle className="bufferedIcon" size={25} />
                 <p>{this.props.feature}</p>
             </div>
         );

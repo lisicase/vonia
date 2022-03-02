@@ -17,9 +17,9 @@ export class StarRating extends Component {
         }
         let allStars = starData.map((count) => {
             if (count == 1) {
-                return <AiFillStar />
+                return <AiFillStar size={this.props.size} />
             } else {
-                return <AiOutlineStar />
+                return <AiOutlineStar size={this.props.size} />
             }
         })
         return allStars;
@@ -57,8 +57,8 @@ class CategoricalRating extends Component {
     render() {
         return (
             <div style={{display:'flex', justifyContent:'space-between'}} >
-                <p><strong>{this.props.title}</strong></p>
-                <StarRating rating={this.props.rating} />
+                <p className="slightBold">{this.props.title}</p>
+                <StarRating rating={this.props.rating} size={25} />
             </div>
         )
     }

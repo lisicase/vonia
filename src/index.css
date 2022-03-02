@@ -47,17 +47,21 @@ button.submitBtn:hover {
   margin-right: 5px;
 }
 
-.textCenter {
-  text-align: center;
+.loweredIcon {
+  height: 1.5rem;
 }
 
 .bathroomTitle {
   font-size: 18px;
 }
 
+.textCenter {
+  text-align: center;
+}
+
 .bathroomAddress {
   margin-left: 1.3rem;
-  font-size: 14px;
+  font-size: 1rem;
   color: var(--medGray);
 }
 
