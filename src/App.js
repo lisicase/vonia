@@ -75,8 +75,32 @@ class MenuButton extends Component {
 }
 
 class TempMapPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      buildingDisplayed: ""
+    };
+  }
+
+  updateBuildingDisplayed = (buildingID) => {
+    this.setState({buildingDisplayed: buildingID});
+  }
+
+  hideCard = () => {
+    this.updateBuildingDisplayed("");
+  }
+
   render() {
     let searchPlaceholder = <BiSearch className="bufferedIcon" />;
+    let buildingCard = <span/>;
+    if (this.state.buildingDisplayed === "test") {
+      buildingCard = 
+        <div style={{textAlign:"left", display:'flex', flexDirection:'row', alignContent:'center'}}>
+          <div onClick={() => {this.hideCard()}} style={{width:"15vw"}}/>
+          <BathroomCard hideCard={this.hideCard} />
+          <div onClick={() => {this.hideCard()}} style={{width:"15vw"}}/>
+        </div>;
+    }
     return (
       <div style={{backgroundColor:'lightGray'}}>
         <div style={{height:'1rem'}} />
@@ -86,10 +110,10 @@ class TempMapPage extends Component {
             <BiSearch />
           </Button>{' '}
         </form>
-        <div style={{height:'5rem'}} />
-        <BathroomCard />
-        <div style={{height:'5rem'}} />
-        <BuildingList />
+        <div onClick={() => {this.hideCard()}} style={{height:'5rem'}} />
+        {buildingCard}
+        <div onClick={() => {this.hideCard()}} style={{height:'5rem'}} />
+        <BuildingList updateBuildingDisplayed={this.updateBuildingDisplayed} />
       </div>
     );
   }

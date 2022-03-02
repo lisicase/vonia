@@ -27,23 +27,20 @@ export default class BathroomCard extends Component {
         return <Navigate to={"/bathroom"} />
       }
       return (
-        <div style={{textAlign:"left", display:'flex', flexDirection:'row', alignContent:'center'}}>
-            <div style={{width:"15vw"}} />
-            <div className="shadow" style={{width:"70vw", borderRadius:"25px", backgroundColor:'white'}}>
-                <div style={{margin:"1rem"}}>
-                    <BuildingInfo 
-                        name="Chemistry Building" 
-                        location="Rainier Vista" 
-                        miles="0.1" 
-                        imgSrc="temp-imgs/buildings/CHB.png" 
-                    />
-                    <BathroomListItem handleClick={this.openBathroomInfo} title="Room 104 / Floor 1" accessible={true} rating='3' />
-                    <ShortDivider />
-                    <BathroomListItem title="Room 204 / Floor 2" accessible={false} rating='5' />
-                    <ShortDivider />
-                    <BathroomListItem title="Room 304 / Floor 3" accessible={true} rating='2' />
-                    <ShortDivider />
-                </div>
+        <div className="shadow" style={{width:"70vw", borderRadius:"25px", backgroundColor:'white'}}>
+            <div style={{margin:"1rem"}}>
+                <BuildingInfo 
+                    name="Chemistry Building" 
+                    location="Rainier Vista" 
+                    miles="0.1" 
+                    imgSrc="temp-imgs/buildings/CHB.png" 
+                />
+                <BathroomListItem handleClick={this.openBathroomInfo} title="Room 104 / Floor 1" accessible={true} rating='3' />
+                <ShortDivider />
+                <BathroomListItem title="Room 204 / Floor 2" accessible={false} rating='5' />
+                <ShortDivider />
+                <BathroomListItem title="Room 304 / Floor 3" accessible={true} rating='2' />
+                <ShortDivider />
             </div>
         </div>
       );

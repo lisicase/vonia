@@ -17,7 +17,7 @@ export default class BuildingList extends Component {
                 <BsChevronDown style={{marginTop:'0.5rem'}} />
             </div>
             <div>
-                <BuildingListItem name="Chemistry Building" location="Rainier Vista" miles="0.1" imgSrc="temp-imgs/buildings/CHB.png" rating="4.6" />
+                <BuildingListItem name="Chemistry Building" handleClick={this.props.updateBuildingDisplayed} location="Rainier Vista" miles="0.1" imgSrc="temp-imgs/buildings/CHB.png" rating="4.6" />
                 <BuildingListItem name="Physics/Astronomy Auditorium" location="3910 15th Ave NE" miles="0.1" imgSrc="temp-imgs/buildings/PAA.png" rating="4.3" />
                 <BuildingListItem name="Husky Union Bldg" location="4001 E Stevens Way NE" miles="0.3" imgSrc="temp-imgs/buildings/HUB.jpg" rating="3.1" />
                 <BuildingListItem name="Mary Gates Hall" location="1851 NE Grant Ln" miles="0.3" imgSrc="temp-imgs/buildings/MGH.jpg" rating="3.6" />
@@ -48,7 +48,7 @@ class BuildingListItem extends Component {
       }
       return (
         <div style={{margin:"1rem"}}>
-            <div style={{textAlign:"left", display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
+            <div onClick={() => { this.props.handleClick("test") }} style={{textAlign:"left", display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <BuildingInfo 
                     name={this.props.name} 
                     location={this.props.location} 
