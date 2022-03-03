@@ -18,6 +18,7 @@ import HomePage from './Pages/Home/Home';
 import PageTitle from './Shared/PageTitle/PageTitle';
 
 function App() {
+
   return (
     <div className="App">
       <>
