@@ -3,7 +3,7 @@ import React from 'react';
 import { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 // Components
-import { StarRating } from '../BathroomInfo/Ratings';
+import { StarRating } from '../Pages/BathroomPage/Ratings';
 import { ShortDivider } from '../StyleElements';
 // Icons
 import { FaToilet } from "react-icons/fa";

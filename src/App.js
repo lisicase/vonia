@@ -2,10 +2,12 @@
 import React from 'react';
 import { Component } from 'react';
 // Components
-import { Routes, Route } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import ListGroup from 'react-bootstrap/ListGroup';
-import BathroomPage from './BathroomInfo/BathroomPage.js';
+import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
 import BathroomCard from './Map/BathroomCard.js';
 import BuildingList from './Map/BuildingList.js';
 import Menu from './Menu';
@@ -18,7 +20,11 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { BiSearch } from 'react-icons/bi';
 import { GiHamburgerMenu } from 'react-icons/gi';
 // Pages
-import SignInPage from './pages/signin/signin';
+//import BathroomPage from './Pages/BathroomPage/BathroomPage';
+import SignInPage from './Pages/Signin/Signin';
+//import RegistrationPage from './Pages/Register/Registration';
+import HomePage from './Pages/Home/Home';
+//import PageTitle from './Shared/PageTitle/PageTitle';
 
 class App extends Component {
   constructor(props) {
@@ -50,7 +56,7 @@ class App extends Component {
     );
   }
 }
-
+/** 
 class HomePage extends Component {
   render() {
     return (
@@ -65,6 +71,7 @@ class HomePage extends Component {
     );
   }
 }
+
 
 class MenuButton extends Component {
   render() {
@@ -118,6 +125,7 @@ class TempMapPage extends Component {
     );
   }
 }
+*/
 
 class ReviewHistoryPage extends Component {
   render() {

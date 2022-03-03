@@ -4,7 +4,7 @@ import { Component } from 'react';
 // Components
 import { StarRating, BathroomRatingsByCategory } from './Ratings';
 import BathroomReviews from './Reviews';
-import { Divider, RedirectButton } from '../StyleElements';
+import { Divider, RedirectButton } from '../../StyleElements';
 import { BathroomActions } from './Actions';
 import { BathroomGallery } from './Gallery';
 // Icons

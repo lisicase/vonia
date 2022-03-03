@@ -2,7 +2,7 @@
 import React from 'react';
 import { Component } from 'react';
 // Components
-import { Divider } from '../StyleElements';
+import { Divider } from '../../StyleElements';
 import { StarRating } from './Ratings';
 // Icons
 import { BiPencil } from "react-icons/bi";

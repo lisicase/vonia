@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 // Components
 import { ShortDivider } from '../StyleElements';
 import { BuildingInfo } from './BathroomCard';
-import { StarRating } from '../BathroomInfo/Ratings';
+import { StarRating } from '../Pages/BathroomPage/Ratings';
 // Icons
 import { BsChevronDown } from "react-icons/bs";
 
