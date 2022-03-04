@@ -293,8 +293,8 @@ function TempMapPage() {
                 paint: {
                     'circle-radius': 3,
                     'circle-stroke-width': 2,
-                    'circle-color': 'red',
-                    'circle-stroke-color': 'white'
+                    'circle-color': '#68DCEC',
+                    'circle-stroke-color': '#68DCEC'
                 }
             });
             map.resize();
@@ -326,18 +326,18 @@ function TempMapPage() {
     }
 
     return (
-        <div style={{ backgroundColor: 'lightGray' }} >
-            <div style={{ height: '1rem' }} />
+        <div>
+            {/*<div style={{ height: '1rem' }} />*/}
             <form action="" className="mt-3">
                 <input type="text" placeholder="Location" />
                 <Button variant="primary btn-sm" id="search-button" type="submit">
                     <BiSearch />
                 </Button>{' '}
             </form>
-            <div ref={mapContainer} className="map-container" style={{height:'10rem'}}/>
-            <div onClick={ hideCard} style={{ height: '5rem' }} />
+            {/*<div onClick={ hideCard} style={{ height: '5rem' }} />*/}
             {buildingCard}
-            <div onClick={hideCard} style={{ height: '5rem' }} />
+            <div onClick={ hideCard} ref={mapContainer} className="map-container" style={{height:'30rem', overflow:'hidden'}}/>
+            {/*<div onClick={hideCard} style={{ height: '5rem' }} />*/}
             <BuildingList updateBuildingDisplayed={updateBuildingDisplayed} />
         </div>
     );
