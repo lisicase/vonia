@@ -275,7 +275,7 @@ function TempMapPage() {
         if (map.current) return; // initialize map only once
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/streets-v11',
+            style: 'mapbox://styles/mapbox/light-v10',
             center: [lng, lat],
             zoom: zoom
         });
@@ -297,6 +297,7 @@ function TempMapPage() {
                     'circle-stroke-color': 'white'
                 }
             });
+            map.resize();
         });
     });
 
@@ -325,7 +326,7 @@ function TempMapPage() {
     }
 
     return (
-        <div style={{ backgroundColor: 'lightGray' }} ref={mapContainer} className="map-container" >
+        <div style={{ backgroundColor: 'lightGray' }} >
             <div style={{ height: '1rem' }} />
             <form action="" className="mt-3">
                 <input type="text" placeholder="Location" />
@@ -333,6 +334,7 @@ function TempMapPage() {
                     <BiSearch />
                 </Button>{' '}
             </form>
+            <div ref={mapContainer} className="map-container" style={{height:'10rem'}}/>
             <div onClick={ hideCard} style={{ height: '5rem' }} />
             {buildingCard}
             <div onClick={hideCard} style={{ height: '5rem' }} />
