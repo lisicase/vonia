@@ -57,7 +57,7 @@ function TempMapPage() {
     const [zoom, setZoom] = useState(13);
     const [buildingDisplayed, updateBuildingDisplayed] = useState('');
     const hideCard = () => {
-        this.updateBuildingDisplayed("");
+        updateBuildingDisplayed("");
     }
 
     const bathrooms = {
@@ -318,9 +318,9 @@ function TempMapPage() {
     if (buildingDisplayed === "test") {
         buildingCard =
             <div style={{ textAlign: "left", display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
-                <div onClick={() => { this.hideCard() }} style={{ width: "15vw" }} />
-                <BathroomCard hideCard={this.hideCard} />
-                <div onClick={() => { this.hideCard() }} style={{ width: "15vw" }} />
+                <div onClick={() => { hideCard() }} style={{ width: "15vw" }} />
+                <BathroomCard hideCard={hideCard} />
+                <div onClick={() => { hideCard() }} style={{ width: "15vw" }} />
             </div>;
     }
 
