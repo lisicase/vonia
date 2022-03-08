@@ -129,10 +129,6 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
   overflow: hidden;
 }*/
 
-#popup-2:first-child {
-  display: none;
-}
-
 svg.popup-arrow {
   display: none;
 }
