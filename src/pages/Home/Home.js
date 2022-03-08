@@ -60,10 +60,6 @@ function TempMapPage() {
     const [lng, setLng] = useState(-122.3035);
     const [lat, setLat] = useState(47.655548);
     const [zoom, setZoom] = useState(13);
-    const [buildingDisplayed, updateBuildingDisplayed] = useState('');
-    const hideCard = () => {
-        updateBuildingDisplayed("");
-    }
 
     const bathrooms = {
         "type": "FeatureCollection",
@@ -320,19 +316,10 @@ function TempMapPage() {
         BathroomListing(bathroom);
     });
 
-    console.log(bathroomsList);
-    if (buildingDisplayed === "test") {
-        buildingCard =
-            <div style={{ textAlign: "left", display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
-                <div onClick={() => { hideCard() }} style={{ width: "15vw" }} />
-                <BathroomCard hideCard={hideCard} />
-                <div onClick={() => { hideCard() }} style={{ width: "15vw" }} />
-            </div>;
-    }
+    console.log(bathroomsList); // DEBUG
 
     return (
         <div>
-            {/*<div style={{ height: '1rem' }} />*/}
             <form action="" className="mt-3">
                 <input type="text" placeholder="Location" />
                 <Button variant="primary btn-sm" id="search-button" type="submit">
@@ -341,21 +328,7 @@ function TempMapPage() {
             </form>
             {buildingCard}
             <div ref={mapContainer} className="map-container" style={{height:'30rem', overflow:'hidden'}}/>
-            <BuildingList hideCard={hideCard} updateBuildingDisplayed={updateBuildingDisplayed} />
+            <BuildingList />
         </div>
     );
 }
-
-
-/*class PopUp extends Component {
-  render() {
-    return (
-     <div className="modal">
-       <div className="modal_content">
-       <span className="close">&times;</span>
-       <p>I'm A Pop Up!!!</p>
-      </div>
-     </div>
-    );
-   }
-}*/

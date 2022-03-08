@@ -4,14 +4,13 @@ import { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 // Components
 import { ShortDivider } from '../StyleElements';
-import { BuildingInfo } from './BathroomCard';
+import BathroomCard, { BuildingInfo } from './BathroomCard';
 import { StarRating } from '../Pages/BathroomPage/Ratings';
+import Popup from 'reactjs-popup';
 // Icons
 import { BsChevronDown } from "react-icons/bs";
-
-import Popup from 'reactjs-popup';
+// Style
 import 'reactjs-popup/dist/index.css';
-import BathroomCard from './BathroomCard';
 
 export default class BuildingList extends Component {
     render() {
