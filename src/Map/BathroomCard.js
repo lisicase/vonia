@@ -27,7 +27,7 @@ export default class BathroomCard extends Component {
         return <Navigate to={"/bathroom"} />
       }
       return (
-        <div className="shadow" style={{width:"70vw", borderRadius:"25px", backgroundColor:'white'}}>
+        <div className="shadow centeredOnPage" style={{width:"70vw", borderRadius:"25px", backgroundColor:'white'}}>
             <div style={{margin:"1rem"}}>
                 <BuildingInfo 
                     name="Chemistry Building" 

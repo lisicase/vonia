@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, Component } from "react";
 import Button from 'react-bootstrap/Button';
 import { BiSearch } from 'react-icons/bi';
 import BathroomCard from '../../Map/BathroomCard.js';
@@ -7,6 +7,11 @@ import { RedirectButton } from '../../StyleElements.js';
 import { GiHamburgerMenu } from 'react-icons/gi';
 // Map
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import ReactMapGL, {Marker} from 'react-map-gl';
+
+
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_TOKEN;
 
@@ -334,11 +339,23 @@ function TempMapPage() {
                     <BiSearch />
                 </Button>{' '}
             </form>
-            {/*<div onClick={ hideCard} style={{ height: '5rem' }} />*/}
             {buildingCard}
-            <div onClick={ hideCard} ref={mapContainer} className="map-container" style={{height:'30rem', overflow:'hidden'}}/>
-            {/*<div onClick={hideCard} style={{ height: '5rem' }} />*/}
-            <BuildingList updateBuildingDisplayed={updateBuildingDisplayed} />
+            <div ref={mapContainer} className="map-container" style={{height:'30rem', overflow:'hidden'}}/>
+            <BuildingList hideCard={hideCard} updateBuildingDisplayed={updateBuildingDisplayed} />
         </div>
     );
 }
+
+
+/*class PopUp extends Component {
+  render() {
+    return (
+     <div className="modal">
+       <div className="modal_content">
+       <span className="close">&times;</span>
+       <p>I'm A Pop Up!!!</p>
+      </div>
+     </div>
+    );
+   }
+}*/

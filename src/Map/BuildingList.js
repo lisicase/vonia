@@ -9,6 +9,10 @@ import { StarRating } from '../Pages/BathroomPage/Ratings';
 // Icons
 import { BsChevronDown } from "react-icons/bs";
 
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import BathroomCard from './BathroomCard';
+
 export default class BuildingList extends Component {
     render() {
       return (
@@ -31,6 +35,31 @@ export default class BuildingList extends Component {
 }
 
 class BuildingListItem extends Component {
+    render() {
+        return (
+            <Popup 
+                trigger={
+                    <div>
+                        {<BuildingListContent 
+                            name={this.props.name} 
+                            handleClick={this.props.handleClick} 
+                            location={this.props.location} 
+                            miles={this.props.miles}
+                            imgSrc={this.props.imgSrc}
+                            rating={this.props.rating} />}
+                    </div>
+                }
+                closeOnDocumentClick={true}
+            >
+                <div>
+                    <BathroomCard />
+                </div>
+            </Popup>
+        );
+    }
+}
+
+class BuildingListContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -48,7 +77,7 @@ class BuildingListItem extends Component {
       }
       return (
         <div style={{margin:"1rem"}}>
-            <div onClick={() => { this.props.handleClick("test") }} style={{textAlign:"left", display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
+            <div style={{textAlign:"left", display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <BuildingInfo 
                     name={this.props.name} 
                     location={this.props.location} 
