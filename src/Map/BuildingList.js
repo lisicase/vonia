@@ -51,7 +51,12 @@ class BuildingListItem extends Component {
                 closeOnDocumentClick={true}
             >
                 <div>
-                    <BathroomCard />
+                    <BathroomCard 
+                        name={this.props.name} 
+                        location={this.props.location}
+                        miles={this.props.miles} 
+                        imgSrc={this.props.imgSrc}
+                    />
                 </div>
             </Popup>
         );
