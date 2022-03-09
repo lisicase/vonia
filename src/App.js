@@ -49,7 +49,6 @@ class App extends Component {
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
             <Route path='/buildinglist' element={<BuildingList />} />
-            <Route path='/menu' element={<Menu userId={this.state.userId} />} />
           </Routes>
         </>
       </div>
