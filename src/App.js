@@ -2,10 +2,7 @@
 import React from 'react';
 import { Component } from 'react';
 // Components
-import Button from 'react-bootstrap/Button';
-import { Routes, Route, NavLink } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import { Routes, Route } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
 import BathroomCard from './Map/BathroomCard.js';
@@ -17,8 +14,6 @@ import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
-import { BiSearch } from 'react-icons/bi';
-import { GiHamburgerMenu } from 'react-icons/gi';
 // Pages
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
 import SignInPage from './Pages/Signin/Signin';
@@ -43,13 +38,12 @@ class App extends Component {
       <div className="App">
         <>
           <Routes>
-            <Route path='/' element={<HomePage />} />
+            <Route path='/' element={<HomePage userId={this.state.userId} />} />
             <Route path='/bathroom' element={<BathroomPage />} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
             <Route path='/buildinglist' element={<BuildingList />} />
-            <Route path='/menu' element={<Menu userId={this.state.userId} />} />
           </Routes>
         </>
       </div>

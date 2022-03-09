@@ -128,3 +128,25 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
   height: 50vh;
   overflow: hidden;
 }*/
+
+svg.popup-arrow {
+  display: none;
+}
+
+.centeredOnPage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}
+
+.fillLeftPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+div.popup-content {
+  border: none;
+  padding: 0;
+}

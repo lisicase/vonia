@@ -1,29 +1,48 @@
+// React
 import React, { useEffect, useState, useRef } from "react";
+// Components
 import Button from 'react-bootstrap/Button';
 import { BiSearch } from 'react-icons/bi';
-import BathroomCard from '../../Map/BathroomCard.js';
 import BuildingList from '../../Map/BuildingList.js';
 import { RedirectButton } from '../../StyleElements.js';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import bathrooms from '../../Shared/bathroomData/bathroom-data.json'
+import Menu from "../../Menu.js";
 // Map
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import ReactMapGL, {Marker} from 'react-map-gl';
+
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_TOKEN;
 
 
-export default function HomePage() {
+export default function HomePage(props) {
+    //if (this.props.userId && this.props.userId==="") {
+    let menuButton = <RedirectButton redirectTo="/signin" button={<button><GiHamburgerMenu /></button>} />
+    if (props.userId!=="") {
+        menuButton = <Popup 
+        trigger={
+            <button><GiHamburgerMenu /></button>
+        }
+        closeOnDocumentClick={true}
+    >
+        <div>
+            <Menu />
+        </div>
+    </Popup>
+    }
     return (
         <div>
             <div style={{ display: 'flex', justifyContent: 'left' }}>
-                <MenuButton />
+            {menuButton}
             </div>
             <h1>Spotty</h1>
             <h2>Spot-a-Potty</h2>
             <TempMapPage />
         </div>
     );
-
 }
 
 function MenuButton() {
@@ -107,29 +126,17 @@ function TempMapPage() {
 
     // end map stuff
 
-    if (buildingDisplayed === "test") {
-        buildingCard =
-            <div style={{ textAlign: "left", display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
-                <div onClick={() => { hideCard() }} style={{ width: "15vw" }} />
-                <BathroomCard hideCard={hideCard} />
-                <div onClick={() => { hideCard() }} style={{ width: "15vw" }} />
-            </div>;
-    }
-
     return (
         <div>
-            {/*<div style={{ height: '1rem' }} />*/}
             <form action="" className="mt-3">
                 <input type="text" placeholder="Location" />
                 <Button variant="primary btn-sm" id="search-button" type="submit">
                     <BiSearch />
                 </Button>{' '}
             </form>
-            {/*<div onClick={ hideCard} style={{ height: '5rem' }} />*/}
             {buildingCard}
-            <div onClick={hideCard} ref={mapContainer} className="map-container" style={{ height: '30rem', overflow: 'hidden' }} />
-            {/*<div onClick={hideCard} style={{ height: '5rem' }} />*/}
-            <BuildingList updateBuildingDisplayed={updateBuildingDisplayed} />
+            <div ref={mapContainer} className="map-container" style={{height:'30rem', overflow:'hidden'}}/>
+            <BuildingList />
         </div>
     );
 }

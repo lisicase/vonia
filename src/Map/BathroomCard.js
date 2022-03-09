@@ -27,13 +27,13 @@ export default class BathroomCard extends Component {
         return <Navigate to={"/bathroom"} />
       }
       return (
-        <div className="shadow" style={{width:"70vw", borderRadius:"25px", backgroundColor:'white'}}>
+        <div className="shadow centeredOnPage" style={{width:"70vw", borderRadius:"25px", backgroundColor:'white'}}>
             <div style={{margin:"1rem"}}>
                 <BuildingInfo 
-                    name="Chemistry Building" 
-                    location="Rainier Vista" 
-                    miles="0.1" 
-                    imgSrc="temp-imgs/buildings/CHB.png" 
+                    name={this.props.name} 
+                    location={this.props.location}
+                    miles={this.props.miles} 
+                    imgSrc={this.props.imgSrc}
                 />
                 <BathroomListItem handleClick={this.openBathroomInfo} title="Room 104 / Floor 1" accessible={true} rating='3' />
                 <ShortDivider />

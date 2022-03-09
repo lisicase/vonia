@@ -4,12 +4,15 @@ import { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 // Components
 import { ShortDivider } from '../StyleElements';
-import { BuildingInfo } from './BathroomCard';
+import BathroomCard, { BuildingInfo } from './BathroomCard';
 import { StarRating } from '../Pages/BathroomPage/Ratings';
+import Popup from 'reactjs-popup';
 // Icons
 import { BsChevronDown } from "react-icons/bs";
 // Bathroom data
 import bathrooms from "../Shared/bathroomData/bathroom-data.json"
+// Style
+import 'reactjs-popup/dist/index.css';
 
 export default function BuildingList({ updateBuildingDisplayed }) {
     bathrooms.features.forEach(function (bathroom, i) {
@@ -34,7 +37,7 @@ export default function BuildingList({ updateBuildingDisplayed }) {
                 }
                 {
                     bathrooms.features.map((bathroom) => {
-                        const temp = BuildingListItem({bathroom});
+                        const temp = BuildingListItem({ bathroom });
                         console.log(`buildingList: ${bathroom.properties.name}`);
                         return temp;
                     })
@@ -46,6 +49,51 @@ export default function BuildingList({ updateBuildingDisplayed }) {
 
 export function BuildingListItem(bathroom) {
 
+    /**
+class BuildingListItem extends Component {
+render() {
+    return (
+        <Popup 
+            trigger={
+                <div>
+                    {<BuildingListContent 
+                        name={this.props.name} 
+                        handleClick={this.props.handleClick} 
+                        location={this.props.location} 
+                        miles={this.props.miles}
+                        imgSrc={this.props.imgSrc}
+                        rating={this.props.rating} />}
+                </div>
+            }
+            position="top right"
+            closeOnDocumentClick={true}
+        >
+            <div>
+                <BathroomCard 
+                    name={this.props.name} 
+                    location={this.props.location}
+                    miles={this.props.miles} 
+                    imgSrc={this.props.imgSrc}
+                />
+            </div>
+        </Popup>
+    );
+}
+}
+
+class BuildingListContent extends Component {
+constructor(props) {
+    super(props);
+    this.state = {
+        redirectTo: ""
+    };
+}
+ 
+openBathroomInfo = () => {
+    this.setState({ redirectTo: "bathroomcard" });
+}
+*/
+
     const [redirectTo, openBathroomInfo] = useState("");
     console.log(bathroom);
 
@@ -53,17 +101,13 @@ export function BuildingListItem(bathroom) {
         return <Navigate to={"/bathroomcard"} />
     }
     return (
-        <div style={{ margin: "1rem" }} key={bathroom.id}>
-            <div /**onClick={() => { bathroom.handleClick("test") }} */ style={{ textAlign: "left", display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                <BuildingInfo
-                    name={bathroom.bathroom.properties.name}
-                    location={bathroom.bathroom.properties.address}
-                    miles={bathroom.bathroom.properties.dist}
-                    imgSrc={bathroom.bathroom.properties.imgSrc}
-                />
-                <StarRating rating={bathroom.overallRating} />
-            </div>
-            <ShortDivider />
+        <div /**onClick={() => { bathroom.handleClick("test") }} */ style={{ textAlign: "left", display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+            <BuildingInfo
+                name={bathroom.bathroom.properties.name}
+                location={bathroom.bathroom.properties.address}
+                miles={bathroom.bathroom.properties.dist}
+                imgSrc={bathroom.bathroom.properties.imgSrc}
+            />
         </div>
-    );
+    )
 }
