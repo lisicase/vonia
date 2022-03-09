@@ -35,7 +35,7 @@ export default function BuildingList({ updateBuildingDisplayed }) {
                 {
                     bathrooms.features.map((bathroom) => {
                         const temp = BuildingListItem({bathroom});
-                        console.log(`buildingList: ${temp}`);
+                        console.log(`buildingList: ${bathroom.properties.name}`);
                         return temp;
                     })
                 }
@@ -47,6 +47,7 @@ export default function BuildingList({ updateBuildingDisplayed }) {
 export function BuildingListItem(bathroom) {
 
     const [redirectTo, openBathroomInfo] = useState("");
+    console.log(bathroom);
 
     if (redirectTo === "bathroomcard") {
         return <Navigate to={"/bathroomcard"} />
@@ -55,10 +56,10 @@ export function BuildingListItem(bathroom) {
         <div style={{ margin: "1rem" }} key={bathroom.id}>
             <div /**onClick={() => { bathroom.handleClick("test") }} */ style={{ textAlign: "left", display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <BuildingInfo
-                    name={bathroom.name}
-                    location={bathroom.address}
-                    miles={bathroom.dist}
-                    imgSrc={bathroom.imgSrc}
+                    name={bathroom.bathroom.properties.name}
+                    location={bathroom.bathroom.properties.address}
+                    miles={bathroom.bathroom.properties.dist}
+                    imgSrc={bathroom.bathroom.properties.imgSrc}
                 />
                 <StarRating rating={bathroom.overallRating} />
             </div>
