@@ -5,6 +5,7 @@ import BathroomCard from '../../Map/BathroomCard.js';
 import BuildingList from '../../Map/BuildingList.js';
 import { RedirectButton } from '../../StyleElements.js';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import bathrooms from '../../Shared/bathroomData/bathroom-data.json'
 // Map
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 
@@ -26,24 +27,8 @@ export default function HomePage() {
 }
 
 function MenuButton() {
-      return (
-        <RedirectButton redirectTo="/menu" button={<button><GiHamburgerMenu /></button>} />
-      );
-  }
-
-function BathroomListing(bathroom) {
-    const id = bathroom.properties.id;
-    const divId = `bathroom-${id}`;
-    const linkId = `link-${id}`;
     return (
-        <div id={divId} className="item">
-            {/** TODO: change this to a button instead of a link */}
-            <a href="#" className="title" id={linkId}>{bathroom.properties.name}</a>
-            <div id="listing-details">
-                <p>{bathroom.properties.address}</p>
-                <p>{bathroom.properties.city}</p>
-            </div>
-        </div>
+        <RedirectButton redirectTo="/menu" button={<button><GiHamburgerMenu /></button>} />
     );
 }
 
@@ -59,200 +44,11 @@ function TempMapPage() {
     const hideCard = () => {
         updateBuildingDisplayed("");
     }
+    //const bathrooms = BathroomData;
 
-    const bathrooms = {
-        "type": "FeatureCollection",
-        "features": [
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        -122.31091976201161,
-                        47.65511719894073
-                    ]
-                },
-                "properties": {
-                    "name": "Architecture Hall",
-                    "address": "Architecture Hall (ARC)",
-                    "city": "Seattle",
-                    "country": "United States",
-                    "postalCode": "98105",
-                    "state": "WA",
-                    "floors": [
-                        {
-                            "level": 0,
-                            "rating": 4.0
-                        }
-                    ],
-                    "overallRating": 4.0
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        -122.30859952214098,
-                        47.6531530133415
-                    ]
-                },
-                "properties": {
-                    "name": "Bagley Hall",
-                    "address": "Bagley Hall (Bag)",
-                    "city": "Seattle",
-                    "country": "United States",
-                    "postalCode": "98195",
-                    "state": "WA",
-                    "floors": [
-                        {
-                            "level": 0,
-                            "rating": 4.0
-                        }
-                    ],
-                    "overallRating": 4.0
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        -122.30840106764549,
-                        47.65373311108504
-                    ]
-                },
-                "properties": {
-                    "name": "Chemistry Building",
-                    "address": "Rainier Vista",
-                    "city": "Seattle",
-                    "country": "United States",
-                    "postalCode": "98195",
-                    "state": "WA",
-                    "floors": [
-                        {
-                            "level": 0,
-                            "rating": 4.0
-                        }
-                    ],
-                    "overallRating": 4.0
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        -122.30489035393985,
-                        47.658113986558625
-                    ]
-                },
-                "properties": {
-                    "name": "Communications Building",
-                    "address": "2023 King Ln NE",
-                    "city": "Seattle",
-                    "country": "United States",
-                    "postalCode": "98105",
-                    "state": "WA",
-                    "floors": [
-                        {
-                            "level": 0,
-                            "rating": 4.0
-                        }
-                    ],
-                    "overallRating": 4.0
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        -122.31473901312123,
-                        47.6559101529856
-                    ]
-                },
-                "properties": {
-                    "name": "Samuel E. Kelly Ethnic Cultural Center",
-                    "address": "3931 Brooklyn Ave NE",
-                    "city": "Seattle",
-                    "country": "United States",
-                    "postalCode": "98105",
-                    "state": "WA",
-                    "floors": [
-                        {
-                            "level": 0,
-                            "rating": 4.0
-                        },
-                        {
-                            "level": 1,
-                            "rating": 3.0
-                        }
-                    ],
-                    "overallRating": 3.5
-                }
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        -122.30763693585985,
-                        47.65655202400539
-                    ]
-                },
-                "properties": {
-                    "name": "Suzzalo and Allen Libraries",
-                    "address": "4000 15th Ave NE",
-                    "city": "Seattle",
-                    "country": "United States",
-                    "postalCode": "98195",
-                    "state": "WA",
-                    "floors": [
-                        {
-                            "level": 0,
-                            "rating": 4.0
-                        },
-                        {
-                            "level": 1,
-                            "rating": 4.2
-                        }
-                    ],
-                    "overallRating": 4.1
-                }
 
-            },
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        -122.30899914257314,
-                        47.657637914753685
-                    ]
-                },
-                "properties": {
-                    "name": "Kane Hall",
-                    "address": "4069 Spokane Ln",
-                    "city": "Seattle",
-                    "country": "United States",
-                    "postalCode": "98195",
-                    "state": "WA",
-                    "floors": [
-                        {
-                            "level": 0,
-                            "rating": 4.0
-                        },
-                        {
-                            "level": 1,
-                            "rating": 4.4
-                        }
-                    ],
-                    "overallRating": 4.2
-                }
-            }
-        ]
-    }
+    // map stuff
+    //const bathrooms
 
     bathrooms.features.forEach(function (bathroom, i) {
         bathroom.properties.id = i;
@@ -297,7 +93,6 @@ function TempMapPage() {
                     'circle-stroke-color': '#68DCEC'
                 }
             });
-            map.resize();
         });
     });
 
@@ -310,12 +105,8 @@ function TempMapPage() {
         });
     });
 
-    const bathroomsList = bathrooms.features.map((bathroom) => {
-        console.log(bathroom);
-        BathroomListing(bathroom);
-    });
+    // end map stuff
 
-    console.log(bathroomsList);
     if (buildingDisplayed === "test") {
         buildingCard =
             <div style={{ textAlign: "left", display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
@@ -336,7 +127,7 @@ function TempMapPage() {
             </form>
             {/*<div onClick={ hideCard} style={{ height: '5rem' }} />*/}
             {buildingCard}
-            <div onClick={ hideCard} ref={mapContainer} className="map-container" style={{height:'30rem', overflow:'hidden'}}/>
+            <div onClick={hideCard} ref={mapContainer} className="map-container" style={{ height: '30rem', overflow: 'hidden' }} />
             {/*<div onClick={hideCard} style={{ height: '5rem' }} />*/}
             <BuildingList updateBuildingDisplayed={updateBuildingDisplayed} />
         </div>
