@@ -2,10 +2,7 @@
 import React from 'react';
 import { Component } from 'react';
 // Components
-import Button from 'react-bootstrap/Button';
-import { Routes, Route, NavLink } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import { Routes, Route } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
 import BathroomCard from './Map/BathroomCard.js';
@@ -17,8 +14,6 @@ import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
-import { BiSearch } from 'react-icons/bi';
-import { GiHamburgerMenu } from 'react-icons/gi';
 // Pages
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
 import SignInPage from './Pages/Signin/Signin';
@@ -56,76 +51,6 @@ class App extends Component {
     );
   }
 }
-/** 
-class HomePage extends Component {
-  render() {
-    return (
-      <div>
-        <div style={{display:'flex', justifyContent:'left'}}>
-          <MenuButton />
-        </div>
-        <h1>Spotty</h1>
-        <h2>Spot-a-Potty</h2>
-        <TempMapPage />
-      </div>
-    );
-  }
-}
-
-
-class MenuButton extends Component {
-  render() {
-    return (
-      <RedirectButton redirectTo="/menu" button={<button><GiHamburgerMenu /></button>} />
-    );
-  }
-}
-
-class TempMapPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      buildingDisplayed: ""
-    };
-  }
-
-  updateBuildingDisplayed = (buildingID) => {
-    this.setState({buildingDisplayed: buildingID});
-  }
-
-  hideCard = () => {
-    this.updateBuildingDisplayed("");
-  }
-
-  render() {
-    let searchPlaceholder = <BiSearch className="bufferedIcon" />;
-    let buildingCard = <span/>;
-    if (this.state.buildingDisplayed === "test") {
-      buildingCard = 
-        <div style={{textAlign:"left", display:'flex', flexDirection:'row', alignContent:'center'}}>
-          <div onClick={() => {this.hideCard()}} style={{width:"15vw"}}/>
-          <BathroomCard hideCard={this.hideCard} />
-          <div onClick={() => {this.hideCard()}} style={{width:"15vw"}}/>
-        </div>;
-    }
-    return (
-      <div style={{backgroundColor:'lightGray'}}>
-        <div style={{height:'1rem'}} />
-        <form action="" className="mt-3">
-          <input type="text" placeholder="Location" />
-          <Button variant="primary btn-sm" id="search-button" type="submit">
-            <BiSearch />
-          </Button>{' '}
-        </form>
-        <div onClick={() => {this.hideCard()}} style={{height:'5rem'}} />
-        {buildingCard}
-        <div onClick={() => {this.hideCard()}} style={{height:'5rem'}} />
-        <BuildingList updateBuildingDisplayed={this.updateBuildingDisplayed} />
-      </div>
-    );
-  }
-}
-*/
 
 class ReviewHistoryPage extends Component {
   render() {
