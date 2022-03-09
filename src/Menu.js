@@ -4,7 +4,6 @@ import { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 // Components
 import { ShortDivider } from './StyleElements';
-import { RedirectButton } from './StyleElements';
 // Icons
 import { AiOutlineRight } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
@@ -26,15 +25,12 @@ export default class Menu extends Component {
     }
 
     render() {
-        if (this.props.userId == "") {
-            return <Navigate to={"/signin"} />
-        }
         if (this.state && this.state.redirectTo === "reviews") {
             let newPath = "/" + this.state.redirectTo;
             return <Navigate to={newPath} />
         }
         return (
-            <div style={{textAlign:"left", display:'flex', flexDirection:'row', alignContent:'center'}}>
+            <div className="fillLeftPage" style={{textAlign:"left", display:'flex', flexDirection:'row', alignContent:'center', backgroundColor:'white'}}>
                 <div className="shadow" style={{width:"80vw", height:"100vh"}}>
                     <div style={{margin:"1rem"}}>
                         <AccountInfo 
@@ -51,7 +47,7 @@ export default class Menu extends Component {
                         <MenuItem title="Sign Out" icon={<IoLogOutOutline className="bufferedIcon" style={{height:"1.5rem"}} />} />
                     </div>
                 </div>
-                <RedirectButton redirectTo="/" button={<div style={{width:"20vw"}}/>} />
+                {/*<RedirectButton redirectTo="/" button={<div style={{width:"20vw"}}/>} />*/}
             </div>
         );
     }
