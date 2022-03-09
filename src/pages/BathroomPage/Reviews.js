@@ -2,7 +2,7 @@
 import React from 'react';
 import { Component } from 'react';
 // Components
-import { Divider } from '../../StyleElements';
+import { Divider, RedirectButton } from '../../StyleElements';
 import { StarRating } from './Ratings';
 // Icons
 import { BiPencil } from "react-icons/bi";
@@ -19,10 +19,12 @@ class BathroomReviews extends Component {
                 <p style={{marginLeft:'1rem'}}>38 reviews</p>
             </div>
             <div style={{textAlign:'center'}}>
-                <button>
+                <RedirectButton 
+                redirectTo="/review" 
+                button={<button>
                     <BiPencil className="bufferedIcon" />
                     Write a Review
-                </button>
+                    </button>} />
             </div>
             <Divider />
             <AllBathroomReviews/>
