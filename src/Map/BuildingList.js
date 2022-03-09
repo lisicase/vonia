@@ -49,53 +49,7 @@ export default function BuildingList({ updateBuildingDisplayed }) {
 
 export function BuildingListItem(bathroom) {
 
-    /**
-class BuildingListItem extends Component {
-render() {
-    return (
-        <Popup 
-            trigger={
-                <div>
-                    {<BuildingListContent 
-                        name={this.props.name} 
-                        handleClick={this.props.handleClick} 
-                        location={this.props.location} 
-                        miles={this.props.miles}
-                        imgSrc={this.props.imgSrc}
-                        rating={this.props.rating} />}
-                </div>
-            }
-            position="top right"
-            closeOnDocumentClick={true}
-        >
-            <div>
-                <BathroomCard 
-                    name={this.props.name} 
-                    location={this.props.location}
-                    miles={this.props.miles} 
-                    imgSrc={this.props.imgSrc}
-                />
-            </div>
-        </Popup>
-    );
-}
-}
-
-class BuildingListContent extends Component {
-constructor(props) {
-    super(props);
-    this.state = {
-        redirectTo: ""
-    };
-}
- 
-openBathroomInfo = () => {
-    this.setState({ redirectTo: "bathroomcard" });
-}
-*/
-
     const [redirectTo, openBathroomInfo] = useState("");
-    console.log(bathroom);
 
     if (redirectTo === "bathroomcard") {
         return <Navigate to={"/bathroomcard"} />
@@ -109,5 +63,5 @@ openBathroomInfo = () => {
                 imgSrc={bathroom.bathroom.properties.imgSrc}
             />
         </div>
-    )
+    );
 }
