@@ -1,14 +1,15 @@
-import React, { useEffect, useState, useRef, Component } from "react";
+// React
+import React, { useEffect, useState, useRef } from "react";
+// Components
 import Button from 'react-bootstrap/Button';
 import { BiSearch } from 'react-icons/bi';
-import BathroomCard from '../../Map/BathroomCard.js';
 import BuildingList from '../../Map/BuildingList.js';
 import { RedirectButton } from '../../StyleElements.js';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import Menu from "../../Menu.js";
 // Map
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import ReactMapGL, {Marker} from 'react-map-gl';
-
 
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
@@ -16,18 +17,31 @@ import 'reactjs-popup/dist/index.css';
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_TOKEN;
 
 
-export default function HomePage() {
+export default function HomePage(props) {
+    //if (this.props.userId && this.props.userId==="") {
+    let menuButton = <RedirectButton redirectTo="/signin" button={<button><GiHamburgerMenu /></button>} />
+    if (props.userId!=="") {
+        menuButton = <Popup 
+        trigger={
+            <button><GiHamburgerMenu /></button>
+        }
+        closeOnDocumentClick={true}
+    >
+        <div>
+            <Menu />
+        </div>
+    </Popup>
+    }
     return (
         <div>
             <div style={{ display: 'flex', justifyContent: 'left' }}>
-                <MenuButton />
+            {menuButton}
             </div>
             <h1>Spotty</h1>
             <h2>Spot-a-Potty</h2>
             <TempMapPage />
         </div>
     );
-
 }
 
 function MenuButton() {

@@ -43,7 +43,7 @@ class App extends Component {
       <div className="App">
         <>
           <Routes>
-            <Route path='/' element={<HomePage />} />
+            <Route path='/' element={<HomePage userId={this.state.userId} />} />
             <Route path='/bathroom' element={<BathroomPage />} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />

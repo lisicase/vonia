@@ -48,6 +48,7 @@ class BuildingListItem extends Component {
                             rating={this.props.rating} />}
                     </div>
                 }
+                position="top right"
                 closeOnDocumentClick={true}
             >
                 <div>
