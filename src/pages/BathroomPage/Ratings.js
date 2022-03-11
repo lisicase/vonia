@@ -3,6 +3,10 @@ import React from 'react';
 import { Component } from 'react';
 // Icons
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
+// Components
+import { Rate } from 'antd';
+// Style
+import 'antd/dist/antd.css';
 
 export class StarRating extends Component {
     getStars(rating) {
@@ -26,7 +30,7 @@ export class StarRating extends Component {
     }
     
     render() {
-        let rating = 4.5;
+        /*let rating = 4.5;
         if (this.props.rating) {
             rating = this.props.rating;
         }
@@ -35,7 +39,10 @@ export class StarRating extends Component {
             <div className="purpleRatingSymbol">
                 {allStars}
             </div>
-        )
+        )*/
+        return (
+            <Rate disabled defaultValue={this.props.rating} allowHalf style={{color:'#E0AFFB'}} />
+        );
     }
 }
 
@@ -44,10 +51,10 @@ export class BathroomRatingsByCategory extends Component {
       return (
         <div>
             <h2>Ratings</h2>
-            <CategoricalRating title="Cleanliness" rating='4' />
-            <CategoricalRating title="Privacy" rating='4' />
-            <CategoricalRating title="Well-Stocked" rating='5' />
-            <CategoricalRating title="Wait Line" rating='3' />
+            <CategoricalRating title="Cleanliness" rating={4} />
+            <CategoricalRating title="Privacy" rating={4} />
+            <CategoricalRating title="Well-Stocked" rating={5} />
+            <CategoricalRating title="Wait Line" rating={3} />
         </div>
       );
     }

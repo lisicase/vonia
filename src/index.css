@@ -150,3 +150,7 @@ div.popup-content {
   border: none;
   padding: 0;
 }
+
+.sectionTitle {
+  font-size: 1.25rem;
+}

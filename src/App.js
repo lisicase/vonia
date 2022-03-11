@@ -9,6 +9,7 @@ import BathroomCard from './Map/BathroomCard.js';
 import BuildingList from './Map/BuildingList.js';
 import Menu from './Menu';
 import { RedirectButton } from './StyleElements.js';
+import WriteReview from './Pages/Reviews/WriteReview';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -42,6 +43,7 @@ class App extends Component {
             <Route path='/bathroom' element={<BathroomPage />} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
+            <Route path='/review' element={<WriteReview />} />
             <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
             <Route path='/buildinglist' element={<BuildingList />} />
           </Routes>
