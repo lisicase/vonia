@@ -23,6 +23,7 @@
     "react-map-gl": "^7.0.9",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
+    "react-use": "^17.3.2",
     "reactjs-popup": "^2.0.5",
     "web-vitals": "^2.1.4"
   },
