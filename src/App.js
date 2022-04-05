@@ -35,6 +35,7 @@ class App extends Component {
   }
 
   render() {
+    document.title = "Spotty";
     return (
       <div className="App">
         <>
