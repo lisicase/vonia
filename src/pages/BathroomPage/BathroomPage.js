@@ -11,9 +11,8 @@ import { BathroomGallery } from './Gallery';
 import { FaChevronLeft } from "react-icons/fa";
 import { BathroomFeatures } from './BathroomFeatures';
 
-export default class BathroomPage extends Component {
-    render() {
-      return (
+export default function BathroomPage() {
+    return (
         <div style={{textAlign:"left"}}>
             <BathroomPageTitle/>
             <div style={{display:'flex', flexDirection:'row', alignContent:'center' }}>
@@ -31,13 +30,11 @@ export default class BathroomPage extends Component {
                 </div>
             </div>
         </div>
-      );
-    }
+    );
 }
 
-class BathroomPageTitle extends Component {
-    render() {
-      return (
+function BathroomPageTitle() {
+    return (
         <div style={{textAlign:"left"}}>
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <div style={{display: 'flex', flexDirection:'row'}}>
@@ -50,6 +47,5 @@ class BathroomPageTitle extends Component {
                 Guthrie Annex 3 (GA3), Seattle, WA 98105
             </p>
         </div>
-      );
-    }
+    );
 }
