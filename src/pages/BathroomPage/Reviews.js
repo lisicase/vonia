@@ -3,6 +3,7 @@ import React from 'react';
 // Components
 import { Divider, RedirectButton } from '../../StyleElements';
 import { StarRating } from './Ratings';
+import { Button } from 'antd';
 // Icons
 import { BiPencil } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
@@ -12,18 +13,18 @@ import { MdOutlineReport } from "react-icons/md";
 function BathroomReviews({userId}) {
         let reviewButton = <RedirectButton 
                             redirectTo="/signin" 
-                            button={<button>
+                            button={<Button>
                                 <BiPencil className="bufferedIcon" />
                                 Write a Review
-                                </button>} 
+                                </Button>} 
                             />;
         if (userId !== "") {
             reviewButton = <RedirectButton 
                             redirectTo="/review" 
-                            button={<button>
+                            button={<Button>
                                 <BiPencil className="bufferedIcon" />
                                 Write a Review
-                                </button>} 
+                                </Button>} 
                             />;
         }
 
