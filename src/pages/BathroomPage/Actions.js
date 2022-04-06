@@ -30,9 +30,7 @@ export function BathroomActions() {
 function ActionWithTitle({icon, title}) {
     return (
         <div className="textCenter" >
-            <div className="actionBtn">
-                {icon}
-            </div>
+            <div className="actionBtn">{icon}</div>
             <p>{title}</p>
         </div>
     );
