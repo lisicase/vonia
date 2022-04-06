@@ -322,7 +322,7 @@ function TempMapPage() {
 
     return (
         <div>
-            <div style={{"marginBottom":"1rem"}}>
+            <div style={{"marginBottom":"1rem"}} className="searchBar">
                 <Input.Group compact>
                     <Input placeholder="Location" style={{ width:'70vw', textAlign:'left'}} prefix={<BiSearch color="gray" />} />
                     <Button><BiFilterAlt color="gray"/></Button>
