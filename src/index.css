@@ -82,7 +82,7 @@ div.lightDivider.short {
   padding-top: 0;
 }
 
-.shadow {
+.shadow, .ant-input-affix-wrapper, div.shadowSearch .ant-btn {
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
 

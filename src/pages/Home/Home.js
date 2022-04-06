@@ -1,12 +1,15 @@
 // React
 import React, { useEffect, useState, useRef } from "react";
 // Components
-import Button from 'react-bootstrap/Button';
 import { BiSearch } from 'react-icons/bi';
 import BuildingList from '../../Map/BuildingList.js';
 import { RedirectButton } from '../../StyleElements.js';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Menu from "../../Menu.js";
+import { Input, Button } from 'antd';
+//Icons
+import { BiFilterAlt } from "react-icons/bi";
+
 // Map
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import ReactMapGL, {Marker} from 'react-map-gl';
@@ -334,12 +337,12 @@ function TempMapPage() {
 
     return (
         <div>
-            <form action="" className="mt-3">
-                <input type="text" placeholder="Location" />
-                <Button variant="primary btn-sm" id="search-button" type="submit">
-                    <BiSearch />
-                </Button>{' '}
-            </form>
+            <div style={{"marginBottom":"1rem"}} className="shadowSearch">
+                <Input.Group compact>
+                    <Input placeholder="Location" style={{ width:'70vw', textAlign:'left'}} prefix={<BiSearch color="gray" />} />
+                    <Button><BiFilterAlt color="gray"/></Button>
+                </Input.Group>
+            </div>
             {buildingCard}
             <div ref={mapContainer} className="map-container" style={{height:'30rem', overflow:'hidden'}}/>
             <BuildingList />
