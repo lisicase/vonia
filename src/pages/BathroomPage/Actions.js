@@ -13,7 +13,7 @@ export function BathroomActions() {
                 </div>;
     if (favorited) {
         favBtn = <div onClick={() => toggleFavorited(false)}>
-                    <ActionWithTitle icon={<FaHeart size={30} />} title="Favorite" />
+                    <ActionWithTitle icon={<FaHeart size={30} />} title="Favorite" override="purpleRatingSymbol" />
                 </div>;
     }
 
@@ -27,10 +27,14 @@ export function BathroomActions() {
     );
 }
 
-function ActionWithTitle({icon, title}) {
+function ActionWithTitle({icon, title, override="actionBtn"}) {
+    let btnClasses = "actionBtn";
+    if (override != null) {
+        btnClasses = override;
+    }
     return (
         <div className="textCenter" >
-            <div className="actionBtn">{icon}</div>
+            <div className={btnClasses}>{icon}</div>
             <p>{title}</p>
         </div>
     );
