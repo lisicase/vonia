@@ -27,16 +27,36 @@ export default function HomePage(props) {
             </Popup>
     }
     return (
-        <div>
-            <div style={{ display: 'flex', justifyContent: 'left' }}>
-                {menuButton}
+        <div style={{backgroundColor:'#dae1e3'}}>
+            <div style={{display:'flex', backgroundColor:'white', paddingTop:'0.5rem', justifyContent:'space-between'}}>
+                <div style={{display:'flex', justifyContent:'left', paddingLeft:'0.5rem', paddingRight:'0.5rem'}}>
+                    {menuButton}
+                </div>
+                <div style={{display:'flex', justifyContent:'center'}}>
+                    {/*<img src="favicon.ico" style={{height:'1.5rem', paddingRight:'0.5rem'}} />*/}
+                    <h5>spotty</h5>
+                </div>
+                <button style={{opacity:'0'}}><GiHamburgerMenu /></button>
             </div>
-            <h1>Spotty</h1>
-            <h2>Spot-a-Potty</h2>
             <TempMapPage />
         </div>
     );
 }
+
+/*return (
+    <div style={{backgroundColor:'#dae1e3'}}>
+        <div style={{display:'flex', backgroundColor:'white', paddingTop:'0.5rem'}}>
+            <div style={{display:'flex', justifyContent:'left', paddingLeft:'0.5rem', paddingRight:'0.5rem'}}>
+                {menuButton}
+            </div>
+            <div style={{display:'flex', justifyContent:'center'}}>
+                <img src="favicon.ico" style={{height:'1.5rem', paddingRight:'0.5rem'}} />
+                <h5>spotty</h5>
+            </div>
+        </div>
+        <TempMapPage />
+    </div>
+);*/
 
 function BathroomListing(bathroom) {
     const id = bathroom.properties.id;
@@ -322,7 +342,7 @@ function TempMapPage() {
 
     return (
         <div>
-            <div style={{"marginBottom":"1rem"}} className="searchBar">
+            <div style={{marginBottom:'1rem', marginTop:'1rem'}} className="searchBar">
                 <Input.Group compact>
                     <Input placeholder="Location" style={{ width:'70vw', textAlign:'left'}} prefix={<BiSearch color="gray" />} />
                     <Button><BiFilterAlt color="gray"/></Button>
