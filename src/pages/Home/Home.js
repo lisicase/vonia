@@ -7,38 +7,29 @@ import { RedirectButton } from '../../StyleElements.js';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Menu from "../../Menu.js";
 import { Input, Button } from 'antd';
+import Popup from 'reactjs-popup';
 //Icons
 import { BiFilterAlt } from "react-icons/bi";
-
 // Map
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-import ReactMapGL, {Marker} from 'react-map-gl';
-
-import Popup from 'reactjs-popup';
+// Style
 import 'reactjs-popup/dist/index.css';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_TOKEN;
 
 
 export default function HomePage(props) {
-    //if (this.props.userId && this.props.userId==="") {
     let menuButton = <RedirectButton redirectTo="/signin" button={<button><GiHamburgerMenu /></button>} />
-    if (props.userId!=="") {
-        menuButton = <Popup 
-        trigger={
-            <button><GiHamburgerMenu /></button>
-        }
-        closeOnDocumentClick={true}
-    >
-        <div>
-            <Menu />
-        </div>
-    </Popup>
+    if (props.userId !== "") {
+        menuButton =
+            <Popup trigger={<button><GiHamburgerMenu /></button>} closeOnDocumentClick={true}>
+                <div><Menu /></div>
+            </Popup>
     }
     return (
         <div>
             <div style={{ display: 'flex', justifyContent: 'left' }}>
-            {menuButton}
+                {menuButton}
             </div>
             <h1>Spotty</h1>
             <h2>Spot-a-Potty</h2>
@@ -46,12 +37,6 @@ export default function HomePage(props) {
         </div>
     );
 }
-
-function MenuButton() {
-      return (
-        <RedirectButton redirectTo="/menu" button={<button><GiHamburgerMenu /></button>} />
-      );
-  }
 
 function BathroomListing(bathroom) {
     const id = bathroom.properties.id;
@@ -337,7 +322,7 @@ function TempMapPage() {
 
     return (
         <div>
-            <div style={{"marginBottom":"1rem"}} className="shadowSearch">
+            <div style={{"marginBottom":"1rem"}}>
                 <Input.Group compact>
                     <Input placeholder="Location" style={{ width:'70vw', textAlign:'left'}} prefix={<BiSearch color="gray" />} />
                     <Button><BiFilterAlt color="gray"/></Button>
