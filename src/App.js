@@ -41,7 +41,7 @@ class App extends Component {
         <>
           <Routes>
             <Route path='/' element={<HomePage userId={this.state.userId} />} />
-            <Route path='/bathroom' element={<BathroomPage />} />
+            <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
