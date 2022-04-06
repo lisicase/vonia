@@ -19,10 +19,10 @@ mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_TOKEN;
 
 
 export default function HomePage(props) {
-    let menuButton = <RedirectButton redirectTo="/signin" button={<button><GiHamburgerMenu /></button>} />
+    let menuButton = <RedirectButton redirectTo="/signin" button={<div><GiHamburgerMenu /></div>} />
     if (props.userId !== "") {
         menuButton =
-            <Popup trigger={<button><GiHamburgerMenu /></button>} closeOnDocumentClick={true}>
+            <Popup trigger={<div><GiHamburgerMenu /></div>} closeOnDocumentClick={true}>
                 <div><Menu /></div>
             </Popup>
     }
@@ -36,7 +36,7 @@ export default function HomePage(props) {
                     {/*<img src="favicon.ico" style={{height:'1.5rem', paddingRight:'0.5rem'}} />*/}
                     <h5>spotty</h5>
                 </div>
-                <button style={{opacity:'0'}}><GiHamburgerMenu /></button>
+                <div style={{opacity:'0'}}><GiHamburgerMenu /></div>
             </div>
             <TempMapPage />
         </div>
