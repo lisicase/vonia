@@ -7,7 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
 import BathroomCard from './Map/BathroomCard.js';
 import BuildingList from './Map/BuildingList.js';
-import Menu from './Menu';
+import FavoritesPage from './Pages/Favorites/Favorites.js';
 import { RedirectButton } from './StyleElements.js';
 import WriteReview from './Pages/Reviews/WriteReview';
 // Styles
@@ -47,6 +47,7 @@ class App extends Component {
             <Route path='/review' element={<WriteReview />} />
             <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
             <Route path='/buildinglist' element={<BuildingList />} />
+            <Route path='/favorites' element={<FavoritesPage />} />
           </Routes>
         </>
       </div>
