@@ -1,19 +1,20 @@
 import React, { useEffect, useState, useRef } from "react";
+import { renderToStaticMarkup } from 'react-dom/server';
 import { BiSearch } from 'react-icons/bi';
 import Button from 'react-bootstrap/Button';
 // Modularizing
-import BathroomCard from './BathroomCard.js';
+import BathroomCard from './BathroomPopup.js';
 import BuildingList from './BuildingList.js';
 import bathrooms from '../Shared/bathroomData/bathroom-data.json'
 // Map
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { map } from "@firebase/util";
+import { render } from "@testing-library/react";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_TOKEN;
 
 export default function InitMap() {
     let searchPlaceholder = <BiSearch className="bufferedIcon" />;
-    let buildingCard = <span />;
     const [buildingDisplayed, updateBuildingDisplayed] = useState('');
     const hideCard = () => {
         updateBuildingDisplayed("");
@@ -26,6 +27,8 @@ export default function InitMap() {
     const [zoom, setZoom] = useState(13);
 
     const flyToStore = (currentFeature) => {
+        console.log('flying to store');
+        console.log(currentFeature);
         map.current.flyTo({
             center: currentFeature.geometry.coordinates,
             zoom: 15
@@ -34,8 +37,22 @@ export default function InitMap() {
 
     const createPopUp = (currentFeature) => {
         const popUps = document.getElementsByClassName('mapboxgl-popup');
-        if (popUps[0]) popUps.remove();
+        if (popUps[0]) popUps[0].remove();
+        console.log('creating popup:');
+        console.log(currentFeature);
+        const test = <BathroomCard bathroom={currentFeature} />;
+        const output = document.createElement("div");
+        const html = renderToStaticMarkup(test);
+        output.innerHTML = `<div>${html}</div>`;
 
+        let coords = currentFeature.geometry.coordinates
+
+
+        const popup = new mapboxgl.Popup({ closeOnClick: true })
+            .setLngLat(coords)
+            //.setHTML(`<h1> peepeepoopoo </h1>`)
+            .setDOMContent(output) //might fail
+            .addTo(map.current);
     }
 
     bathrooms.features.forEach(function (bathroom, i) {
@@ -82,6 +99,38 @@ export default function InitMap() {
                 }
             });
         });
+
+        map.current.on('click', (event) => {
+            /* Determine if a feature in the "locations" layer exists at that point. */
+            const features = map.current.queryRenderedFeatures(event.point, {
+                layers: ['locations']
+            });
+
+            console.log(event);
+
+            /* If it does not exist, return */
+            if (!features.length) return;
+            console.log(features);
+            const clickedPoint = features[0];
+            clickedPoint.properties.floors = JSON.parse(clickedPoint.properties.floors);
+            console.log(features);
+
+            /* Fly to the point */
+            flyToStore(clickedPoint);
+
+            /* Close all other popups and display popup for clicked store */
+            createPopUp(clickedPoint);
+
+            /* Highlight listing in sidebar (and remove highlight for all other listings) */
+            const activeItem = document.getElementsByClassName('active');
+            if (activeItem[0]) {
+                activeItem[0].classList.remove('active');
+            }
+            const listing = document.getElementById(
+                `listing-${clickedPoint.properties.id}`
+            );
+            listing.classList.add('active');
+        });
     });
 
     useEffect(() => {
@@ -101,9 +150,8 @@ export default function InitMap() {
                     <BiSearch />
                 </Button>{' '}
             </form>
-            {buildingCard}
             <div ref={mapContainer} className="map-container" style={{ height: '30rem', overflow: 'hidden' }} />
-            <BuildingList />
+            <BuildingList flyToStore={flyToStore} createPopup={createPopUp} />
         </div>
     );
 }
