@@ -46,12 +46,11 @@ export default function InitMap() {
         output.innerHTML = `<div>${html}</div>`;
 
         let coords = currentFeature.geometry.coordinates
-
+        let offsetCoords = [coords[0], coords[1] + 0.0101];
 
         const popup = new mapboxgl.Popup({ closeOnClick: true })
-            .setLngLat(coords)
-            //.setHTML(`<h1> peepeepoopoo </h1>`)
-            .setDOMContent(output) //might fail
+            .setLngLat(offsetCoords)
+            .setDOMContent(output)
             .addTo(map.current);
     }
 
