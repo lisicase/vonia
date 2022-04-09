@@ -57,6 +57,18 @@ button.submitBtn:hover {
   box-shadow: none;
 }
 
+button.filterToggle {
+  background-color: #EEEEEE;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 .2rem 1rem rgba(0, 0, 0, .1);
+}
+
+button.filterToggle:hover {
+  background-color: #e3e3e3;
+  box-shadow: none;
+}
+
 .purpleRatingSymbol {
   color: var(--ratingPurple);
 }

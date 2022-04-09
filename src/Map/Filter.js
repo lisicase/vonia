@@ -1,13 +1,14 @@
 // React
 import React, { Component } from 'react';
 // Components 
-import { RedirectButton } from "../StyleElements";
+import { RedirectButton, Divider } from "../StyleElements";
+import { Rate } from 'antd';
 
 export default function FilterForm() {
     return (
         <div>
             <div style={{ textAlign: "left" }}>
-                <RedirectButton redirectTo="/bathroom" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
+                <RedirectButton redirectTo="/" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
                 <h1>Filters</h1>
             </div>
             <ReviewForm />
@@ -18,13 +19,14 @@ export default function FilterForm() {
 function ReviewForm() {
     return (
         <form class="form-inline">
-            <div style={{ textAlign:'left', display:'flex', flexDirection:'column', margin:'3rem'}}>
-                    <FilterCategory title="Gender" filters={["Women", "Men", "Neutral"]} />
-                    <SelectBathroomType />
-                    <EnterReviewTitle />
-                    <EnterReviewContent />
+            <div style={{ textAlign:'left', display:'flex', flexDirection:'column', margin:'1.5rem'}}>
+                <FilterCategory title="Gender" filters={["Women", "Men", "Neutral"]} />
+                <FilterCategory title="Accessibility" filters={["Large Stall", "Single Stall", "Hand Rail", "Low Seat"]} />
+                <FilterCategory title="Features" filters={["Changing Station", "Tall Stalls", "Water Fountain", "Auto-Flush", "Feminine Products", "Towels"]} />
+                <FilterCategory title="Requirements" filters={["No Key", "Free"]} />
+                <MinimumRating />
             </div>
-            <div style={{ marginTop: "20vw" }}>
+            <div style={{paddingTop:'2rem'}}>
                 <ResetButton />
                 <span style={{padding:'7vw'}}/>
                 <SaveButton />
@@ -34,66 +36,46 @@ function ReviewForm() {
 }
 
 function FilterCategory(props) {
+    let allToggles = props.filters.map((filterName) => {
+        return <FilterToggle text={filterName} id={filterName} />;
+    })
     return (
         <div>
-            {/*<div class="form-group mr-3" style={{ display: 'flex' }}>
-                <input type="text" name="term" id="searchQuery" class="form-control" />
-            </div>*/}
-            <p><strong>{props.title}</strong></p>
-            <FilterButton text={props.filters[0]} />
-            <FilterButton text="Men" />
-            <FilterButton text="Neutral" />
+            <div style={{display:'flex'}}>
+                <CategoryTitle title={props.title} />
+                <div style={{display:'flex', flexWrap:'wrap', paddingLeft:'1rem'}}>
+                    {allToggles}
+                </div>
+            </div>
+            <Divider />
         </div>
     );
 }
 
-class CategoricalRating extends Component {
-    render() {
-        return (
-            <div style={{display:'flex', justifyContent:'space-between'}} >
-                <p className="slightBold">{this.props.title}</p>
-                {/*<StarRating rating={this.props.rating} size={25} />*/}
-            </div>
-        );
-    }
-}
-
-function SelectBathroomType() {
+function MinimumRating() {
     return (
         <div>
-            <h2 className="sectionTitle">Bathroom Type</h2>
-            <div class="form-group mr-3" style={{ display: 'flex' }}>
-                <input type="text" name="term" id="searchQuery" class="form-control" />
+            <div style={{display:'flex'}}>
+                <CategoryTitle title="Minimum Rating" />
+                <div style={{paddingLeft:'1rem'}}>
+                    <Rate allowHalf style={{color:'#E0AFFB'}} />
+                </div>
             </div>
+        </div>
+    )
+}
+
+function CategoryTitle(props) {
+    return (
+        <div>
+            <h2 style={{fontSize:'1.1rem', width:'8rem'}}><strong>{props.title}</strong></h2>
         </div>
     );
 }
 
-function EnterReviewTitle() {
+function FilterToggle(props) {
     return (
-        <div>
-            <h2 className="sectionTitle">Title</h2>
-            <div class="form-group mr-3" style={{ display: 'flex' }}>
-                <input type="text" name="term" id="searchQuery" class="form-control" />
-            </div>
-        </div>
-    );
-}
-
-function EnterReviewContent() {
-    return (
-        <div>
-            <h2 className="sectionTitle">Content</h2>
-            <div class="form-group mr-3" style={{ display: 'flex' }}>
-                <input type="text" name="term" id="searchQuery" class="form-control" style={{height:'10rem'}} />
-            </div>
-        </div>
-    );
-}
-
-function FilterButton(props) {
-    return (
-        <button type="submit" class="btn resetBtn" style={{width:'25vw'}}>
+        <button type="submit" class="btn filterToggle">
             <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>{props.text}
         </button>
     );
