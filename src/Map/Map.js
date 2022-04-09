@@ -1,10 +1,13 @@
+// React
 import React, { useEffect, useState, useRef } from "react";
 import { renderToStaticMarkup } from 'react-dom/server';
-import { BiSearch } from 'react-icons/bi';
-import Button from 'react-bootstrap/Button';
+// Icons
+import { BiSearch, BiFilterAlt } from 'react-icons/bi';
 // Modularizing
 import BathroomCard from './BathroomPopup.js';
 import BuildingList from './BuildingList.js';
+import { Input, Button } from 'antd';
+// Data
 import bathrooms from '../Shared/bathroomData/bathroom-data.json'
 // Map
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
@@ -143,12 +146,12 @@ export default function InitMap() {
 
     return (
         <div>
-            <form action="" className="mt-3">
-                <input type="text" placeholder="Location" />
-                <Button variant="primary btn-sm" id="search-button" type="submit">
-                    <BiSearch />
-                </Button>{' '}
-            </form>
+            <div style={{marginBottom:'1rem', marginTop:'1rem'}} className="searchBar">
+                <Input.Group compact>
+                    <Input placeholder="Location" style={{ width:'70vw', textAlign:'left'}} prefix={<BiSearch color="gray" />} />
+                    <Button><BiFilterAlt color="gray"/></Button>
+                </Input.Group>
+            </div>
             <div ref={mapContainer} className="map-container" style={{ height: '30rem', overflow: 'hidden' }} />
             <BuildingList flyToStore={flyToStore} createPopup={createPopUp} />
         </div>
