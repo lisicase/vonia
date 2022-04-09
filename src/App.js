@@ -5,7 +5,7 @@ import { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
-import BathroomCard from './Map/BathroomCard.js';
+import BathroomCard from './Map/BathroomPopup.js';
 import BuildingList from './Map/BuildingList.js';
 import FavoritesPage from './Pages/Favorites/Favorites.js';
 import { RedirectButton } from './StyleElements.js';

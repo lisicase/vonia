@@ -154,3 +154,9 @@ div.popup-content {
 .sectionTitle {
   font-size: 1.25rem;
 }
+
+/* Marker tweaks */
+
+.mapboxgl-popup-content div {
+  padding-top: 1px;
+}
