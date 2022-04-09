@@ -160,3 +160,7 @@ div.popup-content {
 .mapboxgl-popup-content div {
   padding-top: 1px;
 }
+
+.mapboxgl-popup-close-button {
+  display: none;
+}
