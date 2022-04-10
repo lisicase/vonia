@@ -73,11 +73,11 @@ function AccountInputBoxes(props) {
         <div>
             <div class="form-group mr-3" style={{ display: 'flex' }}>
                 <label for="searchQuery" class="mr-2"><MdOutlineMail className="bufferedIcon" size={30} style={{ height: '4rem' }} /></label>
-                <TextField onChange={props.handleEmail} id="standard-basic" label="Display Name" variant="standard" fullWidth />
+                <TextField onChange={props.handleEmail} id="standard-basic" label="Email" variant="standard" fullWidth />
             </div>
             <div class="form-group mr-3" style={{ display: 'flex' }}>
                 <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" size={30} style={{ height: '4rem' }} /></label>
-                <TextField onChange={props.handlePassword} id="standard-basic" label="Display Name" variant="standard" fullWidth />
+                <TextField onChange={props.handlePassword} id="standard-basic" label="Password" variant="standard" fullWidth />
             </div>
         </div>
     );
