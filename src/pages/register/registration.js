@@ -4,6 +4,7 @@ import { useState } from 'react';
 import React from 'react';
 // Components
 import { RedirectButton, Logo } from "../../StyleElements";
+import { TextField } from '@mui/material';
 // Icons
 import { BiUserCircle } from "react-icons/bi";
 import { MdLockOutline, MdOutlineMail } from "react-icons/md";
@@ -57,16 +58,16 @@ function RegisterForm(props) {
                 <div style={{ width: "15vw" }} />
                 <div style={{ width: "70vw" }}>
                     <div class="form-group mr-3" style={{ display: 'flex' }}>
-                        <label for="searchQuery" class="mr-2"><BiUserCircle className="bufferedIcon" size={30} style={{ height: '2rem' }} /></label>
-                        <input placeholder="Display Name" type="text" name="term" id="searchQuery" class="form-control" onChange={props.handleId} />
+                        <label for="searchQuery" class="mr-2"><BiUserCircle className="bufferedIcon" size={30} style={{ height: '4rem' }} /></label>
+                        <TextField onChange={props.handleId} adornedStart={true} id="standard-basic" label="Display Name" variant="standard" fullWidth required={true} />
                     </div>
                     <div class="form-group mr-3" style={{ display: 'flex' }}>
-                        <label for="searchQuery" class="mr-2"><MdOutlineMail className="bufferedIcon" size={30} style={{ height: '2rem' }} /></label>
-                        <input placeholder="Email" type="text" name="term" id="searchQuery" class="form-control" onChange={props.handleEmail} />
+                        <label for="searchQuery" class="mr-2"><MdOutlineMail className="bufferedIcon" size={30} style={{ height: '4rem' }} /></label>
+                        <TextField onChange={props.handleEmail} id="standard-basic" label="Email" variant="standard" fullWidth required={true} />
                     </div>
                     <div class="form-group mr-3" style={{ display: 'flex' }}>
-                        <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" size={30} style={{ height: '2rem' }} /></label>
-                        <input placeholder="Password" type="text" name="term" id="searchQuery" class="form-control" onChange={props.handlePassword} />
+                        <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" size={30} style={{ height: '4rem' }} /></label>
+                        <TextField onChange={props.handlePassword} id="standard-basic" label="Password" variant="standard" fullWidth required={true} />
                     </div>
                 </div>
             </div>
@@ -77,23 +78,6 @@ function RegisterForm(props) {
         </form>
     );
 }
-
-/*function SignInForm(props) {
-    return (
-        <form class="form-inline" onSubmit={props.handleSubmit}>
-            <div style={{ textAlign: "left", display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
-                <div style={{ width: "15vw" }} />
-                <div style={{ width: "70vw" }}>
-                    <AccountInputBoxes handleEmail={props.handleEmail} handlePassword={props.handlePassword} />
-                    <p className="textCenter">Don't have an account? <strong className="actionBtn">Register Here</strong></p>
-                </div>
-            </div>
-            <div style={{ marginTop: "20vw" }}>
-                <SignUpButton />
-            </div>
-        </form>
-    );
-}*/
 
 function AccountInputBoxes(props) {
     return (

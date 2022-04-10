@@ -3,6 +3,7 @@ import React, { useState, Component } from 'react';
 import { useNavigate } from "react-router-dom";
 // Components
 import { RedirectButton, Logo } from "../../StyleElements";
+import { TextField } from '@mui/material';
 // Icons
 import { MdLockOutline, MdOutlineMail } from "react-icons/md";
 //firebase
@@ -71,12 +72,12 @@ function AccountInputBoxes(props) {
     return (
         <div>
             <div class="form-group mr-3" style={{ display: 'flex' }}>
-                <label for="searchQuery" class="mr-2"><MdOutlineMail className="bufferedIcon" size={30} style={{ height: '2rem' }} /></label>
-                <input placeholder="Email" type="text" name="term" id="searchQuery" class="form-control" onChange={props.handleEmail} />
+                <label for="searchQuery" class="mr-2"><MdOutlineMail className="bufferedIcon" size={30} style={{ height: '4rem' }} /></label>
+                <TextField onChange={props.handleEmail} id="standard-basic" label="Display Name" variant="standard" fullWidth />
             </div>
             <div class="form-group mr-3" style={{ display: 'flex' }}>
-                <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" size={30} style={{ height: '2rem' }} /></label>
-                <input placeholder="Password" type="text" name="term" id="searchQuery" class="form-control" onChange={props.handlePassword} />
+                <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" size={30} style={{ height: '4rem' }} /></label>
+                <TextField onChange={props.handlePassword} id="standard-basic" label="Display Name" variant="standard" fullWidth />
             </div>
         </div>
     );
