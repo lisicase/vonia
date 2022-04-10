@@ -1,5 +1,5 @@
 // React
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 // Components 
 import { RedirectButton, Divider } from "../StyleElements";
 import { Rate } from 'antd';
@@ -74,8 +74,19 @@ function CategoryTitle(props) {
 }
 
 function FilterToggle(props) {
+    const [toggleOn, toggleFilter] = useState(false);
+    let classes = "btn filterToggle";
+    if (toggleOn) {
+        classes = "btn filterToggle on";
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        toggleFilter(!toggleOn);
+    }
+
     return (
-        <button type="submit" class="btn filterToggle">
+        <button onClick={handleClick} class={classes}>
             <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>{props.text}
         </button>
     );

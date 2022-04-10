@@ -69,6 +69,15 @@ button.filterToggle:hover {
   box-shadow: none;
 }
 
+button.filterToggle.on {
+  background-color: #D4F6FB;
+}
+
+button.filterToggle.on:hover {
+  background-color: #bfdce0;
+}
+
+
 .purpleRatingSymbol {
   color: var(--ratingPurple);
 }
