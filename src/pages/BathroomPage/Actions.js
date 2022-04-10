@@ -5,8 +5,8 @@ import { FiShare2 } from "react-icons/fi";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { VscHeart } from "react-icons/vsc";
 
-export class BathroomActions extends Component {
-    render() {
+export function BathroomActions() {
+
         return (
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
                 <ActionWithTitle icon={<BsMap size={30} />} title="Directions" />
@@ -15,7 +15,6 @@ export class BathroomActions extends Component {
                 <ActionWithTitle icon={<FiShare2 size={30} />} title="Share" />
             </div>
         );
-    }
 }
 
 class ActionWithTitle extends Component {

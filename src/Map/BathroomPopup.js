@@ -15,6 +15,7 @@ export default function BathroomCard({ bathroom }) {
     const [redirectTo, updateRedirectTo] = useState("");
 
     const openBathroomInfo = () => {
+        console.log("reaching redirect")
         updateRedirectTo("bathroom");
     }
 
@@ -69,7 +70,7 @@ export function BuildingInfo({ name, location, imgSrc, miles }) {
 function BathroomListItem({ handleClick, title, rating, accessible }) {
     let accessibility = accessible ? <MdAccessible style={{ height: "1.5rem" }} /> : <span style={{ width: '1rem' }} />;
     return (
-        <div style={{ textAlign: "left" }}>
+        <div onClick={handleClick} style={{ textAlign: "left" }}>
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <div onClick={handleClick} style={{ display: 'flex', flexDirection: 'row' }}>
                     <FaToilet className="bufferedIcon" style={{ height: "1.5rem", fontSize: '0.7rem' }} />
