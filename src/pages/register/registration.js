@@ -59,7 +59,7 @@ function RegisterForm(props) {
                 <div style={{ width: "70vw" }}>
                     <div class="form-group mr-3" style={{ display: 'flex' }}>
                         <label for="searchQuery" class="mr-2"><BiUserCircle className="bufferedIcon" size={30} style={{ height: '4rem' }} /></label>
-                        <TextField onChange={props.handleId} adornedStart={true} id="standard-basic" label="Display Name" variant="standard" fullWidth required={true} />
+                        <TextField onChange={props.handleId} id="standard-basic" label="Display Name" variant="standard" fullWidth required={true} />
                     </div>
                     <div class="form-group mr-3" style={{ display: 'flex' }}>
                         <label for="searchQuery" class="mr-2"><MdOutlineMail className="bufferedIcon" size={30} style={{ height: '4rem' }} /></label>
