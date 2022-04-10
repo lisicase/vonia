@@ -19,7 +19,7 @@ import { AiOutlineStar } from 'react-icons/ai';
 // Pages
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
 import SignInPage from './Pages/Signin/Signin';
-//import RegistrationPage from './Pages/Register/Registration';
+import RegistrationPage from './Pages/register/registration.js';
 import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
 
@@ -50,6 +50,7 @@ class App extends Component {
             <Route path='/buildinglist' element={<BuildingList />} />
             <Route path='/favorites' element={<FavoritesPage />} />
             <Route path='/filter' element={<FilterForm />} />
+            <Route path='/register' element={<RegistrationPage />} />
           </Routes>
         </>
       </div>
