@@ -56,7 +56,7 @@ function SignInForm(props) {
                 <div style={{ width: "15vw" }} />
                 <div style={{ width: "70vw" }}>
                     <AccountInputBoxes handleEmail={props.handleEmail} handlePassword={props.handlePassword} />
-                    <p className="textCenter">Don't have an account? <strong className="actionBtn">Register Here</strong></p>
+                    <RedirectButton redirectTo="/register" button={<p className="textCenter">Don't have an account? <strong className="actionBtn">Register Here</strong></p>}/>
                 </div>
             </div>
             <div style={{ marginTop: "20vw" }}>
