@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // Components
 import { RedirectButton } from "../../StyleElements";
 import { Rate } from 'antd';
+
 // Style
 import 'antd/dist/antd.css';
 
