@@ -1,6 +1,7 @@
 // React
 import React, { useState, Component } from 'react';
 import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // Components
 import { StarRating } from '../Pages/BathroomPage/Ratings';
 import { ShortDivider } from '../StyleElements';
@@ -13,10 +14,11 @@ import Bathrooms from '../Shared/bathroomData/bathroom-data.json'
 
 export default function BathroomCard({ bathroom }) {
     const [redirectTo, updateRedirectTo] = useState("");
+    const nav = useNavigate();
 
     const openBathroomInfo = () => {
         console.log("reaching redirect")
-        updateRedirectTo("bathroom");
+        nav('/bathroom');
     }
 
     console.log(bathroom);
