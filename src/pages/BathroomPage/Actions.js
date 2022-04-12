@@ -26,15 +26,15 @@ export function BathroomActions() {
     );
 }
 
-function ActionWithTitle({ icon, title, clickHandler }) {
+function ActionWithTitle({icon, title, clickHandler}) {
 
-    return (
-        <div onClick={clickHandler} className="textCenter" >
-            <div className="actionBtn">
-                {icon}
+        return (
+            <div onClick={clickHandler} className="textCenter" >
+                <div className="actionBtn">
+                    {icon}
+                </div>
+                <p>{title}</p>
             </div>
-            <p>{title}</p>
-        </div>
-    );
-
+        );
+    
 }
