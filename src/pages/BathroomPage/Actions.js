@@ -18,7 +18,7 @@ export function BathroomActions() {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
-            <ActionWithTitle clickHandler={clickHandler} icon={<BsMap size={30} />} title="Directions" />
+            <ActionWithTitle clickHandler={clickHandler} icon={<FiMap size={30} />} title="Directions" />
             <ActionWithTitle icon={<VscHeart size={30} />} title="Favorite" />
             <ActionWithTitle icon={<HiOutlinePencilAlt size={30} />} title="Review" />
             <ActionWithTitle icon={<FiShare2 size={30} />} title="Share" />
