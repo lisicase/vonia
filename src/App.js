@@ -24,10 +24,37 @@ import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userId: ""
+    };
+  }
+
+  updateUserId = (uid) => {
+    this.setState({userId: uid});
+  }
+
   render() {
     document.title = "Spotty";
     return (
-      <p>testing deployment</p>
+      <div className="App">
+        <>
+          <p>testing deployment</p>
+          <Routes>
+            {/*<Route path='/' element={<HomePage userId={this.state.userId} />} />*/}
+            <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
+            {/*<Route path='/bathroomcard' element={<BathroomCard />} />
+            <Route path='/reviews' element={<ReviewHistoryPage />} />
+            <Route path='/review' element={<WriteReview />} />
+            <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
+            <Route path='/buildinglist' element={<BuildingList />} />
+            <Route path='/favorites' element={<FavoritesPage />} />
+            <Route path='/filter' element={<FilterForm />} />
+          <Route path='/register' element={<RegistrationPage />} />*/}
+          </Routes>
+        </>
+      </div>
     );
   }
 }
