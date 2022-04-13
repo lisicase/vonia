@@ -2,6 +2,7 @@
   "name": "spotty",
   "version": "0.1.0",
   "homepage": "https://lisicase.github.io/vonia",
+  "proxy": "http://localhost:5000",
   "private": false,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
