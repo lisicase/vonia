@@ -24,6 +24,15 @@ import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
 
 class App extends Component {
+  render() {
+    document.title = "Spotty";
+    return (
+      <p>testing deployment</p>
+    );
+  }
+}
+
+class AppOriginal extends Component {
   constructor(props) {
     super(props);
     this.state = {
