@@ -1,8 +1,8 @@
 {
   "name": "spotty",
   "version": "0.1.0",
-  "homepage": "https://lisicase.github.io/vonia/",
-  "private": true,
+  "homepage": "https://lisicase.github.io/vonia",
+  "private": false,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.9.0",
