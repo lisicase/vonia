@@ -41,8 +41,10 @@ class App extends Component {
       <div className="App">
         <>
           <p>testing deployment</p>
+          <HomePage userId={this.state.userId} />
+          {/*<BathroomPage userId={this.state.userId} />*/}
           <Routes>
-            {/*<Route path='/' element={<HomePage userId={this.state.userId} />} />*/}
+            <Route path='/' element={<HomePage userId={this.state.userId} />} />
             <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
             {/*<Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
