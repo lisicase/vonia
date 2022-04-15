@@ -39,7 +39,7 @@ class App extends Component {
         <>
           <Routes>
             <Route path='/' element={<HomePage userId={this.state.userId} />} />
-            <Route path='/bathroom' element={<BathroomPage />} />
+            <Route path='/bathroom/:id' element={<BathroomPage />} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />

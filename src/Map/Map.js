@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { renderToStaticMarkup } from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
+import { hydrateRoot } from "react-dom";
 import { BiSearch } from 'react-icons/bi';
 import Button from 'react-bootstrap/Button';
 // Modularizing
@@ -42,7 +43,7 @@ export default function InitMap() {
         console.log(currentFeature);
         const test = <BathroomCard bathroom={currentFeature} />;
         const output = document.createElement("div");
-        const html = renderToStaticMarkup(test);
+        const html = renderToString(test);
         output.innerHTML = `<div>${html}</div>`;
 
         let coords = currentFeature.geometry.coordinates
