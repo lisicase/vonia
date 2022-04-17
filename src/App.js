@@ -2,7 +2,7 @@
 import React from 'react';
 import { Component } from 'react';
 // Components
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
 import BathroomCard from './Map/BathroomCard.js';
@@ -40,21 +40,20 @@ class App extends Component {
     return (
       <div className="App">
         <>
-          <p>testing deployment</p>
-          <HomePage userId={this.state.userId} />
-          {/*<BathroomPage userId={this.state.userId} />*/}
-          <Routes>
-            <Route path='/' element={<HomePage userId={this.state.userId} />} />
-            <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
-            {/*<Route path='/bathroomcard' element={<BathroomCard />} />
-            <Route path='/reviews' element={<ReviewHistoryPage />} />
-            <Route path='/review' element={<WriteReview />} />
-            <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
-            <Route path='/buildinglist' element={<BuildingList />} />
-            <Route path='/favorites' element={<FavoritesPage />} />
-            <Route path='/filter' element={<FilterForm />} />
-          <Route path='/register' element={<RegistrationPage />} />*/}
-          </Routes>
+          <HashRouter>
+            <Routes>
+              <Route path='/' element={<HomePage userId={this.state.userId} />} />
+              <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
+              <Route path='/bathroomcard' element={<BathroomCard />} />
+              <Route path='/reviews' element={<ReviewHistoryPage />} />
+              <Route path='/review' element={<WriteReview />} />
+              <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
+              <Route path='/buildinglist' element={<BuildingList />} />
+              <Route path='/favorites' element={<FavoritesPage />} />
+              <Route path='/filter' element={<FilterForm />} />
+              <Route path='/register' element={<RegistrationPage />} />
+            </Routes>
+          </HashRouter>
         </>
       </div>
     );
