@@ -5,12 +5,13 @@ import { Component } from 'react';
 import { Routes, Route, HashRouter } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
-import BathroomCard from './Map/BathroomCard.js';
+import BathroomCard from './Map/BathroomPopup.js';
 import BuildingList from './Map/BuildingList.js';
 import FavoritesPage from './Pages/Favorites/Favorites.js';
 import { RedirectButton } from './StyleElements.js';
 import WriteReview from './Pages/Reviews/WriteReview';
 import FilterForm from './Map/Filter.js';
+import RegistrationPage from './Pages/register/registration.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -18,8 +19,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import { AiOutlineStar } from 'react-icons/ai';
 // Pages
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
-import SignInPage from './Pages/Signin/Signin';
-import RegistrationPage from './Pages/register/registration.js';
+import SignInPage from './Pages/Signin/signin.js';
+//import RegistrationPage from './Pages/Register/Registration';
 import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
 
@@ -43,7 +44,7 @@ class App extends Component {
           <HashRouter>
             <Routes>
               <Route path='/' element={<HomePage userId={this.state.userId} />} />
-              <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
+              <Route path='/bathroom/:id' element={<BathroomPage />} />
               <Route path='/bathroomcard' element={<BathroomCard />} />
               <Route path='/reviews' element={<ReviewHistoryPage />} />
               <Route path='/review' element={<WriteReview />} />
@@ -79,7 +80,7 @@ class AppOriginal extends Component {
         <>
           <Routes>
             <Route path='/' element={<HomePage userId={this.state.userId} />} />
-            <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
+            <Route path='/bathroom/:id' element={<BathroomPage />} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
