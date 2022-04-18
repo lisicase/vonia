@@ -1,7 +1,6 @@
 // React
 import React, { useEffect, useState, useRef } from "react";
-import { renderToStaticMarkup } from 'react-dom/server';
-// Icons
+import { renderToString } from 'react-dom/server';
 import { BiSearch, BiFilterAlt } from 'react-icons/bi';
 // Modularizing
 import BathroomCard from './BathroomPopup.js';
@@ -11,8 +10,7 @@ import { Input, Button } from 'antd';
 import bathrooms from '../Shared/bathroomData/bathroom-data.json'
 // Map
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-import { map } from "@firebase/util";
-import { render } from "@testing-library/react";
+
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_TOKEN;
 
@@ -45,7 +43,7 @@ export default function InitMap() {
         console.log(currentFeature);
         const test = <BathroomCard bathroom={currentFeature} />;
         const output = document.createElement("div");
-        const html = renderToStaticMarkup(test);
+        const html = renderToString(test);
         output.innerHTML = `<div>${html}</div>`;
 
         let coords = currentFeature.geometry.coordinates
