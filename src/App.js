@@ -17,7 +17,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import { AiOutlineStar } from 'react-icons/ai';
 // Pages
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
-import SignInPage from './Pages/Signin/signin.js';
+import SignInPage from './Pages/Signin/Signin.js';
 //import RegistrationPage from './Pages/Register/Registration';
 import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
@@ -41,7 +41,7 @@ class App extends Component {
         <>
           <Routes>
             <Route path='/' element={<HomePage userId={this.state.userId} />} />
-            <Route path='/bathroom/:id' element={<BathroomPage />} />
+            <Route path='/bathroom/:id' element={<BathroomPage userId={this.state.userId}/>} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
