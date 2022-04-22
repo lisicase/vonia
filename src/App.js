@@ -30,22 +30,18 @@ class App extends Component {
     };
   }
 
-  updateUserId = (uid) => {
-    this.setState({userId: uid});
-  }
-
   render() {
     document.title = "Spotty";
     return (
       <div className="App">
         <>
           <Routes>
-            <Route path='/' element={<HomePage userId={this.state.userId} />} />
+            <Route path='/' element={<HomePage/>} />
             <Route path='/bathroom/:id' element={<BathroomPage userId={this.state.userId}/>} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
-            <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
+            <Route path='/signin' element={<SignInPage />} />
             <Route path='/buildinglist' element={<BuildingList />} />
             <Route path='/favorites' element={<FavoritesPage />} />
           </Routes>
