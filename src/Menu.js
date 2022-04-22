@@ -24,8 +24,12 @@ export default class Menu extends Component {
         this.setState({ redirectTo: "reviews" });
     }
 
+    openFavorites = () => {
+        this.setState({ redirectTo: "favorites" });
+    }
+
     render() {
-        if (this.state && this.state.redirectTo === "reviews") {
+        if (this.state && this.state.redirectTo !== "") {
             let newPath = "/" + this.state.redirectTo;
             return <Navigate to={newPath} />
         }
@@ -40,7 +44,7 @@ export default class Menu extends Component {
                             imgSrc="logo192.png" 
                         />
                         <ShortDivider />
-                        <MenuItem title="Favorites" icon={<VscHeart className="bufferedIcon" style={{height:"1.5rem"}} />} />
+                        <MenuItem handleClick={this.openFavorites} title="Favorites" icon={<VscHeart className="bufferedIcon" style={{height:"1.5rem"}} />} />
                         <MenuItem handleClick={this.openReviewHistory} title="Review History" icon={<GrHistory className="bufferedIcon" style={{height:"1.5rem", width:"0.8rem"}} />} />
                         <MenuItem title="Account" icon={<MdLockOutline className="bufferedIcon" style={{height:"1.5rem"}} />} />
                         <MenuItem title="Help" icon={<IoHelpCircleOutline className="bufferedIcon" style={{height:"1.5rem"}} />} />

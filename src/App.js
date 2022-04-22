@@ -7,8 +7,10 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
 import BathroomCard from './Map/BathroomCard.js';
 import BuildingList from './Map/BuildingList.js';
-import Menu from './Menu';
+import FavoritesPage from './Pages/Favorites/Favorites.js';
 import { RedirectButton } from './StyleElements.js';
+import WriteReview from './Pages/Reviews/WriteReview';
+import FilterForm from './Map/Filter.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -17,7 +19,7 @@ import { AiOutlineStar } from 'react-icons/ai';
 // Pages
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
 import SignInPage from './Pages/Signin/Signin';
-//import RegistrationPage from './Pages/Register/Registration';
+import RegistrationPage from './Pages/register/registration.js';
 import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
 
@@ -34,16 +36,21 @@ class App extends Component {
   }
 
   render() {
+    document.title = "Spotty";
     return (
       <div className="App">
         <>
           <Routes>
             <Route path='/' element={<HomePage userId={this.state.userId} />} />
-            <Route path='/bathroom' element={<BathroomPage />} />
+            <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
+            <Route path='/review' element={<WriteReview />} />
             <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
             <Route path='/buildinglist' element={<BuildingList />} />
+            <Route path='/favorites' element={<FavoritesPage />} />
+            <Route path='/filter' element={<FilterForm />} />
+            <Route path='/register' element={<RegistrationPage />} />
           </Routes>
         </>
       </div>
@@ -89,3 +96,4 @@ class ReviewListItem extends Component {
 }
 
 export default App;
+

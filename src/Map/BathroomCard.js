@@ -35,11 +35,11 @@ export default class BathroomCard extends Component {
                     miles={this.props.miles} 
                     imgSrc={this.props.imgSrc}
                 />
-                <BathroomListItem handleClick={this.openBathroomInfo} title="Room 104 / Floor 1" accessible={true} rating='3' />
+                <BathroomListItem handleClick={this.openBathroomInfo} title="Room 104 / Floor 1" accessible={true} rating={4} />
                 <ShortDivider />
-                <BathroomListItem title="Room 204 / Floor 2" accessible={false} rating='5' />
+                <BathroomListItem title="Room 204 / Floor 2" accessible={false} rating={2} />
                 <ShortDivider />
-                <BathroomListItem title="Room 304 / Floor 3" accessible={true} rating='2' />
+                <BathroomListItem title="Room 304 / Floor 3" accessible={true} rating={4.6} />
                 <ShortDivider />
             </div>
         </div>

@@ -1,56 +1,65 @@
 // React
 import React from 'react';
-import { Component } from 'react';
 // Components
-import { Divider } from '../../StyleElements';
+import { Divider, RedirectButton } from '../../StyleElements';
 import { StarRating } from './Ratings';
+import { Button } from 'antd';
 // Icons
 import { BiPencil } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { FiThumbsUp } from "react-icons/fi";
 import { MdOutlineReport } from "react-icons/md";
 
-class BathroomReviews extends Component {
-    render() {
-      return (
-        <div>
-            <div style={{display:'flex'}}>
-                <h2>Reviews</h2>
-                <p style={{marginLeft:'1rem'}}>38 reviews</p>
-            </div>
-            <div style={{textAlign:'center'}}>
-                <button>
-                    <BiPencil className="bufferedIcon" />
-                    Write a Review
-                </button>
-            </div>
-            <Divider />
-            <AllBathroomReviews/>
-        </div>
-      );
-    }
-}
+function BathroomReviews({userId}) {
+        let reviewButton = <RedirectButton 
+                            redirectTo="/signin" 
+                            button={<Button>
+                                <BiPencil className="bufferedIcon" />
+                                Write a Review
+                                </Button>} 
+                            />;
+        if (userId !== "") {
+            reviewButton = <RedirectButton 
+                            redirectTo="/review" 
+                            button={<Button>
+                                <BiPencil className="bufferedIcon" />
+                                Write a Review
+                                </Button>} 
+                            />;
+        }
 
-class AllBathroomReviews extends Component {
-    render() {
-        let testData = [{count:1}, {count:2}];
-        let allReviews = testData.map((count) => {
-            return <div>
-                    <SingleBathroomReview num={count} />
-                    <Divider />
-                </div>
-        })
         return (
             <div>
-                {allReviews}
+                <div style={{display:'flex'}}>
+                    <h2>Reviews</h2>
+                    <p style={{marginLeft:'1rem'}}>38 reviews</p>
+                </div>
+                <div style={{textAlign:'center'}}>
+                    {reviewButton}
+                </div>
+                <Divider />
+                <AllBathroomReviews/>
             </div>
         );
-    }
 }
 
-class SingleBathroomReview extends Component {
-    render() {
-      return (
+function AllBathroomReviews() {
+    let testData = [{count:1}, {count:2}];
+    let allReviews = testData.map((count) => {
+        return <div>
+                <SingleBathroomReview num={count} />
+                <Divider />
+            </div>
+    })
+    return (
+        <div>
+            {allReviews}
+        </div>
+    );
+}
+
+function SingleBathroomReview() {
+    return (
         <div>
             <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
                 <p><strong>LOVE THIS BATHROOM!!!</strong></p>
@@ -61,13 +70,11 @@ class SingleBathroomReview extends Component {
                 <ReviewActions />
             </div>
         </div>
-      );
-    }
+    );
 }
 
-class ReviewDetails extends Component {
-    render() {
-      return (
+function ReviewDetails() {
+    return (
         <div>
             <div style={{display: 'flex', flexDirection:'row'}}>
                 <CgProfile className="bufferedIcon loweredIcon" size={25} />
@@ -76,19 +83,16 @@ class ReviewDetails extends Component {
             </div>
             <p>I was really satisfied with this bathroom! It was clean, well maintained, and had no line! Thanks to Spotty, I could easily and quickly use a great public bathroom! :)</p>
         </div>
-      );
-    }
+    );
 }
 
-class ReviewActions extends Component {
-    render() {
-      return (
+function ReviewActions() {
+    return (
         <div>
             <MdOutlineReport size={25} />
             <FiThumbsUp size={25} />
         </div>
-      );
-    }
+    );
 }
 
 export default BathroomReviews;

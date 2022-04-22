@@ -1,7 +1,6 @@
 // React
 import React, { useEffect, useState, useRef } from "react";
 // Components
-import Button from 'react-bootstrap/Button';
 import { BiSearch } from 'react-icons/bi';
 import BuildingList from '../../Map/BuildingList.js';
 import { RedirectButton } from '../../StyleElements.js';
@@ -28,9 +27,16 @@ export default function HomePage(props) {
     </Popup>
     }
     return (
-        <div>
-            <div style={{ display: 'flex', justifyContent: 'left' }}>
-            {menuButton}
+        <div style={{backgroundColor:'#dae1e3'}}>
+            <div style={{display:'flex', backgroundColor:'white', paddingTop:'0.5rem', justifyContent:'space-between'}}>
+                <div style={{display:'flex', justifyContent:'left', paddingLeft:'0.5rem', paddingRight:'0.5rem'}}>
+                    {menuButton}
+                </div>
+                <div style={{display:'flex', justifyContent:'center'}}>
+                    {/*<img src="favicon.ico" style={{height:'1.5rem', paddingRight:'0.5rem'}} />*/}
+                    <h5>spotty</h5>
+                </div>
+                <div style={{opacity:'0'}}><GiHamburgerMenu /></div>
             </div>
             <h1>Spotty</h1>
             <h2>Spot-a-Potty</h2>
