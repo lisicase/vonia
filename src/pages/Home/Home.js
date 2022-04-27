@@ -11,7 +11,11 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import InitMap from "../../Map/Map.js";
 
+<<<<<<< HEAD
 export default function HomePage() {
+=======
+export default function HomePage(props) {
+>>>>>>> published
     let menuButton = <RedirectButton redirectTo="/signin" button={<div><GiHamburgerMenu /></div>} />
     if (sessionStorage.getItem('Auth Token')) {
         menuButton =
