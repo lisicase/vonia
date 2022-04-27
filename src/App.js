@@ -18,13 +18,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import { AiOutlineStar } from 'react-icons/ai';
 // Pages
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
-<<<<<<< HEAD
-import SignInPage from './Pages/Signin/Signin';
-import RegistrationPage from './Pages/register/registration.js';
-=======
 import SignInPage from './Pages/Signin/Signin.js';
-//import RegistrationPage from './Pages/Register/Registration';
->>>>>>> map
+import RegistrationPage from './Pages/Register/Registration';
 import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
 
