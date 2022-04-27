@@ -1,14 +1,17 @@
 // Components
 import { Button } from 'antd';
 import { RedirectButton, Logo } from '../../StyleElements';
+// Icons
+import {BsGithub} from 'react-icons/bs';
 
 export default function LandingPage() {
     return (
         <div>
             <Banner />
-            <div style={{paddingLeft:'20vw', paddingRight:'20vw'}}>
+            <div style={{paddingLeft:'20vw', paddingRight:'20vw', paddingBottom:'2rem'}}>
                 <About />
                 <Team />
+                <ProjectStatus />
             </div>
         </div>
     );
@@ -71,6 +74,17 @@ function Member(props) {
             <img src={filePath} style={{height:'10rem', margin:'1rem'}} />
             <p style={{marginBottom:'0', fontSize:'1.1rem'}}><strong>{props.name}</strong></p>
             <p>{props.role}</p>
+        </div>
+    );
+}
+
+function ProjectStatus() {
+    return (
+        <div>
+            <h2>Project Status</h2>
+            <h6>University of Washington Information School: Capstone project for Winter/Spring 2022</h6>
+            <p>Will be converted to an open-source project in summer 2022 (with no plans to maintain by the original team).</p>
+            <a href="https://github.com/lisicase/vonia/" style={{color:'black'}}><BsGithub size={50} style={{paddingTop:'1rem'}} /></a>
         </div>
     );
 }
