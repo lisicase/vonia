@@ -2,7 +2,7 @@
 import React from 'react';
 import { Component } from 'react';
 // Components
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
 import BathroomCard from './Map/BathroomPopup.js';
@@ -33,6 +33,7 @@ class App extends Component {
     return (
       <div className="App">
         <>
+        <HashRouter>
           <Routes>
             <Route path='/' element={<HomePage/>} />
             <Route path='/bathroom' element={<BathroomPage />} />
@@ -45,6 +46,7 @@ class App extends Component {
             <Route path='/filter' element={<FilterForm />} />
             <Route path='/register' element={<RegistrationPage />} />
           </Routes>
+          </HashRouter>
         </>
       </div>
     );
