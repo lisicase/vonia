@@ -37,8 +37,6 @@ export default function HomePage(props) {
                 </div>
                 <div style={{opacity:'0'}}><GiHamburgerMenu /></div>
             </div>
-            <h1>Spotty</h1>
-            <h2>Spot-a-Potty</h2>
             <InitMap />
         </div>
     );

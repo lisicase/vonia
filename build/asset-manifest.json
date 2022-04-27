@@ -1,16 +1,18 @@
 {
-  "main.css": "/static/css/main.1d207907.chunk.css",
-  "main.js": "/static/js/main.827e6a50.chunk.js",
-  "main.js.map": "/static/js/main.827e6a50.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-  "static/css/2.e1cd195b.chunk.css": "/static/css/2.e1cd195b.chunk.css",
-  "static/js/2.a66825da.chunk.js": "/static/js/2.a66825da.chunk.js",
-  "static/js/2.a66825da.chunk.js.map": "/static/js/2.a66825da.chunk.js.map",
-  "index.html": "/index.html",
-  "precache-manifest.5f0a080866bd266ff818f6d9949c519c.js": "/precache-manifest.5f0a080866bd266ff818f6d9949c519c.js",
-  "service-worker.js": "/service-worker.js",
-  "static/css/2.e1cd195b.chunk.css.map": "/static/css/2.e1cd195b.chunk.css.map",
-  "static/css/main.1d207907.chunk.css.map": "/static/css/main.1d207907.chunk.css.map",
-  "static/media/font-awesome.min.css": "/static/media/fontawesome-webfont.fee66e71.woff"
+  "files": {
+    "main.css": "/vonia/static/css/main.e3b960b4.css",
+    "main.js": "/vonia/static/js/main.10a71e08.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/vonia/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/vonia/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/vonia/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/vonia/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/vonia/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "index.html": "/vonia/index.html",
+    "main.e3b960b4.css.map": "/vonia/static/css/main.e3b960b4.css.map",
+    "main.10a71e08.js.map": "/vonia/static/js/main.10a71e08.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e3b960b4.css",
+    "static/js/main.10a71e08.js"
+  ]
 }
