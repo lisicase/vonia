@@ -26,13 +26,6 @@ import HomePage from './Pages/Home/Home';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      userId: ""
-    };
-  }
-
-  updateUserId = (uid) => {
-    this.setState({userId: uid});
   }
 
   render() {
@@ -41,12 +34,12 @@ class App extends Component {
       <div className="App">
         <>
           <Routes>
-            <Route path='/' element={<HomePage userId={this.state.userId} />} />
-            <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/bathroom' element={<BathroomPage />} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
-            <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
+            <Route path='/signin' element={<SignInPage/>} />
             <Route path='/buildinglist' element={<BuildingList />} />
             <Route path='/favorites' element={<FavoritesPage />} />
             <Route path='/filter' element={<FilterForm />} />

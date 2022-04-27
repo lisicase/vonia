@@ -10,7 +10,7 @@ import { CgProfile } from "react-icons/cg";
 import { FiThumbsUp } from "react-icons/fi";
 import { MdOutlineReport } from "react-icons/md";
 
-function BathroomReviews({userId}) {
+function BathroomReviews() {
         let reviewButton = <RedirectButton 
                             redirectTo="/signin" 
                             button={<Button>
@@ -18,7 +18,7 @@ function BathroomReviews({userId}) {
                                 Write a Review
                                 </Button>} 
                             />;
-        if (userId !== "") {
+        if (sessionStorage.getItem('Auth Token')) {
             reviewButton = <RedirectButton 
                             redirectTo="/review" 
                             button={<Button>
