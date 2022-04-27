@@ -1,6 +1,6 @@
 // React
 import React from 'react';
-import { Component } from 'react';
+import { Component, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 // Components
 import { ShortDivider } from './StyleElements';
@@ -12,56 +12,56 @@ import { IoHelpCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { MdAccessible, MdLockOutline } from "react-icons/md";
 import { VscHeart } from "react-icons/vsc";
 
-export default class Menu extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            redirectTo: ""
-        };
-    }
-    
-    openReviewHistory = () => {
-        this.setState({ redirectTo: "reviews" });
+export default function Menu() {
+
+    let [redirectTo, setRedirect] = useState('');
+
+    let openReviewHistory = () => {
+        setRedirect("reviews");
     }
 
-    openFavorites = () => {
-        this.setState({ redirectTo: "favorites" });
+    let openFavorites = () => {
+        setRedirect("favorites");
     }
 
-    render() {
-        if (this.state && this.state.redirectTo !== "") {
-            let newPath = "/" + this.state.redirectTo;
-            return <Navigate to={newPath} />
-        }
-        return (
-            <div className="fillLeftPage" style={{textAlign:"left", display:'flex', flexDirection:'row', alignContent:'center', backgroundColor:'white'}}>
-                <div className="shadow" style={{width:"80vw", height:"100vh"}}>
-                    <div style={{margin:"1rem"}}>
-                        <AccountInfo 
-                            username="rebec20" 
-                            location="Rainier Vista" 
-                            miles="0.1" 
-                            imgSrc="logo192.png" 
-                        />
-                        <ShortDivider />
-                        <MenuItem handleClick={this.openFavorites} title="Favorites" icon={<VscHeart className="bufferedIcon" style={{height:"1.5rem"}} />} />
-                        <MenuItem handleClick={this.openReviewHistory} title="Review History" icon={<GrHistory className="bufferedIcon" style={{height:"1.5rem", width:"0.8rem"}} />} />
-                        <MenuItem title="Account" icon={<MdLockOutline className="bufferedIcon" style={{height:"1.5rem"}} />} />
-                        <MenuItem title="Help" icon={<IoHelpCircleOutline className="bufferedIcon" style={{height:"1.5rem"}} />} />
-                        <MenuItem title="Sign Out" icon={<IoLogOutOutline className="bufferedIcon" style={{height:"1.5rem"}} />} />
-                    </div>
+    let signOut = () => {
+        sessionStorage.removeItem('Auth Token');
+        return <Navigate to='/'/>;
+    }
+
+    if (redirectTo !== "") {
+        let newPath = "/" + redirectTo;
+        return <Navigate to={newPath} />;
+    }
+    return (
+        <div className="fillLeftPage" style={{ textAlign: "left", display: 'flex', flexDirection: 'row', alignContent: 'center', backgroundColor: 'white' }}>
+            <div className="shadow" style={{ width: "80vw", height: "100vh" }}>
+                <div style={{ margin: "1rem" }}>
+                    <AccountInfo
+                        username="rebec20"
+                        location="Rainier Vista"
+                        miles="0.1"
+                        imgSrc="logo192.png"
+                    />
+                    <ShortDivider />
+                    <MenuItem handleClick={openFavorites} title="Favorites" icon={<VscHeart className="bufferedIcon" style={{ height: "1.5rem" }} />} />
+                    <MenuItem handleClick={openReviewHistory} title="Review History" icon={<GrHistory className="bufferedIcon" style={{ height: "1.5rem", width: "0.8rem" }} />} />
+                    <MenuItem title="Account" icon={<MdLockOutline className="bufferedIcon" style={{ height: "1.5rem" }} />} />
+                    <MenuItem title="Help" icon={<IoHelpCircleOutline className="bufferedIcon" style={{ height: "1.5rem" }} />} />
+                    <MenuItem title="Sign Out" handleClick={signOut} icon={<IoLogOutOutline className="bufferedIcon" style={{ height: "1.5rem" }} />} />
                 </div>
-                {/*<RedirectButton redirectTo="/" button={<div style={{width:"20vw"}}/>} />*/}
             </div>
-        );
-    }
+            {/*<RedirectButton rediectTo="/" button={<div style={{width:"20vw"}}/>} />*/}
+        </div>
+    );
+
 }
 
 class AccountInfo extends Component {
     render() {
         return (
-            <div style={{display: 'flex', flexDirection:'row', marginBottom:"1rem"}}>
-                <BiUserCircle className="bufferedIcon" style={{height:"1.5rem"}} />
+            <div style={{ display: 'flex', flexDirection: 'row', marginBottom: "1rem" }}>
+                <BiUserCircle className="bufferedIcon" style={{ height: "1.5rem" }} />
                 <p><strong>{this.props.username}</strong></p>
             </div>
         );
@@ -75,14 +75,14 @@ class MenuItem extends Component {
             return <Navigate to={newPath} />
         }
         return (
-            <div style={{textAlign:"left"}}>
-                <div onClick={this.props.handleClick} style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
-                    <div style={{display: 'flex', flexDirection:'row'}}>
+            <div style={{ textAlign: "left" }}>
+                <div onClick={this.props.handleClick} style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
                         {this.props.icon}
                         <p>{this.props.title}</p>
                     </div>
-                    <div style={{display: 'flex', flexDirection:'row'}}>
-                        <AiOutlineRight style={{height:"1.5rem"}} />
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                        <AiOutlineRight style={{ height: "1.5rem" }} />
                     </div>
                 </div>
             </div>
