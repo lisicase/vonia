@@ -70,6 +70,28 @@ We aim to help address this problem by making it easy for users to quickly find 
 
 ### Research
 
+#### Problem Space
+
+Lack of bathroom access is a serious humanitarian and public health issue:
+* Bathrooms are difficult to access, particularly for people who have to be on the move frequently.
+* Bathrooms have become even scarcer with the pandemic, and when looking for ability-, gender- and race-inclusive options.
+
+Key Data:
+* 224 toilets would need to be added to meet the needs of Seattle's homeless population. *([David G. Jones, City Auditor, 2019](http://www.seattle.gov/Documents/Departments/CityAuditor/auditreports/Navigation%20Team%20Audit_2-7-2019_revised.pdf))*
+* ~60% of transgender Americans have avoided public bathrooms for fear of being harassed. *([National Center for Transgender Equality, 2016](https://transequality.org/sites/default/files/docs/usts/USTS-Executive-Summary-Dec17.pdf))*
+* Automated bathroom dispensers often don't work well on dark skin. *([Taylor Goethe, Rochester Institute of Technology, 2019](https://reporter.rit.edu/tech/bigotry-encoded-racial-bias-technology))*
+* Paper towers are more sanitary than electric air dryers. *([Huang C, Ma W, Stack S. The hygienic efficacy of different hand-drying methods: a review of the evidence. Mayo Clin Proc. 2012;87(8):791-798. doi:10.1016/j.mayocp.2012.02.019)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3538484/)*
+
+#### User Research
+
+Survey Stats:
+* Responses: 93
+* Occupation: 50 students, 29 gig workers, 2 school/staff faculty, 2 school/staff faculty, 12 other full time, 4 other
+
+Takeaways:
+* Although people are comfortable using public bathrooms in theory, many people have strong preferences and may go out of their way to avoid using a public bathroom.
+* Common concerns include location, smell, cleanliness, accessibility, maintenance quality/recency, and privacy.
+
 ### Design
 
 ### Code
