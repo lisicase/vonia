@@ -169,14 +169,92 @@ async function avgCleanliness(bathroomID) {
     return avg;
 }
 
+// Returns the average rating for privacy for a bathroom
+async function avgPrivacy(bathroomID) {
+    sum = 0;
+    num = 0;
+
+    const snapshot = await reviewRef
+    .where('bathroom_id', '==', bathroomID)
+    .get()             
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            const data = doc.data();
+            console.log("privacy:", data.privacy);
+            sum += data.privacy;
+            num += 1;
+        });
+    })
+    
+    let avg = sum / num;
+    avg = Math.round(avg / 0.5) * 0.5 // round to nearest 0.5
+
+    console.log(avg);     
+
+    return avg;
+}
+
+// Returns the well-stock rating for privacy for a bathroom
+async function avgWellStocked(bathroomID) {
+    sum = 0;
+    num = 0;
+
+    const snapshot = await reviewRef
+    .where('bathroom_id', '==', bathroomID)
+    .get()             
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            const data = doc.data();
+            console.log("well-stocked:", data["well-stocked"]);
+            sum += data["well-stocked"];
+            num += 1;
+        });
+    })
+    
+    let avg = sum / num;
+    avg = Math.round(avg / 0.5) * 0.5 // round to nearest 0.5
+
+    console.log(avg);     
+
+    return avg;
+}
+    
+// Returns overall rating from the averages to display for each bathroom floor on popup
+async function overallRating(bathroomID) {
+    let sum = await (avgCleanliness(bathroomID) + avgPrivacy(bathroomID) + avgWellStocked(bathroomID)) / 3;
+    avg = Math.round(sum / 0.5) * 0.5;
+
+    console.log(avg);
+
+    return avg;
+}
+
+// Returns the average for a user review to display on reviews page
+async function avgUserReviewRating(reviewID) {
+    sum = 0;
+
+    const snapshot = await reviewRef
+    .where('review_id', '==', reviewID)
+    .get()             
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            const data = doc.data();
+            sum = data.cleanliness + data.privacy + data['well-stocked'];
+        });
+    })
+    
+    let avg = sum / 3;
+    avg = Math.round(avg / 0.5) * 0.5 // round to nearest 0.5
+
+    console.log(avg);     
+
+    return avg;
+}
+
 // Returns all the features for a specific bathroom
 async function allFeatures() {
     return;
 }
-
-// get overall rating from the averages to display for each bathroom floor on popup
-
-// get the average for a user review to display on reviews page
 
 // Test functions
 
@@ -188,10 +266,18 @@ async function allFeatures() {
 
 //favoritedBathrooms("Gpcx06xPOpYKgUtgXGzSjRq3Q4K3");
 
-//addUser("ABCDEFG", "test_user")
+//addUser("ABCDEFG", "test_user");
 
 //addFavorite("Gpcx06xPOpYKgUtgXGzSjRq3Q4K3", "Z3vp7EyCNR");
 
 //removeFavorite("Gpcx06xPOpYKgUtgXGzSjRq3Q4K3", "Z3vp7EyCNR");
 
 //avgCleanliness("mZuOD9HaIa");
+
+//avgPrivacy("mZuOD9HaIa");
+
+//avgWellStocked("mZuOD9HaIa");
+
+//overallRating("mZuOD9HaIa");
+
+//avgUserReviewRating("F7Pt0QAJFc");
