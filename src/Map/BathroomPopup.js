@@ -1,7 +1,7 @@
 // React
 import React, { useState, Component } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 // Components
 import { StarRating } from '../Pages/BathroomPage/Ratings';
 import { ShortDivider } from '../StyleElements';
@@ -14,11 +14,11 @@ import Bathrooms from '../Shared/bathroomData/bathroom-data.json'
 
 export default function BathroomCard({ bathroom }) {
     const [redirectTo, updateRedirectTo] = useState("");
-    const nav = useNavigate();
+    //const nav = useNavigate();
 
     const openBathroomInfo = () => {
-        console.log("reaching redirect")
-        nav('/bathroom');
+        console.log("reaching redirect");
+        //return <Navigate to={"/bathroom"} />
     }
 
     console.log(bathroom);
@@ -38,11 +38,12 @@ export default function BathroomCard({ bathroom }) {
                 />
                 {
                     bathroom.properties.floors.map((floor) => {
-                        //TODO: actually implement accessibility and handleCLick
+                        //TODO: actually implement accessibility and ids
                         const isAccessible = Math.floor(Math.random() * 2);
+                        const id = Math.floor(Math.random() * 20);
                         return (
                             <div>
-                                <BathroomListItem handleClick={openBathroomInfo} accessible={isAccessible === 0} title={`Floor ${floor.level}`} rating={floor.rating} />
+                                <BathroomListItem id={id} accessible={isAccessible === 0} title={`Floor ${floor.level}`} rating={floor.rating} />
                                 <ShortDivider />
                             </div>
                         );
@@ -69,14 +70,15 @@ export function BuildingInfo({ name, location, imgSrc, miles }) {
     );
 }
 
-function BathroomListItem({ handleClick, title, rating, accessible }) {
+function BathroomListItem({ id, title, rating, accessible }) {
     let accessibility = accessible ? <MdAccessible style={{ height: "1.5rem" }} /> : <span style={{ width: '1rem' }} />;
+
     return (
-        <div onClick={handleClick} style={{ textAlign: "left" }}>
+        <div style={{ textAlign: "left" }}>
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                <div onClick={handleClick} style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <FaToilet className="bufferedIcon" style={{ height: "1.5rem", fontSize: '0.7rem' }} />
-                    <p><strong>{title}</strong></p>
+                    <a href={`/bathroom/${id}`}>{title}</a>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <StarRating rating={rating} />

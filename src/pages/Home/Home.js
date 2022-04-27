@@ -11,20 +11,13 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import InitMap from "../../Map/Map.js";
 
-export default function HomePage(props) {
-    //if (this.props.userId && this.props.userId==="") {
-    let menuButton = <RedirectButton redirectTo="/signin" button={<button><GiHamburgerMenu /></button>} />
-    if (props.userId!=="") {
-        menuButton = <Popup
-        trigger={
-            <button><GiHamburgerMenu /></button>
-        }
-        closeOnDocumentClick={true}
-    >
-        <div>
-            <Menu />
-        </div>
-    </Popup>
+export default function HomePage() {
+    let menuButton = <RedirectButton redirectTo="/signin" button={<div><GiHamburgerMenu /></div>} />
+    if (sessionStorage.getItem('Auth Token')) {
+        menuButton =
+            <Popup trigger={<div><GiHamburgerMenu /></div>} closeOnDocumentClick={true}>
+                <div><Menu /></div>
+            </Popup>
     }
     return (
         <div style={{backgroundColor:'#dae1e3'}}>
@@ -38,8 +31,6 @@ export default function HomePage(props) {
                 </div>
                 <div style={{opacity:'0'}}><GiHamburgerMenu /></div>
             </div>
-            <h1>Spotty</h1>
-            <h2>Spot-a-Potty</h2>
             <InitMap />
         </div>
     );

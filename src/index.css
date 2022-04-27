@@ -185,8 +185,16 @@ div.popup-content {
   padding: 0;
 }
 
+.sectionTitle {
+  font-size: 1.25rem;
+}
+
 /* Marker tweaks */
 
 .mapboxgl-popup-content div {
   padding-top: 1px;
+}
+
+.mapboxgl-popup-close-button {
+  display: none;
 }

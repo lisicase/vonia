@@ -23,7 +23,6 @@ export default function SignInPage(props) {
             .then((res) => {
                 sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken);
                 if (sessionStorage.getItem('Auth Token')) {
-                    props.updateUserId("test_id");
                     nav('/');
                 }
             })

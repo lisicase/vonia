@@ -1,6 +1,5 @@
-//React
-import React, { useState } from 'react';
-// Icons
+import React from 'react';
+import { Component } from 'react';
 import { FiShare2, FiMap } from "react-icons/fi";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { VscHeart } from "react-icons/vsc";
