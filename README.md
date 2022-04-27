@@ -25,13 +25,14 @@ Thank you for checking out our project!
 
 ### Build
 
-In order to build the TypeScript compiler, ensure that you have **[TODO: node.js?]** installed.
+In order to build the TypeScript compiler, ensure that you have [Node.js](https://nodejs.org/) installed.
 
 Clone a copy of the repo:
 
 ```bash
 git clone https://github.com/lisicase/vonia
 ```
+
 Change to the TypeScript directory:
 
 ```git bash
@@ -102,36 +103,15 @@ We also conducted user validation and usability testing intermittently throughou
 
 ### Code
 
-#### Codebase
-
-| Page | Use |
+| Page/Folder | Use |
 | ------------- | ------------- |
 | BathroomPage | Information for a specific bathroom |
 | Favorites | List of favorite bathrooms for a specific user |
 | Home | Home page including map and navigation to other pages |
 | LandingPage | Overall project info for presentation at Capstone Night |
 | Map | Map displaying bathrooms (map itself, list of buildings, popups, search, and filters) | 
-| register | Sign-up up to use Spotty |
+| Register | Sign-up up to use Spotty |
 | Reviews | Submit review |
 | Shared | Smaller features used throughout the application |
 | Signin | Sign-in to use Spotty's account-specific features |
 
-#### Branches
-
-| Branch | Use |
-| ------------- | ------------- |
-| bathroom-page | Page of the information for a specific bathroom  |
-| building-list | Portion on the home page that displays all buildings in list form |
-| favorites | Functionality for favoriting specific bathrooms |
-| filters | Filtering search results on the home page |
-| gh-pages | Automated branch of deployed content hosted by GitHub Pages |
-| landing-page | Page for presentation at Capstone Night |
-| locationList | **TODO** |
-| main | Merging and overall changes |
-| map | Map display on the home page |
-| mapInteraction | Map functionality on the home page |
-| menu | Account-specific settings/pages in the hamburger menu |
-| published | Content ready to be deployed |
-| query | Node.js queries of the database |
-| reviews | Bathroom reviews and user review history |
-| signin | Signing in/up |
