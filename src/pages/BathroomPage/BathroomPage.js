@@ -26,7 +26,7 @@ export default function BathroomPage() {
                     <Divider />
                     <BathroomFeatures />
                     <Divider />
-                    <BathroomReviews />
+                    <BathroomReviews/>
                 </div>
             </div>
         </div>

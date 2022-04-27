@@ -114,7 +114,9 @@ div.lightDivider.short {
   padding-top: 0;
 }
 
-.shadow, div.searchBar .ant-input-affix-wrapper, div.searchBar .ant-btn {
+.shadow,
+div.searchBar .ant-input-affix-wrapper,
+div.searchBar .ant-btn {
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
 
@@ -169,7 +171,7 @@ svg.popup-arrow {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
 }
 
 .fillLeftPage {

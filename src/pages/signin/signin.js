@@ -10,7 +10,7 @@ import { MdLockOutline, MdOutlineMail } from "react-icons/md";
 import { app } from '../../Shared/firebase/firebase-config';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
-export default function SignInPage(props) {
+export default function SignInPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const nav = useNavigate();

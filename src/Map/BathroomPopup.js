@@ -78,11 +78,7 @@ function BathroomListItem({ id, title, rating, accessible }) {
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <FaToilet className="bufferedIcon" style={{ height: "1.5rem", fontSize: '0.7rem' }} />
-<<<<<<< HEAD
-                    <a href={`/bathroom/${id}`}>{title}</a>
-=======
                     <a href={`/#/bathroom/${id}`}>{title}</a>
->>>>>>> published
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <StarRating rating={rating} />

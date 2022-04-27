@@ -2,7 +2,7 @@
 import React from 'react';
 import { Component } from 'react';
 // Components
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
 import BathroomCard from './Map/BathroomPopup.js';
@@ -11,7 +11,6 @@ import FavoritesPage from './Pages/Favorites/Favorites.js';
 import { RedirectButton } from './StyleElements.js';
 import WriteReview from './Pages/Reviews/WriteReview';
 import FilterForm from './Map/Filter.js';
-import RegistrationPage from './Pages/register/registration.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -19,54 +18,14 @@ import 'font-awesome/css/font-awesome.min.css';
 import { AiOutlineStar } from 'react-icons/ai';
 // Pages
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
-import SignInPage from './Pages/Signin/signin.js';
-//import RegistrationPage from './Pages/Register/Registration';
+import SignInPage from './Pages/Signin/Signin.js';
+import RegistrationPage from './Pages/Register/Registration';
 import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      userId: ""
-    };
-  }
-
-  render() {
-    document.title = "Spotty";
-    return (
-      <div className="App">
-        <>
-          <HashRouter>
-            <Routes>
-              <Route path='/' element={<HomePage userId={this.state.userId} />} />
-              <Route path='/bathroom/:id' element={<BathroomPage />} />
-              <Route path='/bathroomcard' element={<BathroomCard />} />
-              <Route path='/reviews' element={<ReviewHistoryPage />} />
-              <Route path='/review' element={<WriteReview />} />
-              <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
-              <Route path='/buildinglist' element={<BuildingList />} />
-              <Route path='/favorites' element={<FavoritesPage />} />
-              <Route path='/filter' element={<FilterForm />} />
-              <Route path='/register' element={<RegistrationPage />} />
-            </Routes>
-          </HashRouter>
-        </>
-      </div>
-    );
-  }
-}
-
-class AppOriginal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userId: ""
-    };
-  }
-
-  updateUserId = (uid) => {
-    this.setState({userId: uid});
   }
 
   render() {
@@ -75,12 +34,12 @@ class AppOriginal extends Component {
       <div className="App">
         <>
           <Routes>
-            <Route path='/' element={<HomePage userId={this.state.userId} />} />
-            <Route path='/bathroom/:id' element={<BathroomPage />} />
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/bathroom' element={<BathroomPage />} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
-            <Route path='/signin' element={<SignInPage />} />
+            <Route path='/signin' element={<SignInPage/>} />
             <Route path='/buildinglist' element={<BuildingList />} />
             <Route path='/favorites' element={<FavoritesPage />} />
             <Route path='/filter' element={<FilterForm />} />
