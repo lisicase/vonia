@@ -23,6 +23,8 @@ Thank you for checking out our project!
 
 ## Building and Deploying
 
+### Build
+
 In order to build the TypeScript compiler, ensure that you have **[TODO: node.js?]** installed.
 
 Clone a copy of the repo:
@@ -42,6 +44,20 @@ Run the app locally:
 
 ```bash
 npm start
+```
+
+### Deploy
+
+Navigate to the deployment/publishing branch:
+
+```bash
+git switch published
+```
+
+Deploy the local version to the web (currently hosted on GitHub pages):
+
+```bash
+npm run deploy
 ```
 
 ## Project Background
