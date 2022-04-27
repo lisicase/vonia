@@ -5,7 +5,7 @@ import React from 'react';
 
 //firebase
 import { app } from '../../Shared/firebase/firebase-config';
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
 
 
 export default function RegistrationPage() {
@@ -18,15 +18,19 @@ export default function RegistrationPage() {
         event.preventDefault();
 
         let auth = getAuth();
+        let user = null;
         console.log(auth.currentUser);
         createUserWithEmailAndPassword(auth, email, password)
             .then((res) => {
                 sessionStorage.setItem('Auth Token', res.__tokenResponse.refreshToken);
+                user = auth.currentUser;
+                sendEmailVerification(user);
+
                 console.log(sessionStorage.getItem('Auth Token'));
+
                 if (sessionStorage.getItem('Auth Token')) {
                     updateProfile(auth.currentUser, {
                         displayName: name
-                        //photoURL: 
                     })
                         .then(() => {
                             console.log("successfully updated account");
