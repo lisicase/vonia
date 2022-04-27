@@ -30,7 +30,6 @@ export default function BuildingList({ flyToStore, createPopup }) {
                 <BsChevronDown style={{ marginTop: '0.5rem' }} />
             </div>
             <div>
-
                 {
                     bathrooms.features.map((bathroom) => {
                         return (<BuildingListItem bathroom={bathroom} onClick={onClick} />)

@@ -26,9 +26,12 @@ import HomePage from './Pages/Home/Home';
 class App extends Component {
   constructor(props) {
     super(props);
+<<<<<<< HEAD
     this.state = {
       userId: ""
     };
+=======
+>>>>>>> main
   }
 
   render() {
@@ -38,11 +41,19 @@ class App extends Component {
         <>
           <Routes>
             <Route path='/' element={<HomePage/>} />
+<<<<<<< HEAD
             <Route path='/bathroom/:id' element={<BathroomPage userId={this.state.userId}/>} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
             <Route path='/signin' element={<SignInPage />} />
+=======
+            <Route path='/bathroom' element={<BathroomPage />} />
+            <Route path='/bathroomcard' element={<BathroomCard />} />
+            <Route path='/reviews' element={<ReviewHistoryPage />} />
+            <Route path='/review' element={<WriteReview />} />
+            <Route path='/signin' element={<SignInPage/>} />
+>>>>>>> main
             <Route path='/buildinglist' element={<BuildingList />} />
             <Route path='/favorites' element={<FavoritesPage />} />
             <Route path='/filter' element={<FilterForm />} />
