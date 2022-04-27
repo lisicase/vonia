@@ -26,7 +26,8 @@ export default function Menu() {
 
     let signOut = () => {
         sessionStorage.removeItem('Auth Token');
-        return <Navigate to='/'/>;
+        console.log("auth token removed");
+        window.location.reload();
     }
 
     if (redirectTo !== "") {
