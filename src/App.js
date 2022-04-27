@@ -5,7 +5,7 @@ import { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
-import BathroomCard from './Map/BathroomCard.js';
+import BathroomCard from './Map/BathroomPopup.js';
 import BuildingList from './Map/BuildingList.js';
 import FavoritesPage from './Pages/Favorites/Favorites.js';
 import { RedirectButton } from './StyleElements.js';
@@ -18,8 +18,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import { AiOutlineStar } from 'react-icons/ai';
 // Pages
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
-import SignInPage from './Pages/Signin/Signin';
-import RegistrationPage from './Pages/register/registration.js';
+import SignInPage from './Pages/Signin/Signin.js';
+//import RegistrationPage from './Pages/Register/Registration';
 import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
 
@@ -31,22 +31,18 @@ class App extends Component {
     };
   }
 
-  updateUserId = (uid) => {
-    this.setState({userId: uid});
-  }
-
   render() {
     document.title = "Spotty";
     return (
       <div className="App">
         <>
           <Routes>
-            <Route path='/' element={<HomePage userId={this.state.userId} />} />
-            <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/bathroom/:id' element={<BathroomPage userId={this.state.userId}/>} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
-            <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
+            <Route path='/signin' element={<SignInPage />} />
             <Route path='/buildinglist' element={<BuildingList />} />
             <Route path='/favorites' element={<FavoritesPage />} />
             <Route path='/filter' element={<FilterForm />} />

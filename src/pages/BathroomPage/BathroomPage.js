@@ -11,7 +11,7 @@ import { BathroomGallery } from './Gallery';
 import { FaChevronLeft } from "react-icons/fa";
 import { BathroomFeatures } from './BathroomFeatures';
 
-export default function BathroomPage({userId}) {
+export default function BathroomPage() {
     return (
         <div style={{textAlign:"left"}}>
             <BathroomPageTitle/>
@@ -26,7 +26,7 @@ export default function BathroomPage({userId}) {
                     <Divider />
                     <BathroomFeatures />
                     <Divider />
-                    <BathroomReviews userId={userId} />
+                    <BathroomReviews />
                 </div>
             </div>
         </div>
