@@ -2,7 +2,7 @@
 
 [Spotty (Spot-a-Potty)](https://lisicase.github.io/vonia/) is a mobile-first web application to help people on the go find public restrooms that fit their needs so that they can save time and have better peace of mind.
 
-This app shows nearby public restrooms and allows for crowdsourced reviews of the bathrooms. Users will thus be able to find locations in advance as well as review crowdsourced ratings and other information provided to evaluate whether the restroom lives up own cleanliness standard and/or has any preferred features prior to visiting the location.
+This app shows nearby public restrooms and allows for crowdsourced reviews of the bathrooms. Users will thus be able to find locations in advance as well as review crowdsourced ratings and other information provided to evaluate whether the restroom lives up to their own cleanliness standard and/or has any preferred features prior to visiting the location.
 
 ## Contributions
 
