@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { renderToString } from 'react-dom/server';
 import { BiSearch, BiFilterAlt } from 'react-icons/bi';
+import { RedirectButton } from '../StyleElements.js';
 // Modularizing
 import BathroomCard from './BathroomPopup.js';
 import BuildingList from './BuildingList.js';
@@ -147,7 +148,7 @@ export default function InitMap() {
             <div style={{marginBottom:'1rem', marginTop:'1rem'}} className="searchBar">
                 <Input.Group compact>
                     <Input placeholder="Location" style={{ width:'70vw', textAlign:'left'}} prefix={<BiSearch color="gray" />} />
-                    <Button><BiFilterAlt color="gray"/></Button>
+                    <RedirectButton redirectTo="/filter" button={<Button><BiFilterAlt color="gray"/></Button>} />
                 </Input.Group>
             </div>
             <div ref={mapContainer} className="map-container" style={{ height: '30rem', overflow: 'hidden' }} />
