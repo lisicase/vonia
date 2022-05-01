@@ -25,7 +25,7 @@ Thank you for checking out our project!
 
 ### Build
 
-In order to build the TypeScript compiler, ensure that you have [Node.js](https://nodejs.org/) installed.
+In order to build the app, ensure that you have [Node.js](https://nodejs.org/) installed.
 
 Clone a copy of the repo:
 
@@ -33,10 +33,10 @@ Clone a copy of the repo:
 git clone https://github.com/lisicase/vonia
 ```
 
-Change to the TypeScript directory:
+Change to the Vonia directory:
 
 ```git bash
-cd TypeScript
+cd vonia
 ```
 
 Install dev dependencies via ```npm```.
