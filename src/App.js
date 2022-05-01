@@ -12,7 +12,7 @@ import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
 // Pages
-import BathroomPage from './pages/BathroomPage/bathroomPage';
+import BathroomPage from './pages/BathroomPage/BathroomPage';
 import SignInPage from './pages/signin/signin';
 import RegistrationPage from './pages/register/registration';
 // templating
