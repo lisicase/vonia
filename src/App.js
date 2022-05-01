@@ -1,66 +1,63 @@
 // React
 import React from 'react';
-import { Component } from 'react';
 // Components
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
-import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
-import BathroomCard from './Map/BathroomPopup.js';
-import BuildingList from './Map/BuildingList.js';
-import FavoritesPage from './Pages/Favorites/Favorites.js';
-import { RedirectButton } from './StyleElements.js';
-import WriteReview from './Pages/Reviews/WriteReview';
-import FilterForm from './Map/Filter.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 // Icons
 import { AiOutlineStar } from 'react-icons/ai';
 // Pages
-//import BathroomPage from './Pages/BathroomPage/BathroomPage';
-import SignInPage from './Pages/Signin/Signin.js';
+import BathroomPage from './pages/BathroomPage/BathroomPage';
+import SignInPage from './Pages/Signin/Signin';
 import RegistrationPage from './Pages/Register/Registration';
-import HomePage from './Pages/Home/Home';
-//import PageTitle from './Shared/PageTitle/PageTitle';
+// templating
+import PageTitle from './Shared/PageTitle/PageTitle';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+function App() {
 
+  return (
+    <div className="App">
+      <>
+        <TestNavigationBar />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/bathroom' element={<BathroomPage />} />
+          <Route path='/reviews' element={<ReviewHistoryPage />} />
+          <Route path='/signin' element={<SignInPage />} />
+          <Route path='/registration' element={<RegistrationPage />} />
+        </Routes>
+      </>
+    </div>
+  );
+}
+
+class HomePage extends React.Component {
   render() {
-    document.title = "Spotty";
     return (
-      <div className="App">
-        <>
-        <HashRouter>
-          <Routes>
-            <Route path='/' element={<HomePage/>} />
-            <Route path='/bathroom' element={<BathroomPage />} />
-            <Route path='/bathroomcard' element={<BathroomCard />} />
-            <Route path='/reviews' element={<ReviewHistoryPage />} />
-            <Route path='/review' element={<WriteReview />} />
-            <Route path='/signin' element={<SignInPage/>} />
-            <Route path='/buildinglist' element={<BuildingList />} />
-            <Route path='/favorites' element={<FavoritesPage />} />
-            <Route path='/filter' element={<FilterForm />} />
-            <Route path='/register' element={<RegistrationPage />} />
-          </Routes>
-          </HashRouter>
-        </>
+      <div>
+        <h1>Spotty</h1>
+        <h2>Spot-a-Potty</h2>
+        <form action="" className="mt-3">
+          <input type="text" placeholder="Location" />
+          <Button variant="primary btn-sm" id="search-button" type="submit">
+              <i className="fa fa-search" aria-hidden="true"></i>
+          </Button>{' '}
+        </form>
       </div>
     );
   }
 }
 
-class ReviewHistoryPage extends Component {
+class ReviewHistoryPage extends React.Component {
   render() {
     return (
       <div style={{textAlign:"left"}}>
-        <div style={{textAlign:"left"}}>
-          <RedirectButton redirectTo="/" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
-          <h1>Review History</h1>
-        </div>
+        <PageTitle title="Reviews" />
         <ListGroup variant="flush">
           <ReviewListItem />
           <ReviewListItem />
@@ -72,7 +69,7 @@ class ReviewHistoryPage extends Component {
   }
 }
 
-class ReviewListItem extends Component {
+class ReviewListItem extends React.Component {
   render() {
     let borderStyle = "25px solid gray";
 
@@ -90,5 +87,26 @@ class ReviewListItem extends Component {
   }
 }
 
-export default App;
 
+
+class TestNavigationBar extends React.Component {
+  render() {
+    return (
+      <div className="header-div">
+          <Navbar expand="lg">
+            <Navbar.Brand><NavLink exact to='/' className="navLink">Spotty</NavLink></Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link><NavLink exact to='/bathroom' className="navLink" >Bathroom</NavLink></Nav.Link>
+                    <Nav.Link><NavLink exact to='/reviews' className="navLink">Review History</NavLink></Nav.Link>
+                    <Nav.Link><NavLink exact to='/signin' className="navLink">Sign In</NavLink></Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+      </div>
+    )
+  }
+}
+
+export default App;
