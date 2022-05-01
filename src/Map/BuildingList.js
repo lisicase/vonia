@@ -4,7 +4,7 @@ import { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 // Components
 import { ShortDivider } from '../StyleElements';
-import BathroomCard, { BuildingInfo } from './BathroomPopup';
+import { BuildingInfo } from './BathroomPopup';
 import { StarRating } from '../Pages/BathroomPage/Ratings';
 import Popup from 'reactjs-popup';
 // Icons
