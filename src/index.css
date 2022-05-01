@@ -35,6 +35,17 @@ h2 {
   color: var(--brightBlue);
 }
 
+button.resetBtn {
+  background-color: #EEEEEE;
+  width: 53.333vw;
+  box-shadow: 0 .2rem 1rem rgba(0, 0, 0, .1);
+}
+
+button.resetBtn:hover {
+  background-color: #e3e3e3;
+  box-shadow: none;
+}
+
 button.submitBtn {
   background-color: var(--brightBlue);
   width: 53.333vw;
@@ -45,6 +56,27 @@ button.submitBtn:hover {
   background-color: var(--brightBlueSelected);
   box-shadow: none;
 }
+
+button.filterToggle {
+  background-color: #EEEEEE;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 .2rem 1rem rgba(0, 0, 0, .1);
+}
+
+button.filterToggle:hover {
+  background-color: #e3e3e3;
+  box-shadow: none;
+}
+
+button.filterToggle.on {
+  background-color: #D4F6FB;
+}
+
+button.filterToggle.on:hover {
+  background-color: #bfdce0;
+}
+
 
 .purpleRatingSymbol {
   color: var(--ratingPurple);

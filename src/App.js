@@ -10,6 +10,7 @@ import BuildingList from './Map/BuildingList.js';
 import FavoritesPage from './Pages/Favorites/Favorites.js';
 import { RedirectButton } from './StyleElements.js';
 import WriteReview from './Pages/Reviews/WriteReview';
+import FilterForm from './Map/Filter.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -44,6 +45,7 @@ class App extends Component {
             <Route path='/signin' element={<SignInPage />} />
             <Route path='/buildinglist' element={<BuildingList />} />
             <Route path='/favorites' element={<FavoritesPage />} />
+            <Route path='/filter' element={<FilterForm />} />
           </Routes>
         </>
       </div>
@@ -89,3 +91,4 @@ class ReviewListItem extends Component {
 }
 
 export default App;
+
