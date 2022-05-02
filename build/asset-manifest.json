@@ -1,18 +1,16 @@
 {
-  "files": {
-    "main.css": "/vonia/static/css/main.e3b960b4.css",
-    "main.js": "/vonia/static/js/main.10a71e08.js",
-    "static/media/fontawesome-webfont.svg?v=4.7.0": "/vonia/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
-    "static/media/fontawesome-webfont.eot": "/vonia/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
-    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/vonia/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
-    "static/media/fontawesome-webfont.woff?v=4.7.0": "/vonia/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
-    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/vonia/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
-    "index.html": "/vonia/index.html",
-    "main.e3b960b4.css.map": "/vonia/static/css/main.e3b960b4.css.map",
-    "main.10a71e08.js.map": "/vonia/static/js/main.10a71e08.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.e3b960b4.css",
-    "static/js/main.10a71e08.js"
-  ]
+  "main.css": "/vonia/static/css/main.c20309bb.chunk.css",
+  "main.js": "/vonia/static/js/main.60af4e4b.chunk.js",
+  "main.js.map": "/vonia/static/js/main.60af4e4b.chunk.js.map",
+  "runtime~main.js": "/vonia/static/js/runtime~main.aef5538c.js",
+  "runtime~main.js.map": "/vonia/static/js/runtime~main.aef5538c.js.map",
+  "static/css/2.0378ee88.chunk.css": "/vonia/static/css/2.0378ee88.chunk.css",
+  "static/js/2.9058fd01.chunk.js": "/vonia/static/js/2.9058fd01.chunk.js",
+  "static/js/2.9058fd01.chunk.js.map": "/vonia/static/js/2.9058fd01.chunk.js.map",
+  "index.html": "/vonia/index.html",
+  "precache-manifest.eeafc8d2cb60db84792cce57c9565ec9.js": "/vonia/precache-manifest.eeafc8d2cb60db84792cce57c9565ec9.js",
+  "service-worker.js": "/vonia/service-worker.js",
+  "static/css/2.0378ee88.chunk.css.map": "/vonia/static/css/2.0378ee88.chunk.css.map",
+  "static/css/main.c20309bb.chunk.css.map": "/vonia/static/css/main.c20309bb.chunk.css.map",
+  "static/media/font-awesome.min.css": "/vonia/static/media/fontawesome-webfont.fee66e71.woff"
 }
