@@ -12,18 +12,12 @@ import 'reactjs-popup/dist/index.css';
 import InitMap from "../../Map/Map.js";
 
 export default function HomePage(props) {
-    let menuButton = <RedirectButton redirectTo="/signin" button={<button><GiHamburgerMenu /></button>} />
+    let menuButton = <RedirectButton redirectTo="/signin" button={<div><GiHamburgerMenu /></div>} />
     if (sessionStorage.getItem('Auth Token')) {
-        menuButton = <Popup
-        trigger={
-            <button><GiHamburgerMenu /></button>
-        }
-        closeOnDocumentClick={true}
-    >
-        <div>
-            <Menu />
-        </div>
-    </Popup>
+        menuButton =
+            <Popup trigger={<div><GiHamburgerMenu /></div>} closeOnDocumentClick={true}>
+                <div><Menu /></div>
+            </Popup>
     }
     return (
         <div style={{backgroundColor:'#dae1e3'}}>
