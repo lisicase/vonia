@@ -36,7 +36,7 @@ class App extends Component {
         <HashRouter>
           <Routes>
             <Route path='/' element={<HomePage/>} />
-            <Route path='/bathroom' element={<BathroomPage />} />
+            <Route path='/bathroom/:bathroomId' element={<BathroomPage />} />
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
