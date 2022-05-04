@@ -11,6 +11,7 @@ import FavoritesPage from './Pages/Favorites/Favorites.js';
 import { RedirectButton } from './StyleElements.js';
 import WriteReview from './Pages/Reviews/WriteReview';
 import FilterForm from './Map/Filter.js';
+import LandingPage from './Pages/LandingPage/LandingPage.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -45,6 +46,7 @@ class App extends Component {
             <Route path='/favorites' element={<FavoritesPage />} />
             <Route path='/filter' element={<FilterForm />} />
             <Route path='/register' element={<RegistrationPage />} />
+            <Route path='/landing-page' element={<LandingPage />} />
           </Routes>
           </HashRouter>
         </>

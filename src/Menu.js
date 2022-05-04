@@ -11,9 +11,12 @@ import { GrHistory } from "react-icons/gr";
 import { IoHelpCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { MdAccessible, MdLockOutline } from "react-icons/md";
 import { VscHeart } from "react-icons/vsc";
+//auth
+import { getAuth } from 'firebase/auth';
 
 export default function Menu() {
 
+    let auth = getAuth();
     let [redirectTo, setRedirect] = useState('');
 
     let openReviewHistory = () => {
@@ -26,7 +29,8 @@ export default function Menu() {
 
     let signOut = () => {
         sessionStorage.removeItem('Auth Token');
-        return <Navigate to='/'/>;
+        console.log("signing out");
+        window.location.reload();
     }
 
     if (redirectTo !== "") {
@@ -38,7 +42,7 @@ export default function Menu() {
             <div className="shadow" style={{ width: "80vw", height: "100vh" }}>
                 <div style={{ margin: "1rem" }}>
                     <AccountInfo
-                        username="rebec20"
+                        username={auth.currentUser.displayName}
                         location="Rainier Vista"
                         miles="0.1"
                         imgSrc="logo192.png"

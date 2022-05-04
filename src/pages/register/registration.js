@@ -9,26 +9,56 @@ import { TextField } from '@mui/material';
 import { BiUserCircle } from "react-icons/bi";
 import { MdLockOutline, MdOutlineMail } from "react-icons/md";
 //firebase
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { app } from '../../Shared/firebase/firebase-config';
+import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
 
 export default function RegistrationPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [id, setId] = useState('');
+    const [name, setName] = useState('');
     const nav = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         let auth = getAuth();
+        let user = null;
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((res) => {
-                
+                console.log(res);
+                sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken);
+                user = auth.currentUser;
+                console.log(auth.currentUser);
+                sendEmailVerification(user);
+
+                console.log(sessionStorage.getItem('Auth Token'));
+
+                if (sessionStorage.getItem('Auth Token')) {
+                    updateProfile(auth.currentUser, {
+                        displayName: name
+                    })
+                        .then(() => {
+                            console.log("successfully updated account");
+                            console.log(auth.currentUser);
+                            nav('/');
+                        })
+                        .catch((error) => {
+                            let code = error.code;
+                            let message = error.message;
+                            alert(`Error ${code}: ${message}. Please try again`);
+                        });
+                }
             })
             .catch((error) => {
                 let code = error.code;
                 let message = error.message;
-                alert(`${code}: ${message}`);
+                if (code === 'auth/email-already-in-use') {
+                    alert("Error: email already in use. Please try a different one")
+                } else {
+                    alert(`${code}: ${message}`);
+                }
+
             });
 
     };
@@ -40,9 +70,9 @@ export default function RegistrationPage() {
                 <h1>Welcome to Spotty!</h1>
             </div>
             <Logo />
-            <RegisterForm 
+            <RegisterForm
                 handleSubmit={handleSubmit}
-                handleId={(event) => setId(event.target.value)}
+                handleId={(event) => setName(event.target.value)}
                 handleEmail={(event) => setEmail(event.target.value)}
                 handlePassword={(event) => setPassword(event.target.value)}
             />
