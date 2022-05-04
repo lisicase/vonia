@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "fa4e1f562d73f95fafab",
+    "revision": "da800c6e793557a85fda",
     "url": "/vonia/static/css/main.1950da10.chunk.css"
   },
   {
-    "revision": "fa4e1f562d73f95fafab",
-    "url": "/vonia/static/js/main.d2729b7c.chunk.js"
+    "revision": "da800c6e793557a85fda",
+    "url": "/vonia/static/js/main.251f23a7.chunk.js"
   },
   {
     "revision": "cfd69c213908142c0a7b",
@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "/vonia/static/js/2.90cc1cb7.chunk.js"
   },
   {
-    "revision": "674f50d287a8c48dc19ba404d20fe713",
-    "url": "/vonia/static/media/fontawesome-webfont.674f50d2.eot"
-  },
-  {
     "revision": "af7ae505a9eed503f8b8e6982036873e",
     "url": "/vonia/static/media/fontawesome-webfont.af7ae505.woff2"
+  },
+  {
+    "revision": "674f50d287a8c48dc19ba404d20fe713",
+    "url": "/vonia/static/media/fontawesome-webfont.674f50d2.eot"
   },
   {
     "revision": "b06871f281fee6b241d60582ae9369b9",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/vonia/static/media/fontawesome-webfont.912ec66d.svg"
   },
   {
-    "revision": "d61654d77610c820412f8db9a52c90e0",
+    "revision": "e1a77e081779fa3a73e5dfa6ef1ce74d",
     "url": "/vonia/index.html"
   }
 ];
