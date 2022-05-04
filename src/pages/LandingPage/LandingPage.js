@@ -1,3 +1,5 @@
+// React
+import React from 'react';
 // Components
 import { Button } from 'antd';
 import { RedirectButton, Logo } from '../../StyleElements';
