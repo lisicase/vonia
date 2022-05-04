@@ -12,10 +12,9 @@ export default function WelcomePage() {
         return <Navigate to={"/"} />
     }
     
-    //let Username = sessionStorage.getItem('Auth Token');
     let auth = getAuth();
     console.log(auth);
-    let Username = auth.currentUser.displayName;
+    let username = auth.currentUser.displayName;
     console.log("TEST:::");
     console.log(sessionStorage);
     /*let redirectLocation = "/";
@@ -33,7 +32,7 @@ export default function WelcomePage() {
     return (
         <div>
             <div style={{ textAlign: "center" }}>
-                <h1>{Username}</h1>
+                <h1>{username}</h1>
                 <h1>Welcome, DISPLAY_NAME!</h1>
             </div>
             <Logo />
