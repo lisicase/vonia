@@ -9,11 +9,70 @@ import {BsGithub} from 'react-icons/bs';
 export default function LandingPage() {
     return (
         <div>
-            <Banner />
+            <BannerViz3 />
+            {/*<Banner />*/}
             <div style={{paddingLeft:'20vw', paddingRight:'20vw', paddingBottom:'2rem'}}>
                 <About />
                 <Team />
                 <ProjectStatus />
+            </div>
+        </div>
+    );
+}
+
+function BannerViz3() {
+    return (
+        <div style={{backgroundColor:'#e3fcff', height:'100vh', display:'flex', alignItems:'center'}}>
+            <div>
+                <img
+                    src="/banner/banner.png" 
+                    alt="Spotty banner with line-drawn bathroom" 
+                    style={{width:'100vw'}}
+                />
+                <div style={{height:'2rem'}} />
+                <div style={{position:'absolute', left:'15vw', top:'50vh'}}>
+                    <RedirectButton 
+                        redirectTo="/" 
+                        button={<Button color="#68DCEC" shape="round" fontSize="20px">find a bathroom</Button>} 
+                    />
+                </div>
+                <span style={{height:'2rem'}}/>
+            </div>
+        </div>
+    );
+}
+
+function BannerViz2() {
+    //const bgImg = url('/banner/banner.png');
+    return (
+        <div className="test" style={{height:'100vh', display:'flex', alignItems:'center', justifyContent:'center'}}>
+            <div>
+                <div style={{height:'2rem'}} />
+                <RedirectButton 
+                    redirectTo="/" 
+                    button={<Button color="#68DCEC" shape="round">find a bathroom</Button>} 
+                />
+                <span style={{height:'2rem'}}/>
+            </div>
+        </div>
+    );
+}
+
+function BannerViz() {
+    return (
+        <div style={{backgroundColor:'#e3fcff', height:'100vh', display:'flex', alignItems:'center', justifyContent:'center'}}>
+            <div>
+                <img
+                    src="/banner/banner.png" 
+                    alt="Spotty banner with line-drawn bathroom" 
+                    style={{width:'100vw'}}
+                />
+                <div style={{height:'2rem'}} />
+                <RedirectButton 
+                    redirectTo="/" 
+                    button={<Button color="#68DCEC" shape="round">find a bathroom</Button>} 
+                />
+                <span style={{height:'2rem'}}/>
             </div>
         </div>
     );
@@ -60,10 +119,10 @@ function Team() {
         <div>
             <h2>The Team</h2>
             <div style={{display:'flex', justifyContent:'center'}}>
-                <Member name="Lisi Case" role="Product Manager & Developer" img="LisiCase-sq.jpg" />
-                <Member name="Kevin Chou" role="Software Engineer" img="KevinChou-sq.jpg" />
-                <Member name="David Chiang" role="Data Scientist" img="DavidChiang-sq.JPG" />
-                <Member name="Jacqueline Park" role="Designer" img="JacquelinePark-sq.jpg" />
+                <Member name="Lisi Case" role="Product Manager & Developer" img="/team-members/LisiCase-sq.jpg" alt="Lisi's headshot" />
+                <Member name="Kevin Chou" role="Software Engineer" img="/team-members/KevinChou-sq.jpg" alt="Kevin's headshot" />
+                <Member name="David Chiang" role="Data Scientist" img="/team-members/DavidChiang-sq.JPG" alt="David's headshot" />
+                <Member name="Jacqueline Park" role="Designer" img="/team-members/JacquelinePark-sq.jpg" alt="Jacqueline's headshot" />
             </div>
         </div>
     );
