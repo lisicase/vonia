@@ -1,16 +1,16 @@
 {
-  "main.css": "/vonia/static/css/main.c20309bb.chunk.css",
-  "main.js": "/vonia/static/js/main.aacf61cf.chunk.js",
-  "main.js.map": "/vonia/static/js/main.aacf61cf.chunk.js.map",
+  "main.css": "/vonia/static/css/main.1950da10.chunk.css",
+  "main.js": "/vonia/static/js/main.b1260b1a.chunk.js",
+  "main.js.map": "/vonia/static/js/main.b1260b1a.chunk.js.map",
   "runtime~main.js": "/vonia/static/js/runtime~main.aef5538c.js",
   "runtime~main.js.map": "/vonia/static/js/runtime~main.aef5538c.js.map",
   "static/css/2.0378ee88.chunk.css": "/vonia/static/css/2.0378ee88.chunk.css",
   "static/js/2.90cc1cb7.chunk.js": "/vonia/static/js/2.90cc1cb7.chunk.js",
   "static/js/2.90cc1cb7.chunk.js.map": "/vonia/static/js/2.90cc1cb7.chunk.js.map",
   "index.html": "/vonia/index.html",
-  "precache-manifest.8993a203588c1c13739e8d92e837eeff.js": "/vonia/precache-manifest.8993a203588c1c13739e8d92e837eeff.js",
+  "precache-manifest.c44640638a1c7f8aa62056f864908e75.js": "/vonia/precache-manifest.c44640638a1c7f8aa62056f864908e75.js",
   "service-worker.js": "/vonia/service-worker.js",
   "static/css/2.0378ee88.chunk.css.map": "/vonia/static/css/2.0378ee88.chunk.css.map",
-  "static/css/main.c20309bb.chunk.css.map": "/vonia/static/css/main.c20309bb.chunk.css.map",
+  "static/css/main.1950da10.chunk.css.map": "/vonia/static/css/main.1950da10.chunk.css.map",
   "static/media/font-awesome.min.css": "/vonia/static/media/fontawesome-webfont.fee66e71.woff"
 }
