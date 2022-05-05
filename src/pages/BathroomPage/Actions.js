@@ -16,7 +16,7 @@ export function BathroomActions() {
                 </div>;
     if (favorited) {
         favBtn = <div onClick={() => toggleFavorited(false)}>
-                    <ActionWithTitle icon={<FaHeart size={30} />} title="Favorite" override="purpleRatingSymbol" />
+                    <ActionWithTitle icon={<FaHeart size={30} className="purpleRatingSymbol" />} title="Favorite" />
                 </div>;
     }
 
