@@ -1,13 +1,24 @@
-import React from 'react';
-import { Component } from 'react';
+import React, { useState } from 'react';
+// Icons
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { FiShare2, FiMap } from "react-icons/fi";
 import { HiOutlinePencilAlt } from "react-icons/hi";
-import { VscHeart } from "react-icons/vsc";
 import { useNavigate } from 'react-router-dom';
 
 export function BathroomActions() {
 
     const nav = useNavigate();
+
+    const [favorited, toggleFavorited] = useState(false);
+
+    let favBtn = <div onClick={() => toggleFavorited(true)}>
+                    <ActionWithTitle icon={<FaRegHeart size={30} />} title="Favorite" />
+                </div>;
+    if (favorited) {
+        favBtn = <div onClick={() => toggleFavorited(false)}>
+                    <ActionWithTitle icon={<FaHeart size={30} />} title="Favorite" override="purpleRatingSymbol" />
+                </div>;
+    }
 
     const clickHandler = () => {
         //https://www.google.com/maps/search/?api=1&query=Architecture+Hall%2CSeattle%2CWA
@@ -18,7 +29,7 @@ export function BathroomActions() {
     return (
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
             <ActionWithTitle clickHandler={clickHandler} icon={<FiMap size={30} />} title="Directions" />
-            <ActionWithTitle icon={<VscHeart size={30} />} title="Favorite" />
+            {favBtn}
             <ActionWithTitle icon={<HiOutlinePencilAlt size={30} />} title="Review" />
             <ActionWithTitle icon={<FiShare2 size={30} />} title="Share" />
         </div>
