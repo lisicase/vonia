@@ -22,7 +22,7 @@ export class ShortDivider extends Component {
 export class Logo extends Component {
   render() {
     return (
-      <img src="logo/Logo0.png" style={{height:'15rem', marginTop:'3rem', marginBottom:'3rem'}} />
+      <img src="logo/Logo1.png" style={{height:'15rem', marginTop:'3rem', marginBottom:'3rem'}} />
     );
   }
 }
