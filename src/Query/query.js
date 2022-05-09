@@ -251,10 +251,98 @@ async function avgUserReviewRating(reviewID) {
     return avg;
 }
 
-// Returns all the features for a specific bathroom
-async function allFeatures() {
+// Returns all the features for a specific bathroom given a building name
+// and a bathroom ID for a bathroom inside it
+async function allFeatures(buildingName, bathroomID) {
+    const snapshot = await bathRef
+    .where('properties.name', '==', buildingName)
+    .get()                    
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            const data = doc.data();
+            const floors = data.properties.floors;
+
+            for (const currFloor in floors) {
+                if (floors[currFloor].bathroom_id == bathroomID) {
+                    let features = floors[currFloor].features
+                    console.log(floors[currFloor].bathroom_id);
+                    console.log(features);
+                    return features;
+                }            
+              }
+        });
+    })
+
     return;
 }
+
+// Given filters and a minimum rating, return a list of building and floors within that building that match it
+async function filter(filteredFeatures, minRating) {
+    let baths = [];
+
+    const snapshot = await bathRef
+    .where('properties.country', '==', 'United States')
+    .get()                    
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            const data = doc.data();
+
+            const floors = data.properties.floors;
+
+            for (const currFloor in floors) {
+                let match = true; 
+
+                let features = floors[currFloor].features
+                if (floors[currFloor].rating >= minRating) {
+                    for (const currFeature in features) {
+                        let feat = features[currFeature];
+    
+                        for (const keyFilteredFeature in filteredFeatures) {
+                            if (feat[keyFilteredFeature] != filteredFeatures[keyFilteredFeature]) {
+                                match = false;
+                            }
+                        }
+                    }  
+
+                    if (match == true) {
+                        baths.push(data);
+                    }  
+                } 
+            }
+        });
+    })
+
+    console.log(baths);
+
+    return baths;
+}
+
+// Given a building name, returns the highest rating among all its floors
+async function highestRatedBathroom(buildingName) {
+    let hiRating = 0;
+
+    const snapshot = await bathRef
+    .where('properties.name', '==', buildingName)
+    .get()                    
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            const data = doc.data();
+            const floors = data.properties.floors;
+
+            for (const currFloor in floors) {
+                currRating = floors[currFloor].rating;
+                if (currRating > hiRating) {
+                    hiRating = currRating;
+                }            
+              }
+        });
+    })
+
+    console.log(hiRating);
+
+    return hiRating;
+}
+
 
 // Test functions
 
@@ -281,3 +369,25 @@ async function allFeatures() {
 //overallRating("mZuOD9HaIa");
 
 //avgUserReviewRating("F7Pt0QAJFc");
+
+//allFeatures("Kane Hall", "zV4aAmP7LR");
+
+// features = {
+//     // 'Auto-Flush': 'No',
+//     // 'Water Fountain': 'Yes',
+//     // 'Changing Station': 'No',
+//     'Gender': 'Neutral',
+//     // 'Feminine Products': 'No',
+//     // 'Tall Stalls': 'No',
+//     // 'Parking': 'No',
+//     // 'Hot Water Tap': 'Yes',
+//     // 'No ID': 'Yes',
+//     // 'Free': 'Yes',
+//     // 'Towels': 'No',
+//     // 'Accessible': 'Yes'
+// }
+
+//filter(features, 4);
+
+//highestRatedBathroom("Suzzallo and Allen Libraries");
+
