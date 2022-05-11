@@ -20,6 +20,7 @@ import { AiOutlineStar } from 'react-icons/ai';
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
 import SignInPage from './Pages/Signin/Signin.js';
 import RegistrationPage from './Pages/Register/Registration.js';
+//import RegistrationPage from './Pages/Register/Registration';
 import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
 
@@ -37,6 +38,7 @@ class App extends Component {
           <Routes>
             <Route path='/' element={<HomePage/>} />
             <Route path='/bathroom/:bathroomId' element={<BathroomPage />} />
+
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
