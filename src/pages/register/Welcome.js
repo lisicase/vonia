@@ -3,8 +3,8 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 // Components
 import { RedirectButton, Logo } from "../../StyleElements";
-
-
+import { LogInButton } from '../Signin/Signin';
+// Authentication
 import { getAuth } from 'firebase/auth';
 
 export default function WelcomePage() {
@@ -13,42 +13,28 @@ export default function WelcomePage() {
     }
     
     let auth = getAuth();
-    console.log(auth);
-    let username = auth.currentUser.displayName;
-    console.log("TEST:::");
-    console.log(sessionStorage);
-    /*let redirectLocation = "/";
-    if (sessionStorage.getItem('Auth Token')) {
-        redirectLocation = "/";
-    }
-
-
-    let startButton = 
-        <RedirectButton 
-            redirectTo={redirectLocation} 
-            button={<SignUpButton/>} 
-        />;*/
+    let displayName = auth.currentUser.displayName;
+    let loginBtn = <LogInButton />;
 
     return (
         <div>
-            <div style={{ textAlign: "center" }}>
-                <h1>{username}</h1>
-                <h1>Welcome, DISPLAY_NAME!</h1>
+            <div style={{textAlign:'center', paddingTop:'2rem'}}>
+            <h1>Welcome to the Spotty community, <strong>{displayName}</strong>!</h1>
             </div>
             <Logo />
             <form class="form-inline">
-                <div style={{ marginTop: "20vw" }}>
-                    <SignUpButton/>
+                <div style={{marginTop:'20vw'}}>
+                    <RedirectButton button={loginBtn} redirectTo="/signin"/>
                 </div>
             </form>
         </div>
     );
 }
 
-function SignUpButton() {
+/*function LogInButton() {
     return (
-        <button type="submit" class="btn submitBtn" style={{borderRadius:'25px', width:'13rem'}}>
-            <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>FIND A BATHROOM
+        <button type="submit" class="btn submitBtn">
+            <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>LOGIN
         </button>
     );
-}
+}*/

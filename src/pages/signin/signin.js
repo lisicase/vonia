@@ -89,3 +89,5 @@ function LogInButton() {
         </button>
     );
 }
+
+export { LogInButton };
