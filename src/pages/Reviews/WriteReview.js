@@ -8,10 +8,13 @@ import { TextField, FormControl, Select, MenuItem, InputLabel } from '@mui/mater
 import 'antd/dist/antd.css';
 
 export default function WriteReview() {
+    const url = window.location.href;
+    const brId = url.substring(url.length - 2, url.length);
+
     return (
         <div>
             <div style={{ textAlign: "left" }}>
-                <RedirectButton redirectTo="/bathroom" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
+                <RedirectButton redirectTo={"/bathroom/" + brId} button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
                 <h1>Write a Review</h1>
             </div>
             <ReviewForm />
@@ -20,6 +23,9 @@ export default function WriteReview() {
 }
 
 function ReviewForm() {
+    const url = window.location.href;
+    const brId = url.substring(url.length - 2, url.length);
+
     return (
         <form class="form-inline">
             <div style={{ textAlign:'left', display:'flex', flexDirection:'column', margin:'3rem'}}>
@@ -28,7 +34,7 @@ function ReviewForm() {
                     <EnterReviewContent />
             </div>
             <div style={{marginTop:'2rem', paddingBottom:'2rem'}}>
-                <RedirectButton button={<SubmitButton />} redirectTo="/confirmation"/>
+                <RedirectButton button={<SubmitButton />} redirectTo={"/confirmation/" + brId} />
             </div>
         </form>
     );

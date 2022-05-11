@@ -18,9 +18,12 @@ function BathroomReviews() {
             Write a Review
         </Button>}
     />;
+
+    const url = window.location.href;
+    const brId = url.substring(url.length - 2, url.length);
     if (sessionStorage.getItem('Auth Token')) {
         reviewButton = <RedirectButton
-            redirectTo="/review"
+            redirectTo={"/review/" + brId}
             button={<Button>
                 <BiPencil className="bufferedIcon" />
                 Write a Review

@@ -47,13 +47,13 @@ class App extends Component {
             <Route path='/bathroom/:brId' element={<BathroomPage userId={this.state.userId} />} />
             <Route path='/bathroompopup' element={<BathroomPopup />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
-            <Route path='/review' element={<WriteReview />} />
+            <Route path='/review/:brId' element={<WriteReview />} />
             <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
             <Route path='/buildinglist' element={<BuildingList />} />
             <Route path='/favorites' element={<FavoritesPage />} />
             <Route path='/filter' element={<FilterForm />} />
             <Route path='/register' element={<RegistrationPage />} />
-            <Route path='/confirmation' element={<ReviewConfirmation />} />
+            <Route path='/confirmation/:brId' element={<ReviewConfirmation />} />
           </Routes>
         </>
       </div>
