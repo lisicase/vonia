@@ -2,16 +2,15 @@
 import React from 'react';
 import { Component } from 'react';
 // Components
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import BathroomPage from './Pages/BathroomPage/BathroomPage.js';
-import BathroomCard from './Map/BathroomPopup.js';
+import BathroomPopup from './Map/BathroomPopup.js';
 import BuildingList from './Map/BuildingList.js';
 import FavoritesPage from './Pages/Favorites/Favorites.js';
 import { RedirectButton } from './StyleElements.js';
 import WriteReview from './Pages/Reviews/WriteReview';
 import FilterForm from './Map/Filter.js';
-import LandingPage from './Pages/LandingPage/LandingPage.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -19,7 +18,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import { AiOutlineStar } from 'react-icons/ai';
 // Pages
 //import BathroomPage from './Pages/BathroomPage/BathroomPage';
-import SignInPage from './Pages/Signin/Signin.js';
+import SignInPage from './Pages/Signin/Signin';
 import RegistrationPage from './Pages/Register/Registration.js';
 import HomePage from './Pages/Home/Home';
 //import PageTitle from './Shared/PageTitle/PageTitle';
@@ -27,6 +26,13 @@ import HomePage from './Pages/Home/Home';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      userId: ""
+    };
+  }
+
+  updateUserId = (uid) => {
+    this.setState({userId: uid});
   }
 
   render() {
@@ -34,21 +40,18 @@ class App extends Component {
     return (
       <div className="App">
         <>
-        <HashRouter>
           <Routes>
-            <Route path='/' element={<HomePage/>} />
-            <Route path='/bathroom/:bathroomId' element={<BathroomPage />} />
-            <Route path='/bathroomcard' element={<BathroomCard />} />
+            <Route path='/' element={<HomePage userId={this.state.userId} />} />
+            <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
+            <Route path='/bathroompopup' element={<BathroomPopup />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
-            <Route path='/signin' element={<SignInPage/>} />
+            <Route path='/signin' element={<SignInPage updateUserId={this.updateUserId} />} />
             <Route path='/buildinglist' element={<BuildingList />} />
             <Route path='/favorites' element={<FavoritesPage />} />
             <Route path='/filter' element={<FilterForm />} />
             <Route path='/register' element={<RegistrationPage />} />
-            <Route path='/landing-page' element={<LandingPage />} />
           </Routes>
-          </HashRouter>
         </>
       </div>
     );
@@ -93,3 +96,4 @@ class ReviewListItem extends Component {
 }
 
 export default App;
+
