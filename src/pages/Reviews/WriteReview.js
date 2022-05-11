@@ -28,7 +28,7 @@ function ReviewForm() {
                     <EnterReviewContent />
             </div>
             <div style={{marginTop:'2rem', paddingBottom:'2rem'}}>
-                <SubmitButton />
+                <RedirectButton button={<SubmitButton />} redirectTo="/confirmation"/>
             </div>
         </form>
     );

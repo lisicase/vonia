@@ -11,6 +11,7 @@ import FavoritesPage from './Pages/Favorites/Favorites.js';
 import { RedirectButton } from './StyleElements.js';
 import WriteReview from './Pages/Reviews/WriteReview';
 import FilterForm from './Map/Filter.js';
+import ReviewConfirmation from './Pages/Reviews/Confirmation';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -21,6 +22,7 @@ import { AiOutlineStar } from 'react-icons/ai';
 import SignInPage from './Pages/Signin/Signin';
 import RegistrationPage from './Pages/Register/Registration.js';
 import HomePage from './Pages/Home/Home';
+import { MdConfirmationNumber } from 'react-icons/md';
 //import PageTitle from './Shared/PageTitle/PageTitle';
 
 class App extends Component {
@@ -42,7 +44,7 @@ class App extends Component {
         <>
           <Routes>
             <Route path='/' element={<HomePage userId={this.state.userId} />} />
-            <Route path='/bathroom' element={<BathroomPage userId={this.state.userId} />} />
+            <Route path='/bathroom/:brId' element={<BathroomPage userId={this.state.userId} />} />
             <Route path='/bathroompopup' element={<BathroomPopup />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
             <Route path='/review' element={<WriteReview />} />
@@ -51,6 +53,7 @@ class App extends Component {
             <Route path='/favorites' element={<FavoritesPage />} />
             <Route path='/filter' element={<FilterForm />} />
             <Route path='/register' element={<RegistrationPage />} />
+            <Route path='/confirmation' element={<ReviewConfirmation />} />
           </Routes>
         </>
       </div>
