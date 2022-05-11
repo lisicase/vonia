@@ -46,7 +46,6 @@ class App extends Component {
             <Route path='/favorites' element={<FavoritesPage />} />
             <Route path='/filter' element={<FilterForm />} />
             <Route path='/register' element={<RegistrationPage />} />
-            <Route path='/welcome' element={<WelcomePage />} />
           </Routes>
           </HashRouter>
         </>

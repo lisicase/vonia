@@ -13,6 +13,10 @@ import { app } from '../../Shared/firebase/firebase-config';
 import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
 
 export default function RegistrationPage() {
+    if (sessionStorage.getItem('Auth Token')) {
+        return <Navigate to={"/welcome"} />
+    }
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -106,35 +110,6 @@ function RegisterForm(props) {
                 <SignUpButton />
             </div>
         </form>
-    );
-}
-
-function AccountInputBoxes(props) {
-    return (
-        <div>
-            {/*<div class="form-group mr-3" style={{ display: 'flex' }}>
-                <label for="searchQuery" class="mr-2"><BiUserCircle className="bufferedIcon" size={30} style={{ height: '2rem' }} /></label>
-                <input placeholder="Username" type="text" name="term" id="searchQuery" class="form-control" onChange={props.handleEmail} />
-            </div>
-            <div class="form-group mr-3" style={{ display: 'flex' }}>
-                <label for="searchQuery" class="mr-2"><MdLockOutline className="bufferedIcon" size={30} style={{ height: '2rem' }} /></label>
-                <input placeholder="Password" type="text" name="term" id="searchQuery" class="form-control" onChange={props.handlePassword} />
-            </div>*/}
-
-
-            <div class="form-group mr-3">
-                <label for="searchQuery" class="mr-2">UserID</label>
-                <input type="text" name="term" id="searchQuery" class="form-control" onChange={props.handleId}/>
-            </div>
-            <div class="form-group mr-3">
-                <label for="searchQuery" class="mr-2">Email</label>
-                <input type="text" name="term" id="searchQuery" class="form-control" onChange={props.handleEmail}/>
-            </div>
-            <div class="form-group mr-3">
-                <label for="searchQuery" class="mr-2">Password </label>
-                <input type="text" name="term" id="searchQuery" class="form-control" onChange={props.handlePassword}/>
-            </div>
-        </div>
     );
 }
 

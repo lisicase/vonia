@@ -30,11 +30,3 @@ export default function WelcomePage() {
         </div>
     );
 }
-
-/*function LogInButton() {
-    return (
-        <button type="submit" class="btn submitBtn">
-            <i className="fa-solid fa-right-to-bracket" aria-hidden="true"></i>LOGIN
-        </button>
-    );
-}*/
