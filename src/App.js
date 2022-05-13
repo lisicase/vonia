@@ -12,6 +12,7 @@ import { RedirectButton } from './StyleElements.js';
 import WriteReview from './Pages/Reviews/WriteReview';
 import FilterForm from './Map/Filter.js';
 import ReviewConfirmation from './Pages/Reviews/Confirmation';
+import LandingPage from './Pages/LandingPage/LandingPage.js';
 // Styles
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -54,6 +55,7 @@ class App extends Component {
             <Route path='/filter' element={<FilterForm />} />
             <Route path='/register' element={<RegistrationPage />} />
             <Route path='/confirmation/:brId' element={<ReviewConfirmation />} />
+            <Route path='/landing-page' element={<LandingPage />} />
           </Routes>
         </>
       </div>
