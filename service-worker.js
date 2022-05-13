@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/vonia/precache-manifest.4022383765409e45cf7579dacc54b14f.js"
+  "/vonia/precache-manifest.9c21d34ee8a95382f925660866c2766f.js"
 );
 
 workbox.clientsClaim();
