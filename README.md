@@ -95,7 +95,7 @@ Takeaways:
 
 #### User Testing
 
-We also conducted user validation and usability testing intermittently throughout our project. Users included primarily included fellow students, recent university graduates, and miscellaneous users from [usertesting.com](https://www.usertesting.com/).
+We also conducted user validation and usability testing intermittently throughout our project. Users included primarily fellow students, recent university graduates, and miscellaneous users from [usertesting.com](https://www.usertesting.com/).
 
 ### Design
 
