@@ -25,7 +25,7 @@ Thank you for checking out our project!
 
 For our project, we have prioritized functionality for the following features:
 * Ability to look up information from a map and list view
-** Filter these according to preferences
+* Filter map/list according to preferences
 * View list of bathrooms for a specific building
 * View information about a specific bathroom, including average rating and reviews
 * Add new reviews
