@@ -36,12 +36,10 @@ async function allBathrooms() {
       return allBaths;
 }
 
-// Given a building name, return its hours as an object
-async function buildingHours(buildingName) {
-    console.log("Building Name:", buildingName);
-
+// Given a building id, return its hours as an object
+async function buildingHours(buildingID) {
     const snapshot = await bathRef
-    .where('properties.name', '==', buildingName)
+    .where('properties.uid', '==', buildingID)
     .get()                    
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
@@ -251,11 +249,11 @@ async function avgUserReviewRating(reviewID) {
     return avg;
 }
 
-// Returns all the features for a specific bathroom given a building name
+// Returns all the features for a specific bathroom given a building id
 // and a bathroom ID for a bathroom inside it
-async function allFeatures(buildingName, bathroomID) {
+async function allFeatures(buildingID, bathroomID) {
     const snapshot = await bathRef
-    .where('properties.name', '==', buildingName)
+    .where('properties.uid', '==', buildingID)
     .get()                    
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
@@ -317,12 +315,12 @@ async function filter(filteredFeatures, minRating) {
     return baths;
 }
 
-// Given a building name, returns the highest rating among all its floors
-async function highestRatedBathroom(buildingName) {
+// Given a building id, returns the highest rating among all its floors
+async function highestRatedBathroom(buildingID) {
     let hiRating = 0;
 
     const snapshot = await bathRef
-    .where('properties.name', '==', buildingName)
+    .where('properties.uid', '==', buildingID)
     .get()                    
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
@@ -343,10 +341,10 @@ async function highestRatedBathroom(buildingName) {
     return hiRating;
 }
 
-// Given a building name and floor level, return bathroom id
-async function getBathroomId(buildingName, floorLevel) {
+// Given a building id and floor level, return bathroom id
+async function getBathroomId(buildingID, floorLevel) {
     const snapshot = await bathRef
-    .where('properties.name', '==', buildingName)
+    .where('properties.uid', '==', buildingID)
     .get()                    
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
@@ -368,12 +366,27 @@ async function getBathroomId(buildingName, floorLevel) {
     return;
 }
 
+// Given a bathroom id, return allt he bathroom information
+async function bathroomInfo(bathroomID) {
+    const snapshot = await reviewRef
+    .where('bathroom_id', '==', bathroomID)
+    .get()             
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            const data = doc.data();
+            console.log(data.content);
+        });
+    })
+
+    return;
+}
+
 
 // Test functions
 
 //allBathrooms();
 
-//buildingHours('Architecture Hall');
+//buildingHours(1); // Architecture Hall
 
 //addReview("mZuOD9HaIa", "ABCDEFGH", "Great Bathroom!", "Very clean and spacious", 5, 5, 5);
 
@@ -414,7 +427,9 @@ async function getBathroomId(buildingName, floorLevel) {
 
 //filter(features, 4);
 
-//highestRatedBathroom("Suzzallo and Allen Libraries");
+//highestRatedBathroom(7); // Suz
 
-//getBathroomId("Suzzallo and Allen Libraries", 0)
+//getBathroomId(7, 0) // Suz
+
+//bathroomInfo("mZuOD9HaIa");
 
