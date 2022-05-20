@@ -21,7 +21,7 @@ export default function LandingPage() {
 
 function BannerViz() {
     return (
-        <div style={{backgroundColor:'#e3fcff', height:'100vh', display:'flex', alignItems:'center'}}>
+        <div id="landing-banner" style={{backgroundColor:'#D9F0F2', height:'100vh', display:'flex', alignItems:'center'}}>
             <div>
                 <img
                     src="banner/banner.png" 

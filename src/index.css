@@ -124,6 +124,26 @@ div.searchBar .ant-btn {
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
 
+#landing-banner button.ant-btn {
+  border-color: #EADAF6;
+}
+
+#landing-banner button.ant-btn:hover, button.ant-btn:focus {
+  border-color: #ff7ae5 !important;
+  color: #ff7ae5;
+}
+
+#landing-banner button.ant-btn:active {
+  border-color: #f04cd0;
+  color: #f04cd0;
+}
+
+#landing-button {
+  border-color: #EADAF6 !important;
+  color: #EADAF6 !important;
+  background-color: red !important;
+}
+
 * {
   box-sizing: border-box;
 }
