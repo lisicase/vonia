@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "5b56ec9ecf7bdceb971d",
-    "url": "/vonia/static/css/main.d3ecc9be.chunk.css"
+    "revision": "10586fcebd0c2ebe6e95",
+    "url": "/vonia/static/css/main.b42a7e15.chunk.css"
   },
   {
-    "revision": "5b56ec9ecf7bdceb971d",
+    "revision": "10586fcebd0c2ebe6e95",
     "url": "/vonia/static/js/main.34fcbdcc.chunk.js"
   },
   {
@@ -32,15 +32,15 @@ self.__precacheManifest = [
     "url": "/vonia/static/media/fontawesome-webfont.fee66e71.woff"
   },
   {
-    "revision": "b06871f281fee6b241d60582ae9369b9",
-    "url": "/vonia/static/media/fontawesome-webfont.b06871f2.ttf"
-  },
-  {
     "revision": "912ec66d7572ff821749319396470bde",
     "url": "/vonia/static/media/fontawesome-webfont.912ec66d.svg"
   },
   {
-    "revision": "9df1c418f0f9b335bc9a10399d2c7430",
+    "revision": "b06871f281fee6b241d60582ae9369b9",
+    "url": "/vonia/static/media/fontawesome-webfont.b06871f2.ttf"
+  },
+  {
+    "revision": "2e826a12a65681329ee75f5e838a4baa",
     "url": "/vonia/index.html"
   }
 ];
