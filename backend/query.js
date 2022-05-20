@@ -42,19 +42,26 @@ async function allBathrooms() {
  */
 async function buildingHours(buildingName) {
     console.log("Building Name:", buildingName);
+    let bathHours = '';
 
     const snapshot = await bathRef
         .where('properties.name', '==', buildingName)
         .get()
-        .then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                const data = doc.data();
-                const hours = data.properties.hours;
-                console.log(hours);
 
-                return hours;
-            });
-        })
+    snapshot.forEach(function (doc) {
+        const data = doc.data();
+        const hours = data.properties.hours;
+        console.log(hours);
+
+        bathHours = hours;
+    });
+
+    if (bathHours) {
+        console.log(bathHours)
+        return bathHours;
+    } else {
+        throw new Error('no bathroom hours found');
+    }
 }
 
 /**
@@ -264,9 +271,130 @@ async function avgUserReviewRating(reviewID) {
     return avg;
 }
 
-// Returns all the features for a specific bathroom
-async function allFeatures() {
+// Returns all the features for a specific bathroom given a building name
+// and a bathroom ID for a bathroom inside it
+async function allFeatures(buildingName, bathroomID) {
+    const snapshot = await bathRef
+        .where('properties.name', '==', buildingName)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                const floors = data.properties.floors;
+
+                for (const currFloor in floors) {
+                    if (floors[currFloor].bathroom_id == bathroomID) {
+                        let features = floors[currFloor].features
+                        console.log(floors[currFloor].bathroom_id);
+                        console.log(features);
+                        return features;
+                    }
+                }
+            });
+        })
+
     return;
+}
+
+// Given filters and a minimum rating, return a list of building and floors within that building that match it
+async function filter(filteredFeatures, minRating) {
+    let baths = [];
+
+    const snapshot = await bathRef
+        .where('properties.country', '==', 'United States')
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+
+                const floors = data.properties.floors;
+
+                for (const currFloor in floors) {
+                    let match = true;
+
+                    let features = floors[currFloor].features
+                    if (floors[currFloor].rating >= minRating) {
+                        for (const currFeature in features) {
+                            let feat = features[currFeature];
+
+                            for (const keyFilteredFeature in filteredFeatures) {
+                                if (feat[keyFilteredFeature] != filteredFeatures[keyFilteredFeature]) {
+                                    match = false;
+                                }
+                            }
+                        }
+
+                        if (match == true) {
+                            baths.push(data);
+                        }
+                    }
+                }
+            });
+        })
+
+    console.log(baths);
+
+    return baths;
+}
+
+// Given a building name, returns the highest rating among all its floors
+async function highestRatedBathroom(buildingName) {
+    let hiRating = 0;
+
+    const snapshot = await bathRef
+        .where('properties.name', '==', buildingName)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                const floors = data.properties.floors;
+
+                for (const currFloor in floors) {
+                    currRating = floors[currFloor].rating;
+                    if (currRating > hiRating) {
+                        hiRating = currRating;
+                    }
+                }
+            });
+        })
+
+    console.log(hiRating);
+
+    return hiRating;
+}
+
+/**
+ * Given a building name and floor level, return bathroom id
+ * @param {String} buildingName 
+ * @param {Integer} floorLevel 
+ * @returns 
+ */
+async function getBathroomId(buildingName, floorLevel) {
+    let snapshot = await bathRef
+        .where('properties.name', '==', buildingName)
+        .get()
+
+    let id = '';
+
+    snapshot.forEach((doc) => {
+        const data = doc.data();
+
+        const floors = data.properties.floors;
+        for (const currFloor in floors) {
+            const objFloor = floors[currFloor];
+            if (objFloor.level == floorLevel) {
+                bathroom_id = objFloor.bathroom_id;
+                id = bathroom_id;
+            }
+        }
+    });
+
+    if (id) {
+        return id;
+    } else {
+
+        throw new Error('no bathroom id found');
+    }
 }
 
 module.exports = {
@@ -279,7 +407,11 @@ module.exports = {
     avgCleanliness,
     avgPrivacy,
     avgUserReviewRating,
-    overallRating
+    overallRating,
+    allFeatures,
+    filter,
+    highestRatedBathroom,
+    getBathroomId
 }
 // Test functions
 

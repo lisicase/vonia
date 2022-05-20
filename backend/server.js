@@ -3,7 +3,7 @@
 
 const express = require('express');
 const app = express();
-const {allBathrooms, buildingHours, addReview } = require('./query');
+const {allBathrooms, buildingHours, addReview, getBathroomId } = require('./query');
 const exBathrooms = require("../src/Shared/bathroomData/bathroom-data.json");
 
 app.use(express.static("public"));
@@ -46,7 +46,7 @@ app.get('/buildingHours/:buildingName', (req, res) => {
 app.post('/submitReview', (req, res) => {
     console.log(req);
     let bathroomID = req.body.bathroomID; //need a query for this
-    let displayName = req.body.displayName; // need a query for this too
+    let displayName = req.body.displayName;
     let title = req.body.title;
     let content = req.body.content;
     let cleanliness = req.body.cleanliness;
@@ -60,6 +60,17 @@ app.post('/submitReview', (req, res) => {
         })
         .catch((err) => {
             //prolly should redirect to an error page
+            console.log(err);
+        })
+})
+
+app.get('/bathroomID/:buildingName/:floor', (req, res) => {
+    getBathroomId(req.params.buildingName, req.params.floor)
+        .then((id) => {
+           console.log(id);
+           res.send({bathroomID: id});
+        })
+        .catch((err) => {
             console.log(err);
         })
 })

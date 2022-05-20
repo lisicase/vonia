@@ -39,8 +39,8 @@ export default function BathroomCard({ bathroom }) {
                 {
                     bathroom.properties.floors.map((floor) => {
                         //TODO: actually implement accessibility and ids
-                        const isAccessible = Math.floor(Math.random() * 2); //floor.features.accessible === "Yes"
-                        const id = Math.floor(Math.random() * 20); // floor.bathroom_id
+                        const isAccessible = floor.features.accessible === "Yes"; //floor.features.accessible === "Yes"
+                        const id = floor.bathroom_id; // floor.bathroom_id
                         return (
                             <div>
                                 <BathroomListItem id={id} accessible={isAccessible === 0} title={`Floor ${floor.level}`} rating={floor.rating} />

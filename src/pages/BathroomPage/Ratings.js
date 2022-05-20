@@ -54,7 +54,7 @@ export class BathroomRatingsByCategory extends Component {
             <CategoricalRating title="Cleanliness" rating={4} />
             <CategoricalRating title="Privacy" rating={4} />
             <CategoricalRating title="Well-Stocked" rating={5} />
-            <CategoricalRating title="Wait Line" rating={3} />
+            {/*<CategoricalRating title="Wait Line" rating={3} /> */}
         </div>
       );
     }

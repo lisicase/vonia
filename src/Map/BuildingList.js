@@ -22,7 +22,7 @@ export default function BuildingList({ flyToStore, createPopup }) {
 
     useEffect(() => {
         fetch('http://localhost:8080/bathrooms', {
-            mode: 'no-cors'
+            mode: 'cors'
         })
             .then(checkStatus)
             .then(res => res.json())
@@ -32,11 +32,7 @@ export default function BuildingList({ flyToStore, createPopup }) {
             .catch((err) => console.log(err));
     })
 
-
-
-    if (newbathrooms) {
-
-        bathrooms.features.forEach(function (bathroom, i) {
+    bathrooms.features.forEach(function (bathroom, i) {
             bathroom.properties.id = i;
         });
 
@@ -59,9 +55,6 @@ export default function BuildingList({ flyToStore, createPopup }) {
                 </div>
             </div>
         );
-    }
-
-    return <div>Loading...</div>;
 }
 
 export function BuildingListItem({ bathroom, onClick }) {

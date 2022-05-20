@@ -11,24 +11,105 @@
                 ]
             },
             "properties": {
-                "name": "Architecture Hall",
-                "address": "Architecture Hall (ARC)",
-                "city": "Seattle",
                 "country": "United States",
-                "postalCode": "98105",
-                "state": "WA",
                 "floors": [
                     {
-                        "level": 0,
-                        "rating": 4.0
+                        "bathroom_id": "mZuOD9HaIa",
+                        "features": [
+                            {
+                                "Towels": "No",
+                                "No ID": "Yes",
+                                "Auto-Flush": "No",
+                                "Accessible": "No",
+                                "Tall Stalls": "Yes",
+                                "Free": "Yes",
+                                "Feminine Products": "No",
+                                "Gender": "Neutral",
+                                "Changing Station": "No",
+                                "Water Fountain": "Yes"
+                            }
+                        ],
+                        "rating": 4,
+                        "level": 0
                     }
                 ],
-                "overallRating": 4.0,
+                "postalCode": "98105",
+                "hours": {
+                    "tue_1_open": "07:30",
+                    "fri_1_close": "17:00",
+                    "fri_1_open": "07:30",
+                    "mon_1_open": "07:30",
+                    "thu_1_open": "07:30",
+                    "tue_1_close": "18:30",
+                    "sat_1_close": "",
+                    "thu_1_close": "18:30",
+                    "mon_1_close": "18:30",
+                    "sat_1_open": "",
+                    "wed_1_close": "18:30",
+                    "sun_1_close": "",
+                    "wed_1_open": "07:30",
+                    "sun_1_open": ""
+                },
+                "state": "WA",
+                "overallRating": 4,
+                "address": "Architecture Hall (ARC)",
+                "name": "Architecture Hall",
                 "imgSrc": "temp-imgs/buildings/CHB.png",
-                "dist": 0.1
+                "dist": 0.1,
+                "city": "Seattle"
             }
         },
         {
+            "properties": {
+                "hours": {
+                    "wed_1_close": "22:00",
+                    "tue_1_close": "22:00",
+                    "mon_1_open": "07:00",
+                    "fri_1_close": "22:00",
+                    "sat_1_close": "",
+                    "sun_1_close": "",
+                    "fri_1_open": "07:00",
+                    "wed_1_open": "07:00",
+                    "thu_1_open": "07:00",
+                    "tue_1_open": "07:00",
+                    "mon_1_close": "22:00",
+                    "sat_1_open": "",
+                    "thu_1_close": "22:00",
+                    "sun_1_open": ""
+                },
+                "floors": [
+                    {
+                        "rating": 4,
+                        "level": 0,
+                        "bathroom_id": "ShRunb9gmi",
+                        "features": [
+                            {
+                                "Auto-Flush": "No",
+                                "Towels": "No",
+                                "Water Fountain": "Yes",
+                                "Parking": "No",
+                                "Tall Stalls": "Yes",
+                                "Feminine Products": "No",
+                                "Free": "Yes",
+                                "Changing Station": "No",
+                                "Gender": "Men",
+                                "Accessible": "No",
+                                "No ID": "Yes",
+                                "Hot Water Tap": "Yes"
+                            }
+                        ]
+                    }
+                ],
+                "imgSrc": "temp-imgs/buildings/PAA.png",
+                "overallRating": 4,
+                "state": "WA",
+                "postalCode": "98195",
+                "country": "United States",
+                "dist": 0.1,
+                "name": "Bagley Hall",
+                "city": "Seattle",
+                "address": "Bagley Hall (Bag)"
+            },
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -36,27 +117,9 @@
                     -122.30859952214098,
                     47.6531530133415
                 ]
-            },
-            "properties": {
-                "name": "Bagley Hall",
-                "address": "Bagley Hall (Bag)",
-                "city": "Seattle",
-                "country": "United States",
-                "postalCode": "98195",
-                "state": "WA",
-                "floors": [
-                    {
-                        "level": 0,
-                        "rating": 4.0
-                    }
-                ],
-                "overallRating": 4.0,
-                "imgSrc": "temp-imgs/buildings/PAA.png",
-                "dist": 0.1
             }
         },
         {
-            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
@@ -64,25 +127,109 @@
                     47.65373311108504
                 ]
             },
+            "type": "Feature",
             "properties": {
-                "name": "Chemistry Building",
-                "address": "Rainier Vista",
-                "city": "Seattle",
                 "country": "United States",
-                "postalCode": "98195",
-                "state": "WA",
+                "name": "Chemistry Building",
+                "hours": {
+                    "mon_1_close": "19:00",
+                    "mon_1_open": "07:00",
+                    "fri_1_open": "07:00",
+                    "thu_1_close": "19:00",
+                    "thu_1_open": "07:00",
+                    "tue_1_open": "07:00",
+                    "fri_1_close": "19:00",
+                    "sat_1_close": "19:00",
+                    "sun_1_open": "07:00",
+                    "sun_1_close": "17:00",
+                    "sat_1_open": "07:00",
+                    "wed_1_open": "07:00",
+                    "tue_1_close": "19:00",
+                    "wed_1_close": "19:00"
+                },
+                "dist": 0.3,
+                "city": "Seattle",
+                "overallRating": 4,
+                "imgSrc": "temp-imgs/buildings/HUB.jpg",
                 "floors": [
                     {
                         "level": 0,
-                        "rating": 4.0
+                        "rating": 4,
+                        "bathroom_id": "CiwNR5ItqV",
+                        "features": [
+                            {
+                                "Auto-Flush": "No",
+                                "Hot Water Tap": "Yes",
+                                "Feminine Products": "No",
+                                "Changing Station": "No",
+                                "Towels": "No",
+                                "Accessible": "No",
+                                "Gender": "Men",
+                                "Water Fountain": "Yes",
+                                "Parking": "No",
+                                "No ID": "Yes",
+                                "Free": "Yes",
+                                "Tall Stalls": "Yes"
+                            }
+                        ]
                     }
                 ],
-                "overallRating": 4.0,
-                "imgSrc": "temp-imgs/buildings/HUB.jpg",
-                "dist": 0.3
+                "state": "WA",
+                "address": "Rainier Vista",
+                "postalCode": "98195"
             }
         },
         {
+            "properties": {
+                "imgSrc": "temp-imgs/buildings/MGH.jpg",
+                "dist": 0.3,
+                "name": "Communications Building",
+                "city": "Seattle",
+                "state": "WA",
+                "postalCode": "98105",
+                "address": "2023 King Ln NE",
+                "country": "United States",
+                "overallRating": 4,
+                "hours": {
+                    "fri_1_close": "18:00",
+                    "fri_1_open": "11:00",
+                    "thu_1_close": "18:00",
+                    "tue_1_close": "18:00",
+                    "sat_1_close": "18:00",
+                    "mon_1_close": "18:00",
+                    "thu_1_open": "11:00",
+                    "tue_1_open": "11:00",
+                    "sat_1_open": "11:00",
+                    "wed_1_close": "18:00",
+                    "mon_1_open": "11:00",
+                    "sun_1_close": "",
+                    "sun_1_open": "",
+                    "wed_1_open": "11:00"
+                },
+                "floors": [
+                    {
+                        "bathroom_id": "c69emQutwY",
+                        "features": [
+                            {
+                                "Gender": "Men",
+                                "Changing Station": "No",
+                                "Parking": "No",
+                                "Auto-Flush": "No",
+                                "No ID": "Yes",
+                                "Feminine Products": "No",
+                                "Free": "Yes",
+                                "Hot Water Tap": "Yes",
+                                "Towels": "No",
+                                "Water Fountain": "Yes",
+                                "Accessible": "No",
+                                "Tall Stalls": "Yes"
+                            }
+                        ],
+                        "rating": 4,
+                        "level": 0
+                    }
+                ]
+            },
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -90,58 +237,171 @@
                     -122.30489035393985,
                     47.658113986558625
                 ]
-            },
-            "properties": {
-                "name": "Communications Building",
-                "address": "2023 King Ln NE",
-                "city": "Seattle",
-                "country": "United States",
-                "postalCode": "98105",
-                "state": "WA",
-                "floors": [
-                    {
-                        "level": 0,
-                        "rating": 4.0
-                    }
-                ],
-                "overallRating": 4.0,
-                "imgSrc": "temp-imgs/buildings/MGH.jpg",
-                "dist": 0.3
             }
         },
         {
             "type": "Feature",
+            "properties": {
+                "dist": 0.5,
+                "postalCode": "98195",
+                "city": "Seattle",
+                "overallRating": 4.2,
+                "state": "WA",
+                "name": "Kane Hall",
+                "hours": {
+                    "wed_1_open": "08:00",
+                    "tue_1_open": "08:00",
+                    "mon_1_open": "08:00",
+                    "fri_1_open": "08:00",
+                    "tue_1_close": "17:00",
+                    "thu_1_open": "08:00",
+                    "thu_1_close": "17:00",
+                    "sat_1_close": "",
+                    "sat_1_open": "",
+                    "wed_1_close": "17:00",
+                    "sun_1_close": "",
+                    "mon_1_close": "17:00",
+                    "fri_1_close": "17:00",
+                    "sun_1_open": ""
+                },
+                "address": "4069 Spokane Ln",
+                "floors": [
+                    {
+                        "level": 0,
+                        "features": [
+                            {
+                                "No ID": "Yes",
+                                "Water Fountain": "Yes",
+                                "Gender": "Men",
+                                "Hot Water Tap": "Yes",
+                                "Changing Station": "No",
+                                "Accessible": "No",
+                                "Tall Stalls": "No",
+                                "Feminine Products": "No",
+                                "Auto-Flush": "No",
+                                "Parking": "No",
+                                "Towels": "No",
+                                "Free": "Yes"
+                            }
+                        ],
+                        "rating": 4,
+                        "bathroom_id": "zV4aAmP7LR"
+                    },
+                    {
+                        "bathroom_id": "WsJvYVMQSt",
+                        "level": 1,
+                        "rating": 4.4,
+                        "features": [
+                            {
+                                "Hot Water Tap": "Yes",
+                                "Water Fountain": "Yes",
+                                "Free": "Yes",
+                                "Gender": "Men",
+                                "Parking": "No",
+                                "Auto-Flush": "No",
+                                "Feminine Products": "No",
+                                "No ID": "Yes",
+                                "Tall Stalls": "No",
+                                "Accessible": "No",
+                                "Changing Station": "No",
+                                "Towels": "No"
+                            }
+                        ]
+                    }
+                ],
+                "country": "United States",
+                "imgSrc": "temp-imgs/buildings/HRC.jpg"
+            },
+            "geometry": {
+                "coordinates": [
+                    -122.30899914257314,
+                    47.657637914753685
+                ],
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "dist": 0.4,
+                "hours": {
+                    "mon_1_open": "09:00",
+                    "fri_1_close": "21:00",
+                    "mon_1_close": "21:00",
+                    "wed_1_close": "21:00",
+                    "thu_1_open": "09:00",
+                    "thu_1_close": "21:00",
+                    "sun_1_open": "",
+                    "sat_1_open": "",
+                    "tue_1_close": "21:00",
+                    "wed_1_open": "09:00",
+                    "tue_1_open": "09:00",
+                    "sun_1_close": "",
+                    "sat_1_close": "",
+                    "fri_1_open": "09:00"
+                },
+                "address": "3931 Brooklyn Ave NE",
+                "city": "Seattle",
+                "name": "Samuel E. Kelly Ethnic Cultural Center",
+                "overallRating": 3.5,
+                "imgSrc": "temp-imgs/buildings/HFS-Alder.jpg",
+                "floors": [
+                    {
+                        "rating": 4,
+                        "bathroom_id": "Z3vp7EyCNR",
+                        "level": 0,
+                        "features": [
+                            {
+                                "Gender": "Neutral",
+                                "Accessible": "Yes",
+                                "Water Fountain": "Yes",
+                                "Parking": "No",
+                                "Towels": "No",
+                                "Changing Station": "Yes",
+                                "Hot Water Tap": "Yes",
+                                "Free": "Yes",
+                                "Tall Stalls": "Yes",
+                                "Feminine Products": "Yes",
+                                "No ID": "Yes",
+                                "Auto-Flush": "No"
+                            }
+                        ]
+                    },
+                    {
+                        "features": [
+                            {
+                                "Towels": "No",
+                                "Changing Station": "Yes",
+                                "Water Fountain": "Yes",
+                                "Tall Stalls": "Yes",
+                                "Parking": "No",
+                                "Auto-Flush": "No",
+                                "No ID": "Yes",
+                                "Accessible": "Yes",
+                                "Gender": "Neutral",
+                                "Free": "Yes",
+                                "Hot Water Tap": "Yes",
+                                "Feminine Products": "Yes"
+                            }
+                        ],
+                        "level": 1,
+                        "bathroom_id": "H6wJpJCmau",
+                        "rating": 3
+                    }
+                ],
+                "postalCode": "98105",
+                "country": "United States",
+                "state": "WA"
+            },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
                     -122.31473901312123,
                     47.6559101529856
                 ]
-            },
-            "properties": {
-                "name": "Samuel E. Kelly Ethnic Cultural Center",
-                "address": "3931 Brooklyn Ave NE",
-                "city": "Seattle",
-                "country": "United States",
-                "postalCode": "98105",
-                "state": "WA",
-                "floors": [
-                    {
-                        "level": 0,
-                        "rating": 4.0
-                    },
-                    {
-                        "level": 1,
-                        "rating": 3.0
-                    }
-                ],
-                "overallRating": 3.5,
-                "imgSrc": "temp-imgs/buildings/HFS-Alder.jpg",
-                "dist": 0.4
             }
         },
         {
-            "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
@@ -150,58 +410,77 @@
                 ]
             },
             "properties": {
+                "hours": {
+                    "mon_1_close": "20:00",
+                    "tue_1_open": "09:00",
+                    "sat_1_open": "",
+                    "thu_1_close": "20:00",
+                    "sun_1_close": "20:00",
+                    "fri_1_open": "09:00",
+                    "sat_1_close": "",
+                    "wed_1_open": "09:00",
+                    "wed_1_close": "20:00",
+                    "sun_1_open": "13:00",
+                    "thu_1_open": "09:00",
+                    "tue_1_close": "20:00",
+                    "fri_1_close": "17:00",
+                    "mon_1_open": "09:00"
+                },
                 "name": "Suzzallo and Allen Libraries",
+                "imgSrc": "temp-imgs/buildings/SUZ.jpg",
                 "address": "4000 15th Ave NE",
-                "city": "Seattle",
                 "country": "United States",
-                "postalCode": "98195",
+                "dist": 0.4,
+                "overallRating": 4.1,
                 "state": "WA",
+                "postalCode": "98195",
                 "floors": [
                     {
                         "level": 0,
-                        "rating": 4.0
+                        "rating": 4,
+                        "features": [
+                            {
+                                "Parking": "No",
+                                "Towels": "No",
+                                "Auto-Flush": "No",
+                                "Changing Station": "No",
+                                "No ID": "Yes",
+                                "Water Fountain": "Yes",
+                                "Hot Water Tap": "Yes",
+                                "Free": "Yes",
+                                "Tall Stalls": "No",
+                                "Accessible": "Yes",
+                                "Feminine Products": "No",
+                                "Gender": "Men"
+                            }
+                        ],
+                        "bathroom_id": "gzfbHcmbyc"
                     },
                     {
+                        "bathroom_id": "6QrJFOgmTh",
+                        "features": [
+                            {
+                                "Accessible": "Yes",
+                                "Gender": "Women",
+                                "Towels": "No",
+                                "Parking": "No",
+                                "Auto-Flush": "No",
+                                "Water Fountain": "Yes",
+                                "Feminine Products": "No",
+                                "Hot Water Tap": "Yes",
+                                "Changing Station": "No",
+                                "No ID": "Yes",
+                                "Tall Stalls": "No",
+                                "Free": "Yes"
+                            }
+                        ],
                         "level": 1,
                         "rating": 4.2
                     }
                 ],
-                "overallRating": 4.1,
-                "imgSrc": "temp-imgs/buildings/SUZ.jpg",
-                "dist": 0.4
-            }
-
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -122.30899914257314,
-                    47.657637914753685
-                ]
+                "city": "Seattle"
             },
-            "properties": {
-                "name": "Kane Hall",
-                "address": "4069 Spokane Ln",
-                "city": "Seattle",
-                "country": "United States",
-                "postalCode": "98195",
-                "state": "WA",
-                "floors": [
-                    {
-                        "level": 0,
-                        "rating": 4.0
-                    },
-                    {
-                        "level": 1,
-                        "rating": 4.4
-                    }
-                ],
-                "overallRating": 4.2,
-                "imgSrc": "temp-imgs/buildings/HRC.jpg",
-                "dist": 0.5
-            }
+            "type": "Feature"
         }
     ]
 }
