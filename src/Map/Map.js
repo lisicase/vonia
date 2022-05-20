@@ -122,15 +122,9 @@ export default function InitMap() {
             /* Close all other popups and display popup for clicked store */
             createPopUp(clickedPoint);
 
-            /* Highlight listing in sidebar (and remove highlight for all other listings) */
-            const activeItem = document.getElementsByClassName('active');
-            if (activeItem[0]) {
-                activeItem[0].classList.remove('active');
-            }
             const listing = document.getElementById(
                 `listing-${clickedPoint.properties.id}`
             );
-            listing.classList.add('active');
         });
     });
 

@@ -1,3 +1,5 @@
 node_modules/
 .env
 build/
+backend/spotty-a8e30-47e7ceead164.json
+package-lock.json

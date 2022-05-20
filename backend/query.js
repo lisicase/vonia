@@ -1,6 +1,6 @@
 // npm install @google-cloud/firestore
 // export GOOGLE_APPLICATION_CREDENTIALS="spotty-a8e30-47e7ceead164.json"
-const {Firestore} = require('@google-cloud/firestore');
+const { Firestore } = require('@google-cloud/firestore');
 
 // Create a new client
 const db = new Firestore();
@@ -24,58 +24,71 @@ async function allBathrooms() {
     if (snapshot.empty) {
         console.log('No matching documents.');
         return;
-      }  
-      
-      allBaths = [];
+    }
 
-      snapshot.forEach(doc => {
+    allBaths = [];
+
+    snapshot.forEach(doc => {
         console.log(doc.data());
         allBaths.push(doc.data());
-      });
+    });
 
-      return allBaths;
+    return allBaths;
 }
 
-// Given a building name, return its hours as an object
+/**
+ * Given a building name, return its hours as an object
+ * @param {String} buildingName - name of the building of interest 
+ */
 async function buildingHours(buildingName) {
     console.log("Building Name:", buildingName);
 
     const snapshot = await bathRef
-    .where('properties.name', '==', buildingName)
-    .get()                    
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            const data = doc.data();
-            const hours = data.properties.hours;
-            console.log(hours);
+        .where('properties.name', '==', buildingName)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                const hours = data.properties.hours;
+                console.log(hours);
 
-            return hours;
-        });
-    })
+                return hours;
+            });
+        })
 }
 
-// Adds a user review for a bathroom and returns it
-async function addReview(bathroomID, userID, title, content, cleanliness, privacy, wellStocked) {
+/**
+ * Adds a user review for a bathroom and returns it
+ * @param {} bathroomID 
+ * @param {*} userID 
+ * @param {*} title 
+ * @param {*} content 
+ * @param {*} cleanliness 
+ * @param {*} privacy 
+ * @param {*} wellStocked 
+ * @returns 
+ */
+async function addReview(bathroomID, displayName, title, content, cleanliness, privacy, wellStocked) {
     uq_string = Math.random().toString(36).slice(2);
 
     let today = new Date();
     let dd = today.getDate();
 
-    let mm = today.getMonth()+1; 
+    let mm = today.getMonth() + 1;
     let yyyy = today.getFullYear();
     if (dd < 10) {
         dd = '0' + dd;
-    } 
+    }
 
-    if (mm < 10)  {
+    if (mm < 10) {
         mm = '0' + mm;
-    } 
-    
+    }
+
     today = mm + '-' + dd + '-' + yyyy;
 
     const res = await reviewRef.add({
         review_id: uq_string,
-        user_id: userID,
+        displayName: displayName,
         bathroom_id: bathroomID,
         date: today,
         title: title,
@@ -93,16 +106,16 @@ async function favoritedBathrooms(userID) {
     allFavs = [];
 
     const snapshot = await userFavRef
-    .where('user_id', '==', userID)
-    .get()             
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            const data = doc.data();
-            console.log(data.bathroom_id);
-            allFavs.push(data.bathroom_id);
-        });
-    })  
-    console.log(allFavs);     
+        .where('user_id', '==', userID)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                console.log(data.bathroom_id);
+                allFavs.push(data.bathroom_id);
+            });
+        })
+    console.log(allFavs);
 
     return allFavs;
 }
@@ -122,7 +135,7 @@ async function addFavorite(userID, bathroomID) {
     const res = await userFavRef.add({
         user_id: userID,
         bathroom_id: bathroomID
-      });  
+    });
 
     return res;
 }
@@ -130,16 +143,16 @@ async function addFavorite(userID, bathroomID) {
 // Removes a favorited bathroom from the user_favorites collection
 async function removeFavorite(userID, bathroomID) {
     const snapshot = await userFavRef
-    .where('user_id', '==', userID)
-    .where('bathroom_id', '==', bathroomID)
-    .get()
-    .then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-        const del = doc.ref.delete();
-        console.log(del)
-        return del;
-      });
-    });
+        .where('user_id', '==', userID)
+        .where('bathroom_id', '==', bathroomID)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const del = doc.ref.delete();
+                console.log(del)
+                return del;
+            });
+        });
 
     return;
 }
@@ -150,21 +163,21 @@ async function avgCleanliness(bathroomID) {
     num = 0;
 
     const snapshot = await reviewRef
-    .where('bathroom_id', '==', bathroomID)
-    .get()             
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            const data = doc.data();
-            console.log("cleanliness:", data.cleanliness);
-            sum += data.cleanliness;
-            num += 1;
-        });
-    })
-    
+        .where('bathroom_id', '==', bathroomID)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                console.log("cleanliness:", data.cleanliness);
+                sum += data.cleanliness;
+                num += 1;
+            });
+        })
+
     let avg = sum / num;
     avg = Math.round(avg / 0.5) * 0.5 // round to nearest 0.5
 
-    console.log(avg);     
+    console.log(avg);
 
     return avg;
 }
@@ -175,21 +188,21 @@ async function avgPrivacy(bathroomID) {
     num = 0;
 
     const snapshot = await reviewRef
-    .where('bathroom_id', '==', bathroomID)
-    .get()             
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            const data = doc.data();
-            console.log("privacy:", data.privacy);
-            sum += data.privacy;
-            num += 1;
-        });
-    })
-    
+        .where('bathroom_id', '==', bathroomID)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                console.log("privacy:", data.privacy);
+                sum += data.privacy;
+                num += 1;
+            });
+        })
+
     let avg = sum / num;
     avg = Math.round(avg / 0.5) * 0.5 // round to nearest 0.5
 
-    console.log(avg);     
+    console.log(avg);
 
     return avg;
 }
@@ -200,25 +213,25 @@ async function avgWellStocked(bathroomID) {
     num = 0;
 
     const snapshot = await reviewRef
-    .where('bathroom_id', '==', bathroomID)
-    .get()             
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            const data = doc.data();
-            console.log("well-stocked:", data["well-stocked"]);
-            sum += data["well-stocked"];
-            num += 1;
-        });
-    })
-    
+        .where('bathroom_id', '==', bathroomID)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                console.log("well-stocked:", data["well-stocked"]);
+                sum += data["well-stocked"];
+                num += 1;
+            });
+        })
+
     let avg = sum / num;
     avg = Math.round(avg / 0.5) * 0.5 // round to nearest 0.5
 
-    console.log(avg);     
+    console.log(avg);
 
     return avg;
 }
-    
+
 // Returns overall rating from the averages to display for each bathroom floor on popup
 async function overallRating(bathroomID) {
     let sum = await (avgCleanliness(bathroomID) + avgPrivacy(bathroomID) + avgWellStocked(bathroomID)) / 3;
@@ -234,19 +247,19 @@ async function avgUserReviewRating(reviewID) {
     sum = 0;
 
     const snapshot = await reviewRef
-    .where('review_id', '==', reviewID)
-    .get()             
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            const data = doc.data();
-            sum = data.cleanliness + data.privacy + data['well-stocked'];
-        });
-    })
-    
+        .where('review_id', '==', reviewID)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                sum = data.cleanliness + data.privacy + data['well-stocked'];
+            });
+        })
+
     let avg = sum / 3;
     avg = Math.round(avg / 0.5) * 0.5 // round to nearest 0.5
 
-    console.log(avg);     
+    console.log(avg);
 
     return avg;
 }
@@ -256,6 +269,18 @@ async function allFeatures() {
     return;
 }
 
+module.exports = {
+    allBathrooms,
+    buildingHours,
+    addReview,
+    favoritedBathrooms,
+    addFavorite,
+    removeFavorite,
+    avgCleanliness,
+    avgPrivacy,
+    avgUserReviewRating,
+    overallRating
+}
 // Test functions
 
 //allBathrooms();

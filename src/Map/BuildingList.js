@@ -1,5 +1,5 @@
 // React
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 // Components
@@ -13,31 +13,55 @@ import { BsChevronDown } from "react-icons/bs";
 import bathrooms from "../Shared/bathroomData/bathroom-data.json"
 // Style
 import 'reactjs-popup/dist/index.css';
+// Helper Function
+import { checkStatus } from '../Shared/HelperFunction/HelperFunctions';
 
 export default function BuildingList({ flyToStore, createPopup }) {
-    bathrooms.features.forEach(function (bathroom, i) {
-        bathroom.properties.id = i;
-    });
 
-    const onClick = (feature) => {
-        createPopup(feature);
-        flyToStore(feature);
-    };
+    const { newbathrooms, updateList } = useState('');
 
-    return (
-        <div className="shadow" style={{ width: "100vw", borderTopLeftRadius: "25px", borderTopRightRadius: "25px", backgroundColor: 'white' }}>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <BsChevronDown style={{ marginTop: '0.5rem' }} />
+    useEffect(() => {
+        fetch('http://localhost:8080/bathrooms', {
+            mode: 'no-cors'
+        })
+            .then(checkStatus)
+            .then(res => res.json())
+            .then((res) => {
+                updateList(res);
+            })
+            .catch((err) => console.log(err));
+    })
+
+
+
+    if (newbathrooms) {
+
+        bathrooms.features.forEach(function (bathroom, i) {
+            bathroom.properties.id = i;
+        });
+
+        const onClick = (feature) => {
+            createPopup(feature);
+            flyToStore(feature);
+        };
+
+        return (
+            <div className="shadow" style={{ width: "100vw", borderTopLeftRadius: "25px", borderTopRightRadius: "25px", backgroundColor: 'white' }}>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <BsChevronDown style={{ marginTop: '0.5rem' }} />
+                </div>
+                <div>
+                    {
+                        bathrooms.features.map((bathroom) => {
+                            return (<BuildingListItem bathroom={bathroom} onClick={onClick} />)
+                        })
+                    }
+                </div>
             </div>
-            <div>
-                {
-                    bathrooms.features.map((bathroom) => {
-                        return (<BuildingListItem bathroom={bathroom} onClick={onClick} />)
-                    })
-                }
-            </div>
-        </div>
-    );
+        );
+    }
+
+    return <div>Loading...</div>;
 }
 
 export function BuildingListItem({ bathroom, onClick }) {

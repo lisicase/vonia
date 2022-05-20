@@ -10,7 +10,7 @@ import { BiUserCircle } from "react-icons/bi";
 import { MdLockOutline, MdOutlineMail } from "react-icons/md";
 //firebase
 import { app } from '../../Shared/firebase/firebase-config';
-import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, setPersistence, browserSessionPersistence } from 'firebase/auth';
 
 export default function RegistrationPage() {
     const [email, setEmail] = useState('');
@@ -24,42 +24,53 @@ export default function RegistrationPage() {
         let auth = getAuth();
         let user = null;
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((res) => {
-                console.log(res);
-                sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken);
-                user = auth.currentUser;
-                console.log(auth.currentUser);
-                sendEmailVerification(user);
+        setPersistence(auth, browserSessionPersistence)
+            .then(() => {
+                return createUserWithEmailAndPassword(auth, email, password)
+                    .then((res) => {
+                        console.log(res);
+                        sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken);
+                        user = auth.currentUser;
+                        console.log(auth.currentUser);
+                        sendEmailVerification(user);
 
-                console.log(sessionStorage.getItem('Auth Token'));
+                        console.log(sessionStorage.getItem('Auth Token'));
 
-                if (sessionStorage.getItem('Auth Token')) {
-                    updateProfile(auth.currentUser, {
-                        displayName: name
+                        if (sessionStorage.getItem('Auth Token')) {
+                            updateProfile(auth.currentUser, {
+                                displayName: name
+                            })
+                                .then(() => {
+                                    console.log("successfully updated account");
+                                    console.log(auth.currentUser);
+                                    nav('/');
+                                })
+                                .catch((error) => {
+                                    let code = error.code;
+                                    let message = error.message;
+                                    alert(`Error ${code}: ${message}. Please try again`);
+                                });
+                        }
                     })
-                        .then(() => {
-                            console.log("successfully updated account");
-                            console.log(auth.currentUser);
-                            nav('/');
-                        })
-                        .catch((error) => {
-                            let code = error.code;
-                            let message = error.message;
-                            alert(`Error ${code}: ${message}. Please try again`);
-                        });
-                }
+                    .catch((error) => {
+                        let code = error.code;
+                        let message = error.message;
+                        if (code === 'auth/email-already-in-use') {
+                            alert("Error: email already in use. Please try a different one")
+                        } else {
+                            alert(`${code}: ${message}`);
+                        }
+
+                    });
             })
             .catch((error) => {
-                let code = error.code;
-                let message = error.message;
-                if (code === 'auth/email-already-in-use') {
-                    alert("Error: email already in use. Please try a different one")
-                } else {
-                    alert(`${code}: ${message}`);
-                }
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(`${errorCode}: ${errorMessage}`);
+              });
 
-            });
+
 
     };
 
@@ -124,15 +135,15 @@ function AccountInputBoxes(props) {
 
             <div class="form-group mr-3">
                 <label for="searchQuery" class="mr-2">UserID</label>
-                <input type="text" name="term" id="searchQuery" class="form-control" onChange={props.handleId}/>
+                <input type="text" name="term" id="searchQuery" class="form-control" onChange={props.handleId} />
             </div>
             <div class="form-group mr-3">
                 <label for="searchQuery" class="mr-2">Email</label>
-                <input type="text" name="term" id="searchQuery" class="form-control" onChange={props.handleEmail}/>
+                <input type="text" name="term" id="searchQuery" class="form-control" onChange={props.handleEmail} />
             </div>
             <div class="form-group mr-3">
                 <label for="searchQuery" class="mr-2">Password </label>
-                <input type="text" name="term" id="searchQuery" class="form-control" onChange={props.handlePassword}/>
+                <input type="text" name="term" id="searchQuery" class="form-control" onChange={props.handlePassword} />
             </div>
         </div>
     );
