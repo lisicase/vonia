@@ -1,16 +1,16 @@
 {
-  "main.css": "/vonia/static/css/main.1950da10.chunk.css",
-  "main.js": "/vonia/static/js/main.df7bdb0d.chunk.js",
-  "main.js.map": "/vonia/static/js/main.df7bdb0d.chunk.js.map",
+  "main.css": "/vonia/static/css/main.d3ecc9be.chunk.css",
+  "main.js": "/vonia/static/js/main.34fcbdcc.chunk.js",
+  "main.js.map": "/vonia/static/js/main.34fcbdcc.chunk.js.map",
   "runtime~main.js": "/vonia/static/js/runtime~main.aef5538c.js",
   "runtime~main.js.map": "/vonia/static/js/runtime~main.aef5538c.js.map",
   "static/css/2.0378ee88.chunk.css": "/vonia/static/css/2.0378ee88.chunk.css",
-  "static/js/2.d307b3d2.chunk.js": "/vonia/static/js/2.d307b3d2.chunk.js",
-  "static/js/2.d307b3d2.chunk.js.map": "/vonia/static/js/2.d307b3d2.chunk.js.map",
+  "static/js/2.62371b07.chunk.js": "/vonia/static/js/2.62371b07.chunk.js",
+  "static/js/2.62371b07.chunk.js.map": "/vonia/static/js/2.62371b07.chunk.js.map",
   "index.html": "/vonia/index.html",
-  "precache-manifest.fae281cba994aa8c8a4b03233a6ebd22.js": "/vonia/precache-manifest.fae281cba994aa8c8a4b03233a6ebd22.js",
+  "precache-manifest.92dc01c500c8a02c6f57379a3634debe.js": "/vonia/precache-manifest.92dc01c500c8a02c6f57379a3634debe.js",
   "service-worker.js": "/vonia/service-worker.js",
   "static/css/2.0378ee88.chunk.css.map": "/vonia/static/css/2.0378ee88.chunk.css.map",
-  "static/css/main.1950da10.chunk.css.map": "/vonia/static/css/main.1950da10.chunk.css.map",
+  "static/css/main.d3ecc9be.chunk.css.map": "/vonia/static/css/main.d3ecc9be.chunk.css.map",
   "static/media/font-awesome.min.css": "/vonia/static/media/fontawesome-webfont.fee66e71.woff"
 }
