@@ -64,6 +64,9 @@ app.post('/submitReview', (req, res) => {
         })
 })
 
+/**
+ * Returns bathroom id given a building's name and the floor num
+ */
 app.get('/bathroomID/:buildingName/:floor', (req, res) => {
     getBathroomId(req.params.buildingName, req.params.floor)
         .then((id) => {

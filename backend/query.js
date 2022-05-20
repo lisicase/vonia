@@ -172,14 +172,13 @@ async function avgCleanliness(bathroomID) {
     const snapshot = await reviewRef
         .where('bathroom_id', '==', bathroomID)
         .get()
-        .then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                const data = doc.data();
-                console.log("cleanliness:", data.cleanliness);
-                sum += data.cleanliness;
-                num += 1;
-            });
-        })
+
+    snapshot.forEach(function (doc) {
+        const data = doc.data();
+        console.log("cleanliness:", data.cleanliness);
+        sum += data.cleanliness;
+        num += 1;
+    });
 
     let avg = sum / num;
     avg = Math.round(avg / 0.5) * 0.5 // round to nearest 0.5
