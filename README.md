@@ -15,11 +15,21 @@ Vonia (Lisi Case, Kevin Chou, David Chiang, and Jacqueline Park) are a group Inf
 If you would like to contribute, you are welcome to fork our project and develop independently, meeting the requirements stated in our license.
 
 During the duration of our project, you may also do any of the following:
-* log issues
-* participate in discussion of features/issues
-* submit a pull request of a feature, bug fix, or documentation
+* Log issues
+* Participate in discussion of features/issues
+* Submit a pull request of a feature, bug fix, or documentation
 
 Thank you for checking out our project!
+
+## Project Scope & Functionality
+
+For our project, we have prioritized functionality for the following features:
+* Ability to look up information from a map and list view
+* Filter map/list according to preferences
+* View list of bathrooms for a specific building
+* View information about a specific bathroom, including average rating and reviews
+* Add new reviews
+* Sign up and sign in
 
 ## Building and Deploying
 
