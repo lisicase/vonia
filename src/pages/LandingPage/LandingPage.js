@@ -24,7 +24,7 @@ function BannerViz() {
         <div id="landing-banner" style={{backgroundColor:'#D9F0F2', height:'100vh', display:'flex', alignItems:'center'}}>
             <div>
                 <img
-                    src="banner/banner.png" 
+                    src="banner/banner-pink.jpg" 
                     alt="Spotty banner with line-drawn bathroom" 
                     style={{width:'100vw'}}
                 />
