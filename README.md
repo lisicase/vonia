@@ -28,8 +28,10 @@ For our project, we have prioritized functionality for the following features:
 * Filter map/list according to preferences
 * View list of bathrooms for a specific building
 * View information about a specific bathroom, including average rating and reviews
-* Add new reviews
 * Sign up and sign in
+
+Preferred features in progress:
+* Add new reviews
 
 ## Building and Deploying
 
