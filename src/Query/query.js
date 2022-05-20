@@ -343,6 +343,31 @@ async function highestRatedBathroom(buildingName) {
     return hiRating;
 }
 
+// Given a building name and floor level, return bathroom id
+async function getBathroomId(buildingName, floorLevel) {
+    const snapshot = await bathRef
+    .where('properties.name', '==', buildingName)
+    .get()                    
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            const data = doc.data();
+
+            const floors = data.properties.floors;
+            for (const currFloor in floors) {
+                const objFloor = floors[currFloor];
+                if (objFloor.level == floorLevel) {
+                    bathroom_id = objFloor.bathroom_id;
+                    
+                    console.log(bathroom_id)
+                    return bathroom_id;
+                }            
+              }
+        });
+    })
+
+    return;
+}
+
 
 // Test functions
 
@@ -390,4 +415,6 @@ async function highestRatedBathroom(buildingName) {
 //filter(features, 4);
 
 //highestRatedBathroom("Suzzallo and Allen Libraries");
+
+//getBathroomId("Suzzallo and Allen Libraries", 0)
 
