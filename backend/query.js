@@ -36,46 +36,24 @@ async function allBathrooms() {
     return allBaths;
 }
 
-/**
- * Given a building name, return its hours as an object
- * @param {String} buildingName - name of the building of interest 
- */
-async function buildingHours(buildingName) {
-    console.log("Building Name:", buildingName);
-    let bathHours = '';
-
+// Given a building id, return its hours as an object
+async function buildingHours(buildingID) {
     const snapshot = await bathRef
-        .where('properties.name', '==', buildingName)
+        .where('properties.uid', '==', buildingID)
         .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                const hours = data.properties.hours;
+                console.log(hours);
 
-    snapshot.forEach(function (doc) {
-        const data = doc.data();
-        const hours = data.properties.hours;
-        console.log(hours);
-
-        bathHours = hours;
-    });
-
-    if (bathHours) {
-        console.log(bathHours)
-        return bathHours;
-    } else {
-        throw new Error('no bathroom hours found');
-    }
+                return hours;
+            });
+        })
 }
 
-/**
- * Adds a user review for a bathroom and returns it
- * @param {} bathroomID 
- * @param {*} userID 
- * @param {*} title 
- * @param {*} content 
- * @param {*} cleanliness 
- * @param {*} privacy 
- * @param {*} wellStocked 
- * @returns 
- */
-async function addReview(bathroomID, displayName, title, content, cleanliness, privacy, wellStocked) {
+// Adds a user review for a bathroom and returns it
+async function addReview(bathroomID, userID, title, content, cleanliness, privacy, wellStocked) {
     uq_string = Math.random().toString(36).slice(2);
 
     let today = new Date();
@@ -95,7 +73,7 @@ async function addReview(bathroomID, displayName, title, content, cleanliness, p
 
     const res = await reviewRef.add({
         review_id: uq_string,
-        displayName: displayName,
+        user_id: userID,
         bathroom_id: bathroomID,
         date: today,
         title: title,
@@ -172,13 +150,14 @@ async function avgCleanliness(bathroomID) {
     const snapshot = await reviewRef
         .where('bathroom_id', '==', bathroomID)
         .get()
-
-    snapshot.forEach(function (doc) {
-        const data = doc.data();
-        console.log("cleanliness:", data.cleanliness);
-        sum += data.cleanliness;
-        num += 1;
-    });
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                console.log("cleanliness:", data.cleanliness);
+                sum += data.cleanliness;
+                num += 1;
+            });
+        })
 
     let avg = sum / num;
     avg = Math.round(avg / 0.5) * 0.5 // round to nearest 0.5
@@ -270,11 +249,11 @@ async function avgUserReviewRating(reviewID) {
     return avg;
 }
 
-// Returns all the features for a specific bathroom given a building name
+// Returns all the features for a specific bathroom given a building id
 // and a bathroom ID for a bathroom inside it
-async function allFeatures(buildingName, bathroomID) {
+async function allFeatures(buildingID, bathroomID) {
     const snapshot = await bathRef
-        .where('properties.name', '==', buildingName)
+        .where('properties.uid', '==', buildingID)
         .get()
         .then(function (querySnapshot) {
             querySnapshot.forEach(function (doc) {
@@ -336,12 +315,12 @@ async function filter(filteredFeatures, minRating) {
     return baths;
 }
 
-// Given a building name, returns the highest rating among all its floors
-async function highestRatedBathroom(buildingName) {
+// Given a building id, returns the highest rating among all its floors
+async function highestRatedBathroom(buildingID) {
     let hiRating = 0;
 
     const snapshot = await bathRef
-        .where('properties.name', '==', buildingName)
+        .where('properties.uid', '==', buildingID)
         .get()
         .then(function (querySnapshot) {
             querySnapshot.forEach(function (doc) {
@@ -362,61 +341,52 @@ async function highestRatedBathroom(buildingName) {
     return hiRating;
 }
 
-/**
- * Given a building name and floor level, return bathroom id
- * @param {String} buildingName 
- * @param {Integer} floorLevel 
- * @returns 
- */
-async function getBathroomId(buildingName, floorLevel) {
-    let snapshot = await bathRef
-        .where('properties.name', '==', buildingName)
+// Given a building id and floor level, return bathroom id
+async function getBathroomId(buildingID, floorLevel) {
+    const snapshot = await bathRef
+        .where('properties.uid', '==', buildingID)
         .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
 
-    let id = '';
+                const floors = data.properties.floors;
+                for (const currFloor in floors) {
+                    const objFloor = floors[currFloor];
+                    if (objFloor.level == floorLevel) {
+                        bathroom_id = objFloor.bathroom_id;
 
-    snapshot.forEach((doc) => {
-        const data = doc.data();
+                        console.log(bathroom_id)
+                        return bathroom_id;
+                    }
+                }
+            });
+        })
 
-        const floors = data.properties.floors;
-        for (const currFloor in floors) {
-            const objFloor = floors[currFloor];
-            if (objFloor.level == floorLevel) {
-                bathroom_id = objFloor.bathroom_id;
-                id = bathroom_id;
-            }
-        }
-    });
-
-    if (id) {
-        return id;
-    } else {
-
-        throw new Error('no bathroom id found');
-    }
+    return;
 }
 
-module.exports = {
-    allBathrooms,
-    buildingHours,
-    addReview,
-    favoritedBathrooms,
-    addFavorite,
-    removeFavorite,
-    avgCleanliness,
-    avgPrivacy,
-    avgUserReviewRating,
-    overallRating,
-    allFeatures,
-    filter,
-    highestRatedBathroom,
-    getBathroomId
+// Given a bathroom id, return allt he bathroom information
+async function bathroomInfo(bathroomID) {
+    const snapshot = await reviewRef
+        .where('bathroom_id', '==', bathroomID)
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                const data = doc.data();
+                console.log(data.content);
+            });
+        })
+
+    return;
 }
+
+
 // Test functions
 
 //allBathrooms();
 
-//buildingHours('Architecture Hall');
+//buildingHours(1); // Architecture Hall
 
 //addReview("mZuOD9HaIa", "ABCDEFGH", "Great Bathroom!", "Very clean and spacious", 5, 5, 5);
 
@@ -437,3 +407,29 @@ module.exports = {
 //overallRating("mZuOD9HaIa");
 
 //avgUserReviewRating("F7Pt0QAJFc");
+
+//allFeatures("Kane Hall", "zV4aAmP7LR");
+
+// features = {
+//     // 'Auto-Flush': 'No',
+//     // 'Water Fountain': 'Yes',
+//     // 'Changing Station': 'No',
+//     'Gender': 'Neutral',
+//     // 'Feminine Products': 'No',
+//     // 'Tall Stalls': 'No',
+//     // 'Parking': 'No',
+//     // 'Hot Water Tap': 'Yes',
+//     // 'No ID': 'Yes',
+//     // 'Free': 'Yes',
+//     // 'Towels': 'No',
+//     // 'Accessible': 'Yes'
+// }
+
+//filter(features, 4);
+
+//highestRatedBathroom(7); // Suz
+
+//getBathroomId(7, 0) // Suz
+
+//bathroomInfo("mZuOD9HaIa");
+
