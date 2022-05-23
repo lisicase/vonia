@@ -37,11 +37,11 @@ class App extends Component {
         <HashRouter>
           <Routes>
             <Route path='/' element={<HomePage/>} />
-            <Route path='/bathroom/:bathroomId' element={<BathroomPage />} />
+            <Route path='/bathroom/:buildingId/:bathroomId' element={<BathroomPage />} />
 
             <Route path='/bathroomcard' element={<BathroomCard />} />
             <Route path='/reviews' element={<ReviewHistoryPage />} />
-            <Route path='/review' element={<WriteReview />} />
+            <Route path='/review/:buildingId/:bathroomId' element={<WriteReview />} />
             <Route path='/signin' element={<SignInPage/>} />
             <Route path='/buildinglist' element={<BuildingList />} />
             <Route path='/favorites' element={<FavoritesPage />} />

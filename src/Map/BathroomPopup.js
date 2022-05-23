@@ -27,6 +27,8 @@ export default function BathroomCard({ bathroom }) {
     if (redirectTo && redirectTo === "bathroom") {
         return <Navigate to={"/bathroom"} />
     }
+
+    let buildingID = bathroom.properties.uid;
     return (
         <div className="shadow" style={{ width: "70vw", borderRadius: "25px", backgroundColor: 'white' }}>
             <div style={{ margin: "1rem" }}>
@@ -40,10 +42,10 @@ export default function BathroomCard({ bathroom }) {
                     bathroom.properties.floors.map((floor) => {
                         //TODO: actually implement accessibility and ids
                         const isAccessible = floor.features.accessible === "Yes"; //floor.features.accessible === "Yes"
-                        const id = floor.bathroom_id; // floor.bathroom_id
+                        const id = floor.bathroom_id; // pull this from the db (fetch(localhost:8080/bathroomID))
                         return (
                             <div>
-                                <BathroomListItem id={id} accessible={isAccessible === 0} title={`Floor ${floor.level}`} rating={floor.rating} />
+                                <BathroomListItem buildid = {buildingID} bathid={id} accessible={isAccessible === 0} title={`Floor ${floor.level}`} rating={floor.rating} />
                                 <ShortDivider />
                             </div>
                         );
@@ -70,7 +72,7 @@ export function BuildingInfo({ name, location, imgSrc, miles }) {
     );
 }
 
-function BathroomListItem({ id, title, rating, accessible }) {
+function BathroomListItem({ buildid, bathid, title, rating, accessible }) {
     let accessibility = accessible ? <MdAccessible style={{ height: "1.5rem" }} /> : <span style={{ width: '1rem' }} />;
 
     return (
@@ -78,7 +80,7 @@ function BathroomListItem({ id, title, rating, accessible }) {
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <FaToilet className="bufferedIcon" style={{ height: "1.5rem", fontSize: '0.7rem' }} />
-                    <a href={`/#/bathroom/${id}`}>{title}</a>
+                    <a href={`/#/bathroom/${buildid}/${bathid}`}>{title}</a>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <StarRating rating={rating} />

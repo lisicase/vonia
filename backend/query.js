@@ -52,7 +52,17 @@ async function buildingHours(buildingID) {
         })
 }
 
-// Adds a user review for a bathroom and returns it
+/**
+ * Adds a user review for a bathroom and returns it
+ * @param {*} bathroomID 
+ * @param {*} userID 
+ * @param {*} title 
+ * @param {*} content 
+ * @param {*} cleanliness 
+ * @param {*} privacy 
+ * @param {*} wellStocked 
+ * @returns 
+ */
 async function addReview(bathroomID, userID, title, content, cleanliness, privacy, wellStocked) {
     uq_string = Math.random().toString(36).slice(2);
 
@@ -341,44 +351,76 @@ async function highestRatedBathroom(buildingID) {
     return hiRating;
 }
 
-// Given a building id and floor level, return bathroom id
+/**
+ * Given a building id and floor level, return bathroom id
+ * @param {String} buildingID 
+ * @param {Integer} floorLevel 
+ * @returns {String}  bathroom's id
+ */
 async function getBathroomId(buildingID, floorLevel) {
+    let id = '';
     const snapshot = await bathRef
         .where('properties.uid', '==', buildingID)
         .get()
-        .then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                const data = doc.data();
 
-                const floors = data.properties.floors;
-                for (const currFloor in floors) {
-                    const objFloor = floors[currFloor];
-                    if (objFloor.level == floorLevel) {
-                        bathroom_id = objFloor.bathroom_id;
+    snapshot.forEach(function (doc) {
+        const data = doc.data();
 
-                        console.log(bathroom_id)
-                        return bathroom_id;
-                    }
-                }
-            });
-        })
+        const floors = data.properties.floors;
+        for (const currFloor in floors) {
+            const objFloor = floors[currFloor];
+            if (objFloor.level == floorLevel) {
+                bathroom_id = objFloor.bathroom_id;
 
-    return;
+                console.log(bathroom_id)
+                id = bathroom_id;
+            }
+        }
+    });
+    return id;
 }
 
-// Given a bathroom id, return allt he bathroom information
-async function bathroomInfo(bathroomID) {
+// Given a building name, return building id
+async function getBuildingId(buildingName) {
+    let buildId = '';
+    const snapshot = await bathRef
+        .where('properties.name', '==', buildingName)
+        .get()
+
+    snapshot.forEach(function (doc) {
+        const data = doc.data();
+
+        buildId = data.properties.uid;
+    });
+
+
+    return buildId;
+}
+
+
+// Given a bathroom id, return all the bathroom reviews
+async function bathroomReviews(bathroomID) {
+    let allReviews = [];
     const snapshot = await reviewRef
         .where('bathroom_id', '==', bathroomID)
         .get()
-        .then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                const data = doc.data();
-                console.log(data.content);
-            });
-        })
 
-    return;
+    snapshot.forEach(function (doc) {
+        const data = doc.data();
+        allReviews.push(data);
+    });
+
+
+    return allReviews;
+}
+
+module.exports = {
+    allBathrooms,
+    bathroomReviews,
+    getBathroomId,
+    buildingHours,
+    addReview,
+    getBuildingId
 }
 
 

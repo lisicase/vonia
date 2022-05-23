@@ -3,7 +3,7 @@
 
 const express = require('express');
 const app = express();
-const {allBathrooms, buildingHours, addReview, getBathroomId } = require('./query');
+const {allBathrooms, buildingHours, addReview, getBathroomId, getBuildingId, bathroomReviews } = require('./query');
 const exBathrooms = require("../src/Shared/bathroomData/bathroom-data.json");
 
 app.use(express.static("public"));
@@ -45,7 +45,7 @@ app.get('/buildingHours/:buildingName', (req, res) => {
 
 app.post('/submitReview', (req, res) => {
     console.log(req);
-    let bathroomID = req.body.bathroomID; //need a query for this
+    let bathroomID = req.body.bathroomID;
     let displayName = req.body.displayName;
     let title = req.body.title;
     let content = req.body.content;
@@ -65,13 +65,37 @@ app.post('/submitReview', (req, res) => {
 })
 
 /**
- * Returns bathroom id given a building's name and the floor num
+ * Returns bathroom id given a building's id and the floor num
  */
-app.get('/bathroomID/:buildingName/:floor', (req, res) => {
-    getBathroomId(req.params.buildingName, req.params.floor)
+app.get('/bathroomID/:buildingID/:floor', (req, res) => {
+    getBathroomId(req.params.buildingID, req.params.floor)
         .then((id) => {
            console.log(id);
            res.send({bathroomID: id});
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+})
+
+/**
+ * Returns building id given a building's name
+ */
+app.get('/buildingID/:buildingName', (req, res) => {
+    getBuildingId(req.params.buildingName)
+        .then((id) => {
+           console.log(id);
+           res.send({buildingId: id});
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+})
+
+app.get('/reviews/:bathroomId', (req, res) => {
+    bathroomReviews(req.params.bathroomId)
+        .then((reviews) => {
+            res.send(JSON.stringify(reviews));
         })
         .catch((err) => {
             console.log(err);

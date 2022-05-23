@@ -11,6 +11,8 @@ import { BathroomGallery } from './Gallery';
 import { FaChevronLeft } from "react-icons/fa";
 import { BathroomFeatures } from './BathroomFeatures';
 
+//need to get the info from the db based on building id and floor id (in the url params)
+
 export default function BathroomPage() {
     return (
         <div style={{textAlign:"left"}}>
