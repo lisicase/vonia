@@ -11,7 +11,7 @@ import 'antd/dist/antd.css';
 
 export default function WriteReview() {
     const url = window.location.href;
-    const brId = url.substring(url.length - 2, url.length);
+    const brId = url.substring(url.length - 12, url.length);
 
     return (
         <div>

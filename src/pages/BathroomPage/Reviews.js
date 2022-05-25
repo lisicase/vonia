@@ -27,7 +27,7 @@ function BathroomReviews({bathId}) {
     />;
 
     const url = window.location.href;
-    const brId = url.substring(url.length - 2, url.length);
+    const brId = url.substring(url.length - 12, url.length);
     if (sessionStorage.getItem('Auth Token')) {
         reviewButton = <RedirectButton
             redirectTo={"/review/" + brId}
