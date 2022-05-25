@@ -18,17 +18,17 @@ import { checkStatus } from '../Shared/HelperFunction/HelperFunctions';
 
 export default function BuildingList({ flyToStore, createPopup }) {
 
-    const { newbathrooms, updateList } = useState('');
+    // const [ newbathrooms, updateList ] = useState('');
 
-    useEffect(() => {
-        fetch('/bathrooms')
-            .then(checkStatus)
-            .then(res => res.json())
-            .then((res) => {
-                updateList(res);
-            })
-            .catch((err) => console.log(err));
-    })
+    // useEffect(() => {
+    //     fetch('/bathrooms')
+    //         .then(checkStatus)
+    //         .then(res => res.json())
+    //         .then((res) => {
+    //             updateList(res);
+    //         })
+    //         .catch((err) => console.log(err));
+    // })
 
     bathrooms.features.forEach(function (bathroom, i) {
             bathroom.properties.id = i;
