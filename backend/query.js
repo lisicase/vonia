@@ -414,13 +414,28 @@ async function bathroomReviews(bathroomID) {
     return allReviews;
 }
 
+async function allBathroomReviews() {
+    let allReviews = [];
+    const snapshot = await reviewRef
+        .get()
+
+    snapshot.forEach(function (doc) {
+        const data = doc.data();
+        allReviews.push(data);
+    });
+
+
+    return allReviews;
+}
+
 module.exports = {
     allBathrooms,
     bathroomReviews,
     getBathroomId,
     buildingHours,
     addReview,
-    getBuildingId
+    getBuildingId,
+    allBathroomReviews
 }
 
 

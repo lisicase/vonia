@@ -3,7 +3,7 @@
 
 const express = require('express');
 const app = express();
-const {allBathrooms, buildingHours, addReview, getBathroomId, getBuildingId, bathroomReviews } = require('./query');
+const {allBathrooms, buildingHours, addReview, getBathroomId, getBuildingId, bathroomReviews, allBathroomReviews } = require('./query');
 const exBathrooms = require("../src/Shared/bathroomData/bathroom-data.json");
 
 app.use(express.static("public"));
@@ -92,6 +92,9 @@ app.get('/buildingID/:buildingName', (req, res) => {
         })
 })
 
+/**
+ * Get all bathroom reviews from a bathroom ID
+ */
 app.get('/reviews/:bathroomId', (req, res) => {
     bathroomReviews(req.params.bathroomId)
         .then((reviews) => {
@@ -100,4 +103,15 @@ app.get('/reviews/:bathroomId', (req, res) => {
         .catch((err) => {
             console.log(err);
         })
+})
+
+// temp query
+app.get('/allReviews', (req, res) => {
+    allBathroomReviews(req.params.bathroomId)
+    .then((reviews) => {
+        res.send(JSON.stringify(reviews));
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 })

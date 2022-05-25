@@ -21,9 +21,7 @@ export default function BuildingList({ flyToStore, createPopup }) {
     const { newbathrooms, updateList } = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:8080/bathrooms', {
-            mode: 'cors'
-        })
+        fetch('/bathrooms')
             .then(checkStatus)
             .then(res => res.json())
             .then((res) => {
