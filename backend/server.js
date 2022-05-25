@@ -8,7 +8,7 @@ const exBathrooms = require("../src/Shared/bathroomData/bathroom-data.json");
 
 app.use(express.static("public"));
 
-let port = 8080;
+let port = 5000;
 
 app.listen(port);
 

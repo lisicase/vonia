@@ -14,8 +14,9 @@ export function BathroomFeatures({ buildId, bathId }) {
     
     console.log(featureList);
 
-    let allFeatures = Object.keys(featureList).map((key) => {
-        if (featureList.key === "Yes") {
+    let allFeatures = Object.keys(featureList[0]).map((key) => {
+        console.log(key);
+        if (featureList[key] == "Yes") {
             return (<SingleBathroomFeature feature={key} />);
         }
     })
@@ -60,15 +61,20 @@ function filterBathroom(buildId, bathId) {
         console.log(building);
         console.log(`build ID: ${buildId}`);
         console.log(`this build ID: ${building.properties.uid}`);
-        if (building.properties.uid === buildId) {
-            building.floors.map((bathroom) => {
+        console.log(building.properties.uid == buildId);
+        if (building.properties.uid == buildId) {
+            building.properties.floors.map((bathroom) => {
                 console.log(bathroom);
-                if (bathroom.bathroom_id === bathId) {
+                console.log(bathroom.bathroom_id == bathId)
+                if (bathroom.bathroom_id == bathId) {
+                    console.log("line 69");
                     features = bathroom.features;
                 }
             })
         }
     })
+
+    console.log(features);
 
     return features;
 }
