@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { RedirectButton, Logo } from "../../StyleElements";
 import { TextField } from '@mui/material';
 // Icons
+import { FaChevronLeft } from "react-icons/fa";
 import { MdLockOutline, MdOutlineMail } from "react-icons/md";
 //firebase
 import { app } from '../../Shared/firebase/firebase-config';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from 'firebase/auth';
 
 export default function SignInPage() {
     const [email, setEmail] = useState('');
@@ -19,25 +20,40 @@ export default function SignInPage() {
         event.preventDefault();
         const auth = getAuth();
 
-        signInWithEmailAndPassword(auth, email, password)
-            .then((res) => {
-                sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken);
-                if (sessionStorage.getItem('Auth Token')) {
-                    nav('/');
-                }
+        setPersistence(auth, browserSessionPersistence)
+            .then(() => {
+                return signInWithEmailAndPassword(auth, email, password)
+                    .then((res) => {
+                        sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken);
+                        sessionStorage.setItem('User ID', auth.currentUser.uid);
+                        if (sessionStorage.getItem('Auth Token')) {
+                            nav('/');
+                        }
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        alert(`${errorCode}: ${errorMessage}`);
+                    })
             })
             .catch((error) => {
+                // Handle Errors here.
                 const errorCode = error.code;
                 const errorMessage = error.message;
+
                 alert(`${errorCode}: ${errorMessage}`);
-            })
+            });
+
+
     };
 
     return (
         <div>
-            <div style={{ textAlign: "left" }}>
-                <RedirectButton redirectTo="/" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
-                <h1>Log In</h1>
+            <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
+                <div style={{display: 'flex', flexDirection:'row'}}>
+                <RedirectButton redirectTo="/" button={<FaChevronLeft className="bufferedIcon" style={{height:"1.5rem"}} />} />
+                    <h2>Log In</h2>
+                </div>
             </div>
             <Logo />
             <SignInForm
@@ -56,7 +72,7 @@ function SignInForm(props) {
                 <div style={{ width: "15vw" }} />
                 <div style={{ width: "70vw" }}>
                     <AccountInputBoxes handleEmail={props.handleEmail} handlePassword={props.handlePassword} />
-                    <RedirectButton redirectTo="/register" button={<p className="textCenter">Don't have an account? <strong className="actionBtn">Register Here</strong></p>}/>
+                    <RedirectButton redirectTo="/register" button={<p className="textCenter">Don't have an account? <strong className="actionBtn">Register Here</strong></p>} />
                 </div>
             </div>
             <div style={{ marginTop: "20vw" }}>

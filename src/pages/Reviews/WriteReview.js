@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import { RedirectButton } from "../../StyleElements";
 import { Rate } from 'antd';
 import { TextField, FormControl, Select, MenuItem, InputLabel } from '@mui/material';
+// Icons
+import { FaChevronLeft } from "react-icons/fa";
 // Style
 import 'antd/dist/antd.css';
 
@@ -13,9 +15,11 @@ export default function WriteReview() {
 
     return (
         <div>
-            <div style={{ textAlign: "left" }}>
-                <RedirectButton redirectTo={"/bathroom/" + brId} button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
-                <h1>Write a Review</h1>
+            <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
+                <div style={{display: 'flex', flexDirection:'row'}}>
+                <RedirectButton redirectTo={"/bathroom/" + brId} button={<FaChevronLeft className="bufferedIcon" style={{height:"1.5rem"}} />} />
+                    <h2>Write a Review</h2>
+                </div>
             </div>
             <ReviewForm />
         </div>
@@ -50,7 +54,7 @@ function RateCategory() {
             <CategoricalRating title="Cleanliness" />
             <CategoricalRating title="Privacy" />
             <CategoricalRating title="Well-Stocked" />
-            <CategoricalRating title="Wait Line" />
+            { /*<CategoricalRating title="Wait Line" />  dont think david has this in his query*/}
         </div>
     );
 }
