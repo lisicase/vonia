@@ -13,7 +13,6 @@ import { FaChevronLeft } from "react-icons/fa";
 import { BathroomFeatures } from './BathroomFeatures';
 // data
 import allBuildings from '../../Shared/bathroomData/bathroom-data.json'
-import allReviews from '../../Shared/reviewData/ReviewData.json'
 import { avgCleanliness, avgPrivacy, avgWellStocked, filterBathroom } from './Ratings';
 
 export default function BathroomPage() {
@@ -42,22 +41,18 @@ export default function BathroomPage() {
     );
 }
 
-function averageRating(bathroomId) {
-
+export function averageBathRating(bathroomId) {
     let bathReviews = filterBathroom(bathroomId);
-
     let clean = avgCleanliness(bathReviews);
     let priv = avgPrivacy(bathReviews);
     let wellStock = avgWellStocked(bathReviews);
-
-    let overallRating = (clean + priv + wellStock) / 3.0;
-    console.log(bathReviews);
-    return overallRating;
+    let avgRating = (clean + priv + wellStock) / 3.0;
+    return avgRating;
 }
 
 function BathroomPageTitle({buildingInfo, bathroomInfo}) {
     console.log(bathroomInfo.bathroomId);
-    let overallRating = averageRating(bathroomInfo.bathroom_id);
+    let overallRating = averageBathRating(bathroomInfo.bathroom_id);
 
     return (
         <div style={{ textAlign: "left" }}>
@@ -82,24 +77,16 @@ function BathroomPageTitle({buildingInfo, bathroomInfo}) {
  * @returns the featurelist of a bathroom, or error if it's not found
  */
 function filterFloor(buildId, bathId) {
-
     let currBath = {};
-
     allBuildings.features.map((building) => {
-        // console.log(building);
-        // console.log(`build ID: ${buildId}`);
-        // console.log(`this build ID: ${building.properties.uid}`);
-        // console.log(building.properties.uid == buildId);
         if (building.properties.uid == buildId) {
             building.properties.floors.map((bathroom) => {
-                // console.log(bathroom);
                 if (bathroom.bathroom_id == bathId) {
                     currBath = bathroom
                 }
             })
         }
     })
-
     return currBath;
 }
 
@@ -110,17 +97,11 @@ function filterFloor(buildId, bathId) {
  * @returns the featurelist of a bathroom, or error if it's not found
  */
 function filterBuilding(buildId) {
-
     let currBuild = {};
-
     allBuildings.features.map((building) => {
-        // console.log(building);
-        // console.log(`build ID: ${buildId}`);
-        // console.log(`this build ID: ${building.properties.uid}`);
         if (building.properties.uid == buildId) {
             currBuild = building;
         }
     })
-
     return currBuild;
 }
