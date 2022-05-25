@@ -3,13 +3,17 @@ import React, { useState } from 'react';
 // Components 
 import { RedirectButton, Divider } from "../StyleElements";
 import { Rate } from 'antd';
+// Icons
+import { FaChevronLeft } from "react-icons/fa";
 
 export default function FilterForm() {
     return (
         <div>
-            <div style={{ textAlign: "left" }}>
-                <RedirectButton redirectTo="/" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
-                <h1>Filters</h1>
+            <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
+                <div style={{display: 'flex', flexDirection:'row'}}>
+                <RedirectButton redirectTo="/" button={<FaChevronLeft className="bufferedIcon" style={{height:"1.5rem"}} />} />
+                    <h2>Filters</h2>
+                </div>
             </div>
             <ReviewForm />
         </div>
