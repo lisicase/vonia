@@ -10,7 +10,14 @@ import { CgProfile } from "react-icons/cg";
 import { FiThumbsUp } from "react-icons/fi";
 import { MdOutlineReport } from "react-icons/md";
 
-function BathroomReviews() {
+import allReviews from '../../Shared/reviewData/ReviewData.json'
+function BathroomReviews({bathId}) {
+    // console.log(bathId);
+    //TEMP: replace with api call
+    let filteredBathrooms = filterBathroom(bathId);
+
+    let reviewCount = '';
+
     let reviewButton = <RedirectButton
         redirectTo="/signin"
         button={<Button>
@@ -31,60 +38,68 @@ function BathroomReviews() {
         />;
     }
 
+    if (filteredBathrooms.length == 1) {
+        reviewCount = `${filteredBathrooms.length} review`;
+    } else {
+        reviewCount = `${filteredBathrooms.length} reviews`;
+    }
+
     return (
         <div>
             <div style={{ display: 'flex' }}>
                 <h2>Reviews</h2>
-                <p style={{ marginLeft: '1rem' }}>38 reviews</p>
+                <p style={{ marginLeft: '1rem' }}>{reviewCount}</p>
             </div>
             <div style={{ textAlign: 'center' }}>
                 {reviewButton}
             </div>
             <Divider />
-            <AllBathroomReviews />
+            <AllBathroomReviews data={filteredBathrooms}/>
         </div>
     );
 }
 
-function AllBathroomReviews() {
+function AllBathroomReviews({data}) {
     let testData = [{ count: 1 }, { count: 2 }];
-    let allReviews = testData.map((count) => {
+    // console.log(data);
+    let reviewList = data.map((review) => {
         return <div>
-            <SingleBathroomReview num={count} />
+            <SingleBathroomReview review={review}/>
             <Divider />
         </div>
     })
     return (
         <div>
-            {allReviews}
+            {reviewList}
         </div>
     );
 }
 
-function SingleBathroomReview() {
+function SingleBathroomReview({review}) {
+    let overall = overallRating(review);
     return (
         <div>
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-                <p><strong>LOVE THIS BATHROOM!!!</strong></p>
-                <StarRating rating='5' size={25} />
+                <p><strong>{review.title}</strong></p>
+                <StarRating rating={overall} size={25} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <ReviewDetails />
+                <ReviewDetails review={review}/>
                 <ReviewActions />
             </div>
         </div>
     );
 }
 
-function ReviewDetails() {
+function ReviewDetails({review}) {
     return (
         <div>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <CgProfile className="bufferedIcon loweredIcon" size={25} />
-                <p style={{ paddingRight: '1rem', fontSize: '1.1rem' }}>rebec20</p>
-                <p>1/3/2020</p>
+                <p style={{ paddingRight: '1rem', fontSize: '1.1rem' }}>{review["display_name"]}</p> {/**TODO: replace with actual user */}
+                <p>{review.date}</p>
             </div>
-            <p>I was really satisfied with this bathroom! It was clean, well maintained, and had no line! Thanks to Spotty, I could easily and quickly use a great public bathroom! :)</p>
+            <p>{review.content}</p>
         </div>
     );
 }
@@ -98,4 +113,29 @@ function ReviewActions() {
     );
 }
 
+/**
+ * TEMP: filter hardcoded json for the correct bathroom ID
+ * @param {String} bathID 
+ * @returns array of bathroom reviews
+ */
+function filterBathroom(bathID) {
+    let res = [];
+    allReviews.map((review) => {
+        if (review.bathroom_id === bathID) {
+            res.push(review);
+        }
+    })
+
+    return res;
+}
+
 export default BathroomReviews;
+
+function overallRating(review) {
+    let sum = (review.cleanliness + review.privacy + review["well-stocked"]) / 3;
+    let avg = Math.round(sum / 0.5) * 0.5;
+
+    // console.log(avg);
+
+    return avg;
+}

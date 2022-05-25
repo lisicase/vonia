@@ -10,9 +10,16 @@ import Menu from "../../Menu.js";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import InitMap from "../../Map/Map.js";
+import { getAuth } from 'firebase/auth';
+
 
 export default function HomePage(props) {
     let menuButton = <RedirectButton redirectTo="/signin" button={<div><GiHamburgerMenu /></div>} />
+
+    //testing auth
+    let auth = getAuth();
+    console.log(auth.currentUser);
+    console.log(sessionStorage.getItem('Auth Token'));
     if (sessionStorage.getItem('Auth Token')) {
         menuButton =
             <Popup trigger={<div><GiHamburgerMenu /></div>} closeOnDocumentClick={true}>

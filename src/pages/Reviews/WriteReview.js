@@ -54,7 +54,7 @@ function RateCategory() {
             <CategoricalRating title="Cleanliness" />
             <CategoricalRating title="Privacy" />
             <CategoricalRating title="Well-Stocked" />
-            <CategoricalRating title="Wait Line" />
+            { /*<CategoricalRating title="Wait Line" />  dont think david has this in his query*/}
         </div>
     );
 }
