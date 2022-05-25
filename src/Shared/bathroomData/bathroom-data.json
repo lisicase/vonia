@@ -92,7 +92,7 @@
                         "features": [
                             {
                                 "Accessible": "No",
-                                "Feminine Products": "No",
+                                "Menstrual Products": "No",
                                 "Gender": "Men",
                                 "Towels": "No",
                                 "No ID": "Yes",
@@ -140,7 +140,7 @@
                                 "No ID": "Yes",
                                 "Accessible": "No",
                                 "Changing Station": "No",
-                                "Feminine Products": "No",
+                                "Menstrual Products": "No",
                                 "Parking": "No",
                                 "Auto-Flush": "No",
                                 "Water Fountain": "Yes",
@@ -211,7 +211,7 @@
                     {
                         "features": [
                             {
-                                "Feminine Products": "No",
+                                "Menstrual Products": "No",
                                 "Tall Stalls": "Yes",
                                 "Gender": "Men",
                                 "Water Fountain": "Yes",
@@ -269,7 +269,7 @@
                                 "Changing Station": "No",
                                 "Parking": "No",
                                 "Hot Water Tap": "Yes",
-                                "Feminine Products": "No",
+                                "Menstrual Products": "No",
                                 "No ID": "Yes",
                                 "Towels": "No",
                                 "Water Fountain": "Yes",
@@ -287,7 +287,7 @@
                         "features": [
                             {
                                 "Changing Station": "No",
-                                "Feminine Products": "No",
+                                "Menstrual Products": "No",
                                 "No ID": "Yes",
                                 "Towels": "No",
                                 "Free": "Yes",
@@ -350,7 +350,7 @@
                                 "Free": "Yes",
                                 "Accessible": "Yes",
                                 "Gender": "Neutral",
-                                "Feminine Products": "Yes",
+                                "Menstrual Products": "Yes",
                                 "Towels": "No",
                                 "Hot Water Tap": "Yes"
                             }
@@ -365,7 +365,7 @@
                         "features": [
                             {
                                 "Tall Stalls": "Yes",
-                                "Feminine Products": "Yes",
+                                "Menstrual Products": "Yes",
                                 "Water Fountain": "Yes",
                                 "Changing Station": "Yes",
                                 "Free": "Yes",
@@ -445,7 +445,7 @@
                                 "Parking": "No",
                                 "Accessible": "Yes",
                                 "Auto-Flush": "No",
-                                "Feminine Products": "No",
+                                "Menstrual Products": "No",
                                 "Hot Water Tap": "Yes",
                                 "Gender": "Men",
                                 "Changing Station": "No",
@@ -471,7 +471,7 @@
                                 "Auto-Flush": "No",
                                 "Accessible": "Yes",
                                 "Water Fountain": "Yes",
-                                "Feminine Products": "No",
+                                "Menstrual Products": "No",
                                 "Free": "Yes",
                                 "Towels": "No",
                                 "Hot Water Tap": "Yes"

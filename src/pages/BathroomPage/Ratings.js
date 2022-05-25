@@ -143,10 +143,10 @@ function avgWellStocked(reviews){
  */
  function filterBathroom(bathID) {
     let res = [];
-    console.log(bathID);
+    // console.log(bathID);
     //let parsed = JSON.parse(allReviews);
     allReviews.map((review) => {
-        console.log(review);
+        // console.log(review);
         if (review.bathroom_id === bathID) {
             res.push(review);
         }

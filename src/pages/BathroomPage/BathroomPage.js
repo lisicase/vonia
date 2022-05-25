@@ -11,10 +11,8 @@ import { BathroomGallery } from './Gallery';
 // Icons
 import { FaChevronLeft } from "react-icons/fa";
 import { BathroomFeatures } from './BathroomFeatures';
-
 // data
 import allBuildings from '../../Shared/bathroomData/bathroom-data.json'
-//need to get the info from the db based on building id and floor id (in the url params)
 
 export default function BathroomPage() {
     let { buildingId, bathroomId } = useParams();
@@ -44,19 +42,19 @@ export default function BathroomPage() {
 
 function BathroomPageTitle({buildingInfo, bathroomInfo}) {
 
-    console.log(buildingInfo);
-    console.log(bathroomInfo);
+    // console.log(buildingInfo);
+    // console.log(bathroomInfo);
     return (
         <div style={{ textAlign: "left" }}>
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <RedirectButton redirectTo="/" button={<FaChevronLeft className="bufferedIcon" style={{ height: "1.5rem" }} />} />
-                    <h2>{`${buildingInfo.properties.name} Floor ${bathroomInfo.level}`}</h2> {/**TODO: replace with actual floor num */}
+                    <h2>{`Floor ${bathroomInfo.level}`}</h2> {/**TODO: replace with actual floor num */}
                 </div>
                 <StarRating rating='4.5' size='25' />
             </div>
             <p className="bathroomAddress">
-                {buildingInfo.properties.address}
+                {`${buildingInfo.properties.name}, ${buildingInfo.properties.address}`}
             </p>
         </div>
     );
@@ -73,13 +71,13 @@ function filterFloor(buildId, bathId) {
     let currBath = {};
 
     allBuildings.features.map((building) => {
-        console.log(building);
-        console.log(`build ID: ${buildId}`);
-        console.log(`this build ID: ${building.properties.uid}`);
-        console.log(building.properties.uid == buildId);
+        // console.log(building);
+        // console.log(`build ID: ${buildId}`);
+        // console.log(`this build ID: ${building.properties.uid}`);
+        // console.log(building.properties.uid == buildId);
         if (building.properties.uid == buildId) {
             building.properties.floors.map((bathroom) => {
-                console.log(bathroom);
+                // console.log(bathroom);
                 if (bathroom.bathroom_id == bathId) {
                     currBath = bathroom
                 }
@@ -101,9 +99,9 @@ function filterBuilding(buildId) {
     let currBuild = {};
 
     allBuildings.features.map((building) => {
-        console.log(building);
-        console.log(`build ID: ${buildId}`);
-        console.log(`this build ID: ${building.properties.uid}`);
+        // console.log(building);
+        // console.log(`build ID: ${buildId}`);
+        // console.log(`this build ID: ${building.properties.uid}`);
         if (building.properties.uid == buildId) {
             currBuild = building;
         }

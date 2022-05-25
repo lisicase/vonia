@@ -12,7 +12,7 @@ import { MdOutlineReport } from "react-icons/md";
 
 import allReviews from '../../Shared/reviewData/ReviewData.json'
 function BathroomReviews({bathId}) {
-    console.log(bathId);
+    // console.log(bathId);
     //TEMP: replace with api call
     let filteredBathrooms = filterBathroom(bathId);
 
@@ -35,7 +35,7 @@ function BathroomReviews({bathId}) {
         />;
     }
 
-    if (filteredBathrooms.length == 2) {
+    if (filteredBathrooms.length == 1) {
         reviewCount = `${filteredBathrooms.length} review`;
     } else {
         reviewCount = `${filteredBathrooms.length} reviews`;
@@ -58,7 +58,7 @@ function BathroomReviews({bathId}) {
 
 function AllBathroomReviews({data}) {
     let testData = [{ count: 1 }, { count: 2 }];
-    console.log(data);
+    // console.log(data);
     let reviewList = data.map((review) => {
         return <div>
             <SingleBathroomReview review={review}/>
@@ -117,10 +117,10 @@ function ReviewActions() {
  */
 function filterBathroom(bathID) {
     let res = [];
-    console.log(bathID);
+    // console.log(bathID);
     //let parsed = JSON.parse(allReviews);
     allReviews.map((review) => {
-        console.log(review);
+        // console.log(review);
         if (review.bathroom_id === bathID) {
             res.push(review);
         }
@@ -135,7 +135,7 @@ function overallRating(review) {
     let sum = (review.cleanliness + review.privacy + review["well-stocked"]) / 3;
     let avg = Math.round(sum / 0.5) * 0.5;
 
-    console.log(avg);
+    // console.log(avg);
 
     return avg;
 }
