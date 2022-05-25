@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { RedirectButton, Logo } from "../../StyleElements";
 import { TextField } from '@mui/material';
 // Icons
+import { FaChevronLeft } from "react-icons/fa";
 import { MdLockOutline, MdOutlineMail } from "react-icons/md";
 //firebase
 import { app } from '../../Shared/firebase/firebase-config';
@@ -35,9 +36,11 @@ export default function SignInPage() {
 
     return (
         <div>
-            <div style={{ textAlign: "left" }}>
-                <RedirectButton redirectTo="/" button={<i className="open-details fa fa-chevron-left" aria-hidden="true"></i>} />
-                <h1>Log In</h1>
+            <div style={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
+                <div style={{display: 'flex', flexDirection:'row'}}>
+                <RedirectButton redirectTo="/" button={<FaChevronLeft className="bufferedIcon" style={{height:"1.5rem"}} />} />
+                    <h2>Log In</h2>
+                </div>
             </div>
             <Logo />
             <SignInForm

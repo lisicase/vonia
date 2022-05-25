@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// Components
+import { RedirectButton } from '../../StyleElements';
 // Icons
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { FiShare2, FiMap } from "react-icons/fi";
@@ -26,11 +28,27 @@ export function BathroomActions() {
         window.open('https://www.google.com/maps/search/?api=1&query=Architecture+Hall%2CSeattle%2CWA');
     }
 
+    let reviewButton = <RedirectButton
+        redirectTo="/signin"
+        button={<HiOutlinePencilAlt size={30} />}
+    />;
+
+    const url = window.location.href;
+    const brId = url.substring(url.length - 2, url.length);
+    if (sessionStorage.getItem('Auth Token')) {
+        reviewButton = <RedirectButton
+            redirectTo={"/review/" + brId}
+            button={<HiOutlinePencilAlt size={30} />}
+        />;
+    }
+
     return (
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
             <ActionWithTitle clickHandler={clickHandler} icon={<FiMap size={30} />} title="Directions" />
             {favBtn}
-            <ActionWithTitle icon={<HiOutlinePencilAlt size={30} />} title="Review" />
+            <ActionWithTitle 
+                icon={reviewButton} 
+                title="Review" />
             <ActionWithTitle icon={<FiShare2 size={30} />} title="Share" />
         </div>
     );
