@@ -84,7 +84,7 @@ class CategoricalRating extends Component {
  * @param {Array} reviews list of reviews
  * @returns {Double} average rounded to the nearest 0.5
  */
-function avgCleanliness(reviews) {
+export function avgCleanliness(reviews) {
     let sum = 0;
     let num = 0;
 
@@ -103,7 +103,7 @@ function avgCleanliness(reviews) {
  * @param {Array} reviews list of reviews
  * @returns {Double} average rounded to the nearest 0.5
  */
-function avgPrivacy(reviews) {
+export function avgPrivacy(reviews) {
     let sum = 0;
     let num = 0;
 
@@ -122,7 +122,7 @@ function avgPrivacy(reviews) {
  * @param {Array} reviews list of reviews
  * @returns {Double} average rounded to the nearest 0.5
  */
-function avgWellStocked(reviews){
+export function avgWellStocked(reviews){
     let sum = 0;
     let num = 0;
 
@@ -141,12 +141,9 @@ function avgWellStocked(reviews){
  * @param {String} bathID 
  * @returns array of bathroom reviews
  */
- function filterBathroom(bathID) {
+ export function filterBathroom(bathID) {
     let res = [];
-    // console.log(bathID);
-    //let parsed = JSON.parse(allReviews);
     allReviews.map((review) => {
-        // console.log(review);
         if (review.bathroom_id === bathID) {
             res.push(review);
         }

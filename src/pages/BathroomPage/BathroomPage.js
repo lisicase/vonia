@@ -13,6 +13,8 @@ import { FaChevronLeft } from "react-icons/fa";
 import { BathroomFeatures } from './BathroomFeatures';
 // data
 import allBuildings from '../../Shared/bathroomData/bathroom-data.json'
+import allReviews from '../../Shared/reviewData/ReviewData.json'
+import { avgCleanliness, avgPrivacy, avgWellStocked, filterBathroom } from './Ratings';
 
 export default function BathroomPage() {
     let { buildingId, bathroomId } = useParams();
@@ -40,10 +42,23 @@ export default function BathroomPage() {
     );
 }
 
-function BathroomPageTitle({buildingInfo, bathroomInfo}) {
+function averageRating(bathroomId) {
 
-    // console.log(buildingInfo);
-    // console.log(bathroomInfo);
+    let bathReviews = filterBathroom(bathroomId);
+
+    let clean = avgCleanliness(bathReviews);
+    let priv = avgPrivacy(bathReviews);
+    let wellStock = avgWellStocked(bathReviews);
+
+    let overallRating = (clean + priv + wellStock) / 3.0;
+    console.log(bathReviews);
+    return overallRating;
+}
+
+function BathroomPageTitle({buildingInfo, bathroomInfo}) {
+    console.log(bathroomInfo.bathroomId);
+    let overallRating = averageRating(bathroomInfo.bathroom_id);
+
     return (
         <div style={{ textAlign: "left" }}>
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -51,7 +66,7 @@ function BathroomPageTitle({buildingInfo, bathroomInfo}) {
                     <RedirectButton redirectTo="/" button={<FaChevronLeft className="bufferedIcon" style={{ height: "1.5rem" }} />} />
                     <h2>{`Floor ${bathroomInfo.level}`}</h2> {/**TODO: replace with actual floor num */}
                 </div>
-                <StarRating rating='4.5' size='25' />
+                <StarRating rating={overallRating} size='25' />
             </div>
             <p className="bathroomAddress">
                 {`${buildingInfo.properties.name}, ${buildingInfo.properties.address}`}

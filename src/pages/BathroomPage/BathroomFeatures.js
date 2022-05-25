@@ -11,9 +11,7 @@ import allBuildings from '../../Shared/bathroomData/bathroom-data.json'
 export function BathroomFeatures({ buildId, bathId }) {
     let featureList = filterBathroom(buildId, bathId);
     let allFeatures = Object.keys(featureList[0]).map((featureName) => {
-        console.log("featureName: ");
         if (featureList[0][featureName] === "Yes") {
-            console.log(featureName);
             return (<SingleBathroomFeature feature={featureName} key={featureName} />);
         }
     })
@@ -55,23 +53,14 @@ function filterBathroom(buildId, bathId) {
     let features = {};
 
     allBuildings.features.map((building) => {
-        // console.log(building);
-        // console.log(`build ID: ${buildId}`);
-        // console.log(`this build ID: ${building.properties.uid}`);
-        // console.log(building.properties.uid == buildId);
         if (building.properties.uid == buildId) {
             building.properties.floors.map((bathroom) => {
-                // console.log(bathroom);
-                // console.log(bathroom.bathroom_id == bathId)
                 if (bathroom.bathroom_id == bathId) {
-                    console.log("line 69");
                     features = bathroom.features;
                 }
             })
         }
     })
-
-    // console.log(features);
 
     return features;
 }
