@@ -25,7 +25,7 @@ function ReviewForm() {
         <form class="form-inline">
             <div style={{ textAlign:'left', display:'flex', flexDirection:'column', margin:'1.5rem'}}>
                 <FilterCategory title="Gender" filters={["Women", "Men", "Neutral"]} />
-                <FilterCategory title="Features" filters={["Accessible", "Changing Station", "Tall Stalls", "Water Fountain", "Auto-Flush", "Feminine Products", "Towels"]} />
+                <FilterCategory title="Features" filters={["Accessible", "Changing Station", "Tall Stalls", "Water Fountain", "Auto-Flush", "Menstrual Products", "Towels"]} />
                 <FilterCategory title="Requirements" filters={["No Key", "Free"]} />
                 <MinimumRating />
             </div>
