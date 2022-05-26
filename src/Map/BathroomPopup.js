@@ -91,7 +91,7 @@ function BathroomListItem({ buildid, bathid, title, rating, accessible }) {
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <FaToilet className="bufferedIcon" style={{ height: "1.5rem", fontSize: '0.7rem' }} />
-                    <a href={`vonia/#/bathroom/${buildid}/${bathid}`}>{title}</a>
+                    <a href={`/vonia/#/bathroom/${buildid}/${bathid}`}>{title}</a>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                     <StarRating rating={rating} />
